@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "lint:debug": "eslint ./src --debug",
+    "lint:fix": "eslint ./src --fix",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -61,8 +63,10 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^7.8.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "eslint-plugin-tailwindcss": "^3.15.1",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
