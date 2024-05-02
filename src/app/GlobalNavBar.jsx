@@ -1,10 +1,129 @@
 'use client';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 
 export default function GlobalNavBar() {
+  const pathname = usePathname();
+  const [colorMode, setColorMode] = useState('light');
+  const [navOpen, setNavOpen] = useState(false);
+
+  const { contextSafe } = useGSAP();
+
+  const navRef = useRef();
+  const firstDash = useRef();
+  const secondDash = useRef();
+  const thirdDash = useRef();
+
+  const onClickMenu = contextSafe(() => {
+    setNavOpen(!navOpen);
+    if (navOpen) {
+      gsap.to([firstDash.current, secondDash.current, thirdDash.current], {
+        duration: 0.3,
+        y: 0,
+        rotation: 0,
+        opacity: 1,
+        ease: 'power2.inOut',
+      });
+    } else {
+      gsap.to(firstDash.current, {
+        duration: 0.3,
+        y: 5,
+        rotation: 45,
+        ease: 'power2.inOut',
+      });
+      gsap.to(secondDash.current, {
+        duration: 0.3,
+        opacity: 0,
+        ease: 'power2.inOut',
+      });
+      gsap.to(thirdDash.current, {
+        duration: 0.3,
+        y: -6,
+        rotation: -45,
+
+        ease: 'power2.inOut',
+      });
+    }
+  });
+
+  useGSAP(() => {
+    gsap.set(navRef.current, {
+      y: -150, // Adjust this value as needed
+      opacity: 0,
+    });
+
+    // Animate to final position
+    gsap.to(navRef.current, {
+      duration: 1.75,
+      delay: 0.5,
+      y: 0,
+      opacity: 1,
+      ease: 'power2.out',
+    });
+  });
+
+  useEffect(() => {
+    if (
+      pathname === '/about' ||
+      pathname === '/contact' ||
+      pathname === '/commercial' ||
+      pathname === '/residential'
+    ) {
+      setColorMode('dark');
+    } else {
+      setColorMode('light');
+    }
+  }, [pathname]);
+
   return (
-    <nav className='  flex h-24 px-4 py-3 text-black'>
-      <div className=' aspect-square h-full '>
+    <nav
+      ref={navRef}
+      className={`  fixed left-0 top-0 z-[99999]  flex h-16  w-full items-center justify-between px-4 py-3 md:h-20 lg:h-24`}
+    >
+      <Link
+        href='/'
+        className={`
+      ${colorMode === 'light' || navOpen ? ' text-white  ' : ' text-black'}
+      aspect-square h-full`}
+      >
         <GlobalNavLogo />
+      </Link>
+      <div className=' flex h-fit  items-center gap-2'>
+        <button
+          className={` ${
+            colorMode === 'light' || navOpen
+              ? ' bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-white active:text-black'
+              : ' bg-black text-white hover:bg-neutral-200 hover:text-black  active:bg-black active:text-white '
+          }  whitespace-nowrap rounded-full px-9  py-2 text-sm font-normal transition-all duration-300 ease-in-out md:text-base  lg:px-14  lg:py-3 lg:text-lg`}
+        >
+          Lets Talk
+        </button>
+        <button
+          onClick={onClickMenu}
+          className={` ${
+            colorMode === 'light' || navOpen
+              ? ' bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-white active:text-black'
+              : ' bg-black text-white hover:bg-neutral-200 hover:text-black  active:bg-black active:text-white '
+          }  flex items-center  justify-center rounded-full p-2.5 transition-all duration-300 ease-in-out md:p-3 lg:p-4 `}
+        >
+          <span className='  flex aspect-square h-4 flex-col justify-center gap-[4.5px] md:h-5 lg:h-6 '>
+            <div
+              ref={firstDash}
+              className={' h-px w-full bg-white mix-blend-difference'}
+            ></div>
+            <div
+              ref={secondDash}
+              className=' h-px w-full bg-white mix-blend-difference'
+            ></div>
+            <div
+              ref={thirdDash}
+              className=' h-px w-full bg-white mix-blend-difference'
+            ></div>
+          </span>
+        </button>
       </div>
     </nav>
   );
@@ -13,6 +132,7 @@ export default function GlobalNavBar() {
 const GlobalNavLogo = () => {
   return (
     <svg
+      className=' transition-all duration-300 ease-in-out '
       viewBox='0 0 87 87'
       fill='currentColor'
       xmlns='http://www.w3.org/2000/svg'
@@ -53,7 +173,7 @@ const GlobalNavLogo = () => {
       <path d='M18.7596 83.4351C18.56 83.4351 18.3844 83.4829 18.2353 83.5786C18.0838 83.6742 17.9467 83.8102 17.8192 83.9864V85.7535C17.9299 85.9121 18.0525 86.0229 18.1872 86.0883C18.3219 86.1538 18.471 86.184 18.637 86.184C18.9641 86.184 19.2142 86.0631 19.3874 85.819C19.5606 85.5773 19.6496 85.2299 19.6496 84.7818C19.6496 84.5427 19.6303 84.3388 19.5894 84.1701C19.5485 83.999 19.4908 83.858 19.4163 83.7497C19.3393 83.6415 19.2479 83.5609 19.1373 83.5106C19.0266 83.4603 18.9016 83.4351 18.7621 83.4351H18.7596ZM17.2011 86.632V81.3206H17.8168V83.5056C17.9611 83.3294 18.1271 83.1884 18.3147 83.0827C18.5023 82.9769 18.7164 82.9216 18.9569 82.9216C19.1589 82.9216 19.3417 82.9618 19.5052 83.0399C19.6688 83.1179 19.8083 83.2387 19.9213 83.3948C20.0368 83.5534 20.1234 83.7472 20.1859 83.9788C20.2484 84.2104 20.2797 84.4772 20.2797 84.7818C20.2797 85.0512 20.246 85.3029 20.1763 85.5345C20.1065 85.7661 20.0079 85.9675 19.8781 86.1361C19.7482 86.3048 19.5894 86.4382 19.4018 86.5364C19.2142 86.6346 19.005 86.6824 18.7693 86.6824C18.5336 86.6824 18.3532 86.6371 18.1944 86.5465C18.0381 86.4558 17.901 86.3274 17.7831 86.1638L17.7519 86.4961C17.7326 86.5867 17.6797 86.632 17.5931 86.632H17.1963H17.2011Z' />
       <path d='M22.9414 82.9819V85.3104C22.9414 85.5873 23.0016 85.8013 23.1242 85.9523C23.2469 86.1034 23.4297 86.1789 23.675 86.1789C23.853 86.1789 24.0238 86.1336 24.1825 86.0455C24.3413 85.9574 24.488 85.834 24.6203 85.6754V82.9819H25.2336V86.6345H24.868C24.7814 86.6345 24.7261 86.5892 24.702 86.5011L24.6539 86.1084C24.5024 86.2846 24.3316 86.4256 24.144 86.5313C23.9564 86.6396 23.74 86.6924 23.497 86.6924C23.307 86.6924 23.1387 86.6597 22.992 86.5917C22.8452 86.5263 22.7226 86.4331 22.624 86.3123C22.5253 86.1915 22.4508 86.0455 22.4027 85.8768C22.3546 85.7056 22.3281 85.5168 22.3281 85.3104V82.9819H22.9414Z' />
       <path d='M28.3024 86.6329H27.6891V82.9803H28.3024V86.6329ZM28.4395 81.8349C28.4395 81.8979 28.4275 81.9558 28.4034 82.0111C28.3794 82.064 28.3481 82.1144 28.3072 82.1546C28.2663 82.1974 28.2206 82.2302 28.1677 82.2528C28.1148 82.278 28.0595 82.288 27.9993 82.288C27.9392 82.288 27.8839 82.2755 27.831 82.2528C27.7781 82.2276 27.7324 82.1949 27.6939 82.1546C27.653 82.1118 27.6217 82.064 27.6001 82.0111C27.576 81.9558 27.5664 81.8979 27.5664 81.8349C27.5664 81.772 27.5784 81.7141 27.6001 81.6562C27.6217 81.6008 27.6554 81.5505 27.6939 81.5077C27.7348 81.4649 27.7805 81.4322 27.831 81.4095C27.8815 81.3843 27.9392 81.3743 27.9993 81.3743C28.0595 81.3743 28.1148 81.3869 28.1677 81.4095C28.2206 81.4347 28.2663 81.4674 28.3072 81.5077C28.3481 81.5505 28.3794 81.5983 28.4034 81.6562C28.4275 81.7141 28.4395 81.772 28.4395 81.8349Z' />
-      <path d='M31.4429 86.632H30.8296V81.323H31.4429V86.632Z' fill='#FDFDFD' />
+      <path d='M31.4429 86.632H30.8296V81.323H31.4429V86.632Z' />
       <path d='M35.1709 86.1638C35.3705 86.1638 35.5461 86.116 35.6952 86.0203C35.8468 85.9247 35.9839 85.7887 36.1113 85.6125V83.8454C35.9983 83.6868 35.8756 83.5761 35.7409 83.5106C35.6062 83.4477 35.4571 83.4149 35.296 83.4149C34.9689 83.4149 34.7211 83.5358 34.5456 83.7799C34.37 84.0216 34.2834 84.369 34.2834 84.8196C34.2834 85.0562 34.3026 85.2601 34.3411 85.4313C34.3796 85.5999 34.4373 85.7409 34.5143 85.8492C34.5913 85.9574 34.6827 86.038 34.7933 86.0883C34.9039 86.1386 35.029 86.1638 35.1733 86.1638H35.1709ZM36.3591 86.632C36.2725 86.632 36.2172 86.5867 36.1931 86.4986L36.1378 86.0556C35.9887 86.2469 35.8179 86.3979 35.6255 86.5112C35.4331 86.6245 35.2142 86.6824 34.9665 86.6824C34.7668 86.6824 34.584 86.6421 34.4229 86.5616C34.2594 86.481 34.1198 86.3627 34.0068 86.2066C33.8914 86.0505 33.8048 85.8567 33.7422 85.6226C33.6797 85.3885 33.6484 85.1217 33.6484 84.8196C33.6484 84.5502 33.6821 84.2985 33.7519 84.0669C33.8216 83.8353 33.9202 83.6339 34.0501 83.4628C34.18 83.2916 34.3387 83.1582 34.5239 83.06C34.7091 82.9618 34.9208 82.914 35.1589 82.914C35.3729 82.914 35.5557 82.9518 35.7073 83.0273C35.8588 83.1028 35.9935 83.2085 36.1137 83.347V81.3206H36.7271V86.6295H36.3615L36.3591 86.632Z' />
       <path d='M42.8967 86.6904C42.6201 86.6904 42.4085 86.6098 42.2618 86.4487C42.1126 86.2876 42.0405 86.056 42.0405 85.7514V83.5161H41.6196C41.5835 83.5161 41.5522 83.5035 41.5258 83.4808C41.5017 83.4582 41.4873 83.423 41.4873 83.3751V83.1184L42.0597 83.0428L42.2016 81.9151C42.2064 81.8799 42.2209 81.8496 42.2473 81.827C42.2714 81.8043 42.3051 81.7917 42.3435 81.7917H42.6538V83.0504H43.652V83.5161H42.6538V85.7086C42.6538 85.8622 42.6899 85.978 42.7596 86.051C42.8318 86.1265 42.9232 86.1618 43.0362 86.1618C43.1012 86.1618 43.1565 86.1517 43.2046 86.1341C43.2503 86.1165 43.2936 86.0963 43.3273 86.0737C43.3609 86.0535 43.3922 86.0334 43.4162 86.0132C43.4403 85.9956 43.4619 85.9856 43.4812 85.9856C43.5125 85.9856 43.5413 86.0057 43.5678 86.046L43.7458 86.3531C43.6399 86.4563 43.5125 86.5368 43.3633 86.5973C43.2142 86.6551 43.0603 86.6854 42.9015 86.6854L42.8967 86.6904Z' />
       <path d='M45.7871 86.632V81.3206H46.4004V83.4703C46.5495 83.3042 46.7155 83.1708 46.8959 83.0726C47.0763 82.9719 47.2855 82.9241 47.5236 82.9241C47.7136 82.9241 47.882 82.9568 48.0287 83.0222C48.173 83.0877 48.2957 83.1808 48.3943 83.3042C48.4929 83.425 48.5651 83.571 48.6156 83.7422C48.6661 83.9134 48.6926 84.1022 48.6926 84.3086V86.6346H48.0792V84.3086C48.0792 84.0317 48.0191 83.8177 47.8988 83.6642C47.7786 83.5106 47.5934 83.4351 47.3457 83.4351C47.1629 83.4351 46.9945 83.4804 46.8382 83.571C46.6818 83.6616 46.5351 83.7875 46.4028 83.9411V86.6295H45.7895L45.7871 86.632Z' />
