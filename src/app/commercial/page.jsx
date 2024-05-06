@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 
-export default function commercial() {
+export default function Commercial() {
   const router = useRouter();
   router.push('/', { scroll: false });
   return <div>page</div>;
