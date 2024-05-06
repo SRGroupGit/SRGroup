@@ -13,13 +13,19 @@ export default function GlobalNavBar() {
   const { contextSafe } = useGSAP();
 
   const navRef = useRef();
+  const navMenu = useRef();
   const firstDash = useRef();
   const secondDash = useRef();
   const thirdDash = useRef();
+  const navMenuContainer = useRef();
+  const tl = useRef();
 
   const onClickMenu = contextSafe(() => {
+    tl.current = gsap.timeline();
+
     setNavOpen(!navOpen);
     if (navOpen) {
+      document.body.style.overflow = 'auto';
       gsap.to([firstDash.current, secondDash.current, thirdDash.current], {
         duration: 0.3,
         y: 0,
@@ -27,7 +33,39 @@ export default function GlobalNavBar() {
         opacity: 1,
         ease: 'power2.inOut',
       });
+      tl.current
+        .to(navMenu.current, {
+          duration: 1,
+          clipPath: 'circle(0% at 99% 2%)',
+          ease: 'power2.inOut',
+        })
+        .to(
+          '#line',
+          {
+            duration: 0.5,
+            width: 0,
+            ease: 'power2.inOut',
+          },
+          '>-0.2',
+          {
+            scope: navMenuContainer,
+          }
+        )
+        .to(
+          '#menuItem',
+          {
+            duration: 0.5,
+
+            opacity: 0,
+            ease: 'power2.inOut',
+          },
+          '>-0.2',
+          {
+            scope: navMenuContainer,
+          }
+        );
     } else {
+      document.body.style.overflow = 'hidden';
       gsap.to(firstDash.current, {
         duration: 0.3,
         y: 5,
@@ -43,9 +81,45 @@ export default function GlobalNavBar() {
         duration: 0.3,
         y: -6,
         rotation: -45,
-
         ease: 'power2.inOut',
       });
+      tl.current
+        .to(navMenu.current, {
+          duration: 0.7,
+          clipPath: 'circle(200% at 99% 2%)',
+          ease: 'power2.inOut',
+        })
+        .to(
+          '#line',
+          {
+            duration: 0.5,
+            width: '100%',
+            ease: 'power2.inOut',
+            stagger: {
+              each: 0.2,
+            },
+          },
+          '>-0.6',
+          {
+            scope: navMenuContainer,
+          }
+        )
+        .to(
+          '#menuItem',
+          {
+            duration: 0.5,
+
+            opacity: 1,
+            ease: 'power2.inOut',
+            stagger: {
+              each: 0.2,
+            },
+          },
+          '>-1.2',
+          {
+            scope: navMenuContainer,
+          }
+        );
     }
   });
 
@@ -54,14 +128,31 @@ export default function GlobalNavBar() {
       y: -150, // Adjust this value as needed
       opacity: 0,
     });
+    gsap.set(navMenu.current, {
+      clipPath: 'circle(0% at 99% 2%)',
+    });
+    gsap.set(
+      '#line',
+      {
+        width: 0,
+      },
+      { scope: navMenuContainer }
+    );
+    gsap.set(
+      '#menuItem',
+      {
+        opacity: 0,
+      },
+      { scope: navMenuContainer }
+    );
 
     // Animate to final position
     gsap.to(navRef.current, {
-      duration: 1.75,
+      duration: 0.75,
       delay: 0.5,
       y: 0,
       opacity: 1,
-      ease: 'power2.out',
+      ease: 'power2.In',
     });
   });
 
@@ -79,53 +170,223 @@ export default function GlobalNavBar() {
   }, [pathname]);
 
   return (
-    <nav
-      ref={navRef}
-      className={`  fixed left-0 top-0 z-[99999]  flex h-16  w-full items-center justify-between px-4 py-3 md:h-20 lg:h-24`}
-    >
-      <Link
-        href='/'
-        className={`
+    <>
+      <nav
+        ref={navRef}
+        className={`  fixed left-0 top-0 z-[99999]  flex h-16  w-full items-center justify-between px-4 py-3 md:h-20 lg:h-24`}
+      >
+        <Link
+          href='/'
+          className={`
       ${colorMode === 'light' || navOpen ? ' text-white  ' : ' text-black'}
       aspect-square h-full`}
+        >
+          <GlobalNavLogo />
+        </Link>
+        <div className=' flex h-fit  items-center gap-2'>
+          <button
+            className={` ${
+              colorMode === 'light' || navOpen
+                ? ' bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-white active:text-black'
+                : ' bg-black text-white hover:bg-neutral-200 hover:text-black  active:bg-black active:text-white '
+            }  whitespace-nowrap rounded-full px-9  py-2 text-sm font-normal transition-all duration-300 ease-in-out md:text-base  lg:px-14  lg:py-3 lg:text-lg`}
+          >
+            Lets Talk
+          </button>
+          <button
+            onClick={onClickMenu}
+            className={` ${
+              colorMode === 'light' || navOpen
+                ? ' bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-white active:text-black'
+                : ' bg-black text-white hover:bg-neutral-200 hover:text-black  active:bg-black active:text-white '
+            }  flex items-center  justify-center rounded-full p-2.5 transition-all duration-300 ease-in-out md:p-3 lg:p-4 `}
+          >
+            <span className='  flex aspect-square h-4 flex-col justify-center gap-[4.5px] md:h-5 lg:h-6 '>
+              <div
+                ref={firstDash}
+                className={' h-px w-full bg-white mix-blend-difference'}
+              ></div>
+              <div
+                ref={secondDash}
+                className=' h-px w-full bg-white mix-blend-difference'
+              ></div>
+              <div
+                ref={thirdDash}
+                className=' h-px w-full bg-white mix-blend-difference'
+              ></div>
+            </span>
+          </button>
+        </div>
+      </nav>
+
+      <div
+        style={{
+          clipPath: 'circle(0% at 99% 2%)',
+        }}
+        ref={navMenu}
+        className=' fixed left-0  z-[99] h-dvh w-full bg-black  '
       >
-        <GlobalNavLogo />
-      </Link>
-      <div className=' flex h-fit  items-center gap-2'>
-        <button
-          className={` ${
-            colorMode === 'light' || navOpen
-              ? ' bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-white active:text-black'
-              : ' bg-black text-white hover:bg-neutral-200 hover:text-black  active:bg-black active:text-white '
-          }  whitespace-nowrap rounded-full px-9  py-2 text-sm font-normal transition-all duration-300 ease-in-out md:text-base  lg:px-14  lg:py-3 lg:text-lg`}
+        <div
+          ref={navMenuContainer}
+          className=' mt-16 flex h-[calc(100%-64px)] flex-col  items-start  justify-center overflow-hidden text-5xl font-bold text-white md:mt-20  md:h-[calc(100%-80px)] md:text-6xl lg:mt-24  lg:h-[calc(100%-96px)]  lg:text-7xl'
         >
-          Lets Talk
-        </button>
-        <button
-          onClick={onClickMenu}
-          className={` ${
-            colorMode === 'light' || navOpen
-              ? ' bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-white active:text-black'
-              : ' bg-black text-white hover:bg-neutral-200 hover:text-black  active:bg-black active:text-white '
-          }  flex items-center  justify-center rounded-full p-2.5 transition-all duration-300 ease-in-out md:p-3 lg:p-4 `}
-        >
-          <span className='  flex aspect-square h-4 flex-col justify-center gap-[4.5px] md:h-5 lg:h-6 '>
-            <div
-              ref={firstDash}
-              className={' h-px w-full bg-white mix-blend-difference'}
-            ></div>
-            <div
-              ref={secondDash}
-              className=' h-px w-full bg-white mix-blend-difference'
-            ></div>
-            <div
-              ref={thirdDash}
-              className=' h-px w-full bg-white mix-blend-difference'
-            ></div>
-          </span>
-        </button>
+          <hr id='line' className=' w-full bg-white' />
+          <Link
+            id='menuItem'
+            className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
+            href='/'
+          >
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+              HOME
+            </div>
+            <div className=' relative  hidden w-full items-center  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
+              <div className='animate-marquee  whitespace-nowrap'>
+                <span className='mx-4'>HOME</span>
+                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
+                  .
+                </span>
+                <span className='mx-4'>HOME</span>
+                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
+                  .
+                </span>
+                <span className='mx-4'>HOME</span>
+                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
+                  .
+                </span>
+                <span className='mx-4'>HOME</span>
+              </div>
+
+              <div className='absolute  m-auto animate-marquee2 whitespace-nowrap'>
+                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
+                  .
+                </span>
+                <span className='mx-4'>HOME</span>
+                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
+                  .
+                </span>
+                <span className='mx-4'>HOME</span>
+                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
+                  .
+                </span>
+                <span className='mx-4'>HOME</span>
+                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
+                  .
+                </span>
+              </div>
+            </div>
+          </Link>
+          <hr id='line' className=' w-full bg-white' />
+          <Link
+            id='menuItem'
+            className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
+            href='/contact'
+          >
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+              CONTACT
+            </div>
+            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
+              <div className='animate-marquee whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+
+              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+            </div>
+          </Link>
+          <hr id='line' className=' w-full bg-white' />
+          <Link
+            id='menuItem'
+            className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
+            href='/about'
+          >
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+              ABOUT
+            </div>
+            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
+              <div className='animate-marquee whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+
+              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+            </div>
+          </Link>
+          <hr id='line' className=' w-full bg-white' />
+          <Link
+            id='menuItem'
+            className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
+            href='/commercial'
+          >
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+              COMMERCIAL
+            </div>
+            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
+              <div className='animate-marquee whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+
+              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+            </div>
+          </Link>
+          <hr id='line' className=' w-full bg-white' />
+          <Link
+            id='menuItem'
+            className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
+            href='/residential'
+          >
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+              RESIDENTIAL
+            </div>
+            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
+              <div className='animate-marquee whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+
+              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
+                <span className='mx-4 '>Marquee Item 1</span>
+                <span className='mx-4 '>Marquee Item 2</span>
+                <span className='mx-4 '>Marquee Item 3</span>
+                <span className='mx-4 '>Marquee Item 4</span>
+                <span className='mx-4 '>Marquee Item 5</span>
+              </div>
+            </div>
+          </Link>
+          <hr id='line' className=' w-full bg-white' />
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
 
