@@ -3,7 +3,7 @@ export default function Home() {
     <main>
       <div className=' flex h-[105dvh] w-full items-end justify-center  '>
         <video
-          src='./video.mp4'
+          src='/video.mp4'
           className='size-full object-cover brightness-50 contrast-125 saturate-150'
           autoPlay
           loop
