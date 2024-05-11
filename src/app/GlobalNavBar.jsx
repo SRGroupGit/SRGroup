@@ -10,10 +10,13 @@ export default function GlobalNavBar() {
   const pathname = usePathname();
   const [colorMode, setColorMode] = useState('light');
   const [navOpen, setNavOpen] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [hidden, setHidden] = useState(false);
 
   const { contextSafe } = useGSAP();
 
   const navRef = useRef();
+  const customCursor = useRef();
   const navMenu = useRef();
   const firstDash = useRef();
   const secondDash = useRef();
@@ -158,6 +161,84 @@ export default function GlobalNavBar() {
   });
 
   useEffect(() => {
+    const isTouchDevice =
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0;
+
+    if (isTouchDevice) {
+      setHidden(true);
+      return;
+    }
+    const moveCursor = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const hideCursor = () => setHidden(true);
+    const showCursor = () => setHidden(false);
+
+    document.addEventListener('mousemove', moveCursor);
+    document.addEventListener('mouseenter', showCursor);
+    document.addEventListener('mouseleave', hideCursor);
+
+    return () => {
+      document.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener('mouseenter', showCursor);
+      document.removeEventListener('mouseleave', hideCursor);
+    };
+  }, []);
+  useEffect(() => {
+    gsap.to('.cursor', {
+      x: position.x,
+      y: position.y,
+      stagger: 0.05,
+    });
+
+    const enlargeCursor = () => {
+      gsap.to('.cursor', { scale: 2, ease: 'power1.inOut' }); // Adjust scale value as needed
+    };
+
+    // Function to reset cursor size
+    const resetCursorSize = () => {
+      gsap.to('.cursor', { scale: 1, ease: 'power1.inOut' });
+    };
+
+    const hideCursor = () => {
+      gsap.to('.cursor', { opacity: 0, duration: 0, ease: 'power1.inOut' }); // Adjust scale value as needed
+    };
+
+    // Function to reset cursor size
+    const resetHideCursorSize = () => {
+      gsap.to('.cursor', { opacity: 1, duration: 0, ease: 'power1.inOut' });
+    };
+
+    // Add event listeners to all buttons
+    const cursorBigElements = document.querySelectorAll('.cursorBig');
+    cursorBigElements.forEach((element) => {
+      element.addEventListener('mouseenter', enlargeCursor);
+      element.addEventListener('mouseleave', resetCursorSize);
+    });
+
+    const cursorHideElements = document.querySelectorAll('.cursorHide');
+    cursorHideElements.forEach((element) => {
+      element.addEventListener('mouseenter', hideCursor);
+      element.addEventListener('mouseleave', resetHideCursorSize);
+    });
+
+    // Cleanup function to remove event listeners
+    return () => {
+      cursorBigElements.forEach((element) => {
+        element.removeEventListener('mouseenter', enlargeCursor);
+        element.removeEventListener('mouseleave', resetCursorSize);
+      });
+      cursorHideElements.forEach((element) => {
+        element.removeEventListener('mouseenter', hideCursor);
+        element.removeEventListener('mouseleave', resetHideCursorSize);
+      });
+    };
+  }, [position]);
+
+  useEffect(() => {
     if (
       pathname === '/about' ||
       pathname === '/contact' ||
@@ -174,7 +255,7 @@ export default function GlobalNavBar() {
     <>
       <nav
         ref={navRef}
-        className={`  fixed left-0 top-0 z-[99999]  flex h-20  w-full items-center justify-between px-4 py-3 md:h-24 lg:h-28`}
+        className={`  fixed left-0 top-0 z-[999]  flex h-20  w-full items-center justify-between px-4 py-3 md:h-24 lg:h-28`}
       >
         <Link
           href='/'
@@ -187,34 +268,52 @@ export default function GlobalNavBar() {
         <div />
         <div className=' flex h-fit  items-center gap-2'>
           <GlobalButton
-            className={` ${
-              colorMode === 'light' || navOpen
-                ? ' bg-white text-black  hover:bg-neutral-800 hover:text-white active:bg-black active:text-white'
-                : ' bg-black text-white  hover:bg-white hover:text-black active:bg-white active:text-black '
-            }  whitespace-nowrap rounded-full px-9  py-2 text-sm font-normal transition-all duration-300 ease-in-out md:text-base  lg:px-14  lg:py-3 lg:text-lg`}
+            color={colorMode === 'light' || navOpen ? 'white' : 'black'}
+            className={` whitespace-nowrap rounded-full px-9  py-2 text-sm font-normal transition-all duration-300 ease-in-out md:text-base  lg:px-14  lg:py-3 lg:text-lg`}
           >
             Lets Talk
           </GlobalButton>
           <GlobalButton
+            color={colorMode === 'light' || navOpen ? 'white' : 'black'}
             onClick={onClickMenu}
-            className={` ${
-              colorMode === 'light' || navOpen
-                ? ' bg-white text-black hover:bg-neutral-800 hover:text-white active:bg-white active:text-black'
-                : ' bg-black text-white hover:bg-neutral-200 hover:text-black  active:bg-black active:text-white '
-            }  flex items-center  justify-center rounded-full p-2.5 transition-all duration-300 ease-in-out md:p-3 lg:p-4 `}
+            className={`   flex items-center  justify-center rounded-full p-2.5 transition-all duration-300 ease-in-out md:p-3 lg:p-4 `}
           >
             <span className='  flex aspect-square h-4 flex-col justify-center gap-[4.5px] md:h-5 lg:h-6 '>
               <div
                 ref={firstDash}
-                className={' h-px w-full bg-white mix-blend-difference'}
+                className={`
+                
+                  ${
+                    colorMode === 'light' || navOpen
+                      ? 'bg-black   group-hover:bg-white  group-active:bg-white   '
+                      : '  bg-white   group-hover:bg-black  group-active:bg-black '
+                  } 
+                
+                h-px w-full  mix-blend-difference`}
               ></div>
               <div
                 ref={secondDash}
-                className=' h-px w-full bg-white mix-blend-difference'
+                className={`
+                
+                ${
+                  colorMode === 'light' || navOpen
+                    ? 'bg-black   group-hover:bg-white  group-active:bg-white   '
+                    : '  bg-white   group-hover:bg-black  group-active:bg-black '
+                } 
+              
+              h-px w-full  mix-blend-difference`}
               ></div>
               <div
                 ref={thirdDash}
-                className=' h-px w-full bg-white mix-blend-difference'
+                className={`
+                
+                  ${
+                    colorMode === 'light' || navOpen
+                      ? 'bg-black   group-hover:bg-white  group-active:bg-white   '
+                      : '  bg-white   group-hover:bg-black  group-active:bg-black '
+                  } 
+                
+                h-px w-full  mix-blend-difference`}
               ></div>
             </span>
           </GlobalButton>
@@ -388,6 +487,25 @@ export default function GlobalNavBar() {
           <hr id='line' className=' w-full bg-white' />
         </div>
       </div>
+      <div
+        className='cursor'
+        style={{
+          pointerEvents: 'none',
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          minWidth: '30px',
+          width: '3vw',
+          maxWidth: '100px',
+          aspectRatio: '1/1',
+          borderRadius: '50%',
+          backgroundColor: 'white',
+          transform: 'translate(-50%, -50%)',
+          mixBlendMode: 'difference',
+          zIndex: 9999,
+          display: hidden ? 'none' : 'block',
+        }}
+      ></div>
     </>
   );
 }

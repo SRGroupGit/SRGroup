@@ -1,64 +1,78 @@
 'use client';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function GlobalButton({ children, className, ...props }) {
   const { contextSafe } = useGSAP();
-  const button = useRef();
 
-  const rippleOnHover = contextSafe(() => {
-    button.current.addEventListener('mousemove', (e) => {
-      const rect = button.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+  const buttonRef = useRef();
+  const buttonBg = useRef();
+  const tl = useRef();
 
-      // Calculate distances to the farthest side
-      const toLeft = x;
-      const toRight = rect.width - x;
-      const toTop = y;
-      const toBottom = rect.height - y;
+  const rippleOnHover = contextSafe((e) => {
+    tl.current = gsap.timeline();
+    const rect = buttonBg.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-      // Maximum distance to ensure the gradient covers the whole button
-      const maxDistance = Math.max(toLeft, toRight, toTop, toBottom);
-
-      gsap.set(button.current, {
-        backgroundImage:
-          'linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000)',
-        backgroundSize: '0% 0%',
-        backgroundPosition: `${x}px ${y}px`,
-        backgroundRepeat: 'no-repeat',
-      });
-
-      gsap.to(button.current, {
+    tl.current
+      .set(buttonBg.current, {
+        clipPath: `circle(0px at ${x}px ${y}px)`,
+      })
+      .to(buttonBg.current, {
         duration: 0.5,
-        backgroundSize: `${2 * maxDistance}px ${2 * maxDistance}px`,
-        ease: 'power2.out',
+        clipPath: `circle(150% at ${x}px ${y}px)`,
       });
-    });
   });
 
-  const rippleOut = contextSafe(() => {
-    gsap.to(button.current, {
-      duration: 0.5,
-      backgroundSize: '0% 0%',
-      backgroundImage: 'none',
-      ease: 'power2.out',
-    });
+  const rippleOut = contextSafe((e) => {
+    tl.current = gsap.timeline();
+    const rect = buttonBg.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    tl.current
+      .set(buttonBg.current, {
+        clipPath: `circle(150px at ${x}px ${y}px)`,
+      })
+      .to(buttonBg.current, {
+        duration: 0.5,
+        clipPath: `circle(0% at ${x}px ${y}px)`,
+      });
   });
 
   return (
-    <span className='relative'>
-      <span className='absolute z-10 size-full'>
-        <span
-          onMouseEnter={rippleOnHover}
-          onMouseLeave={rippleOut}
-          className=' z-10 size-full rounded-full bg-black   bg-blend-difference'
-        ></span>
-      </span>
-      <button className={`${className}`} ref={button} {...props}>
-        {children}
-      </button>
-    </span>
+    <button
+      onMouseEnter={rippleOnHover}
+      onMouseLeave={rippleOut}
+      ref={buttonRef}
+      onClick={props.onClick}
+      className={`${className} 
+    ${
+      props.color === 'white'
+        ? '  text-neutral-900 bg-neutral-200   active:text-neutral-900   hover:text-neutral-200 '
+        : '  text-neutral-200 bg-neutral-900  active:text-neutral-200   hover:text-neutral-900  '
+    } group
+    active:scale-90 transition-transform duration-200
+    relative cursor-none cursorHide `}
+      {...props}
+    >
+      <span className=' pointer-events-none relative z-20'>{children}</span>
+
+      <span
+        ref={buttonBg}
+        style={{
+          clipPath: 'circle(0% at 50% 50%)',
+        }}
+        className={` 
+        ${
+          props.color === 'white'
+            ? '    bg-neutral-900 -outline-offset-1 outline-neutral-900  outline group-active:bg-neutral-100  group-active:outline-neutral-100'
+            : '   bg-neutral-200  -outline-offset-1 outline-neutral-200 outline group-active:bg-neutral-900 group-active:outline-neutral-900'
+        } 
+        z-10 transition-[background-color,outline]   duration-200  size-full absolute left-0 top-0  rounded-full`}
+      ></span>
+    </button>
   );
 }
