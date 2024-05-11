@@ -14,7 +14,7 @@ module.exports = {
         sans: ['Satoshi', 'ui-sans-serif', 'system-ui'],
       },
       fontSize: {
-        clamp: 'clamp(4rem, 10vw, 8rem)',
+        clamp: 'clamp(3rem, 10vw, 8rem)',
       },
       animation: {
         marquee: 'marquee 25s linear infinite',
