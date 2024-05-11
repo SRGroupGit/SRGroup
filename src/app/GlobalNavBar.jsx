@@ -8,10 +8,11 @@ import GlobalButton from './GlobalButton';
 
 export default function GlobalNavBar() {
   const pathname = usePathname();
-  const [colorMode, setColorMode] = useState('light');
+  const [colorMode, setColorMode] = useState('');
   const [navOpen, setNavOpen] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hidden, setHidden] = useState(false);
+  const [backgroundColorValue, setBackgroundColorValue] = useState('');
 
   const { contextSafe } = useGSAP();
 
@@ -23,6 +24,7 @@ export default function GlobalNavBar() {
   const thirdDash = useRef();
   const navMenuContainer = useRef();
   const tl = useRef();
+  const NavBg = useRef();
 
   const onClickMenu = contextSafe(() => {
     tl.current = gsap.timeline();
@@ -126,6 +128,26 @@ export default function GlobalNavBar() {
         );
     }
   });
+  useEffect(() => {
+    if (
+      pathname === '/about' ||
+      pathname === '/contact' ||
+      pathname === '/commercial' ||
+      pathname === '/residential'
+    ) {
+      setColorMode('dark');
+    } else {
+      setColorMode('light');
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    setBackgroundColorValue(
+      colorMode === 'light' || navOpen
+        ? 'rgba(0,0,0,0.8)'
+        : 'rgba(255,255,255,0.8)'
+    );
+  }, [colorMode, navOpen]);
 
   useGSAP(() => {
     gsap.set(navRef.current, {
@@ -149,6 +171,36 @@ export default function GlobalNavBar() {
       },
       { scope: navMenuContainer }
     );
+    gsap.set(navRef.current, {
+      backgroundColor: 'rgba(0,0,0,0)',
+      backdropFilter: 'none',
+      height: '6rem',
+    });
+
+    let animate = false;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 200 && !animate) {
+        gsap.to(navRef.current, {
+          backgroundColor: backgroundColorValue,
+          backdropFilter: 'blur(10px)',
+          duration: 0.5,
+          height: '5rem',
+          ease: 'power2.inOut',
+        }),
+          (animate = true);
+      } else if (scrollY <= 200 && animate) {
+        gsap.to(navRef.current, {
+          backgroundColor: 'rgba(0,0,0,0)',
+          backdropFilter: 'none',
+          height: '6rem',
+          duration: 0.5,
+          ease: 'power2.inOut',
+        }),
+          (animate = false);
+      }
+    });
 
     // Animate to final position
     gsap.to(navRef.current, {
@@ -158,7 +210,7 @@ export default function GlobalNavBar() {
       opacity: 1,
       ease: 'power2.In',
     });
-  });
+  }, [backgroundColorValue]);
 
   useEffect(() => {
     const isTouchDevice =
@@ -212,6 +264,10 @@ export default function GlobalNavBar() {
       gsap.to('.cursor', { opacity: 1, duration: 0, ease: 'power1.inOut' });
     };
 
+    const reduceCursor = () => {
+      gsap.to('.cursor', { scale: 0.5, ease: 'power1.inOut' }); // Adjust scale value as needed
+    };
+
     // Add event listeners to all buttons
     const cursorBigElements = document.querySelectorAll('.cursorBig');
     cursorBigElements.forEach((element) => {
@@ -225,6 +281,12 @@ export default function GlobalNavBar() {
       element.addEventListener('mouseleave', resetHideCursorSize);
     });
 
+    const cursorReduceElements = document.querySelectorAll('.cursorReduce');
+    cursorReduceElements.forEach((element) => {
+      element.addEventListener('mouseenter', reduceCursor);
+      element.addEventListener('mouseleave', resetCursorSize);
+    });
+
     // Cleanup function to remove event listeners
     return () => {
       cursorBigElements.forEach((element) => {
@@ -235,27 +297,18 @@ export default function GlobalNavBar() {
         element.removeEventListener('mouseenter', hideCursor);
         element.removeEventListener('mouseleave', resetHideCursorSize);
       });
+      cursorReduceElements.forEach((element) => {
+        element.removeEventListener('mouseenter', reduceCursor);
+        element.removeEventListener('mouseleave', resetCursorSize);
+      });
     };
   }, [position]);
-
-  useEffect(() => {
-    if (
-      pathname === '/about' ||
-      pathname === '/contact' ||
-      pathname === '/commercial' ||
-      pathname === '/residential'
-    ) {
-      setColorMode('dark');
-    } else {
-      setColorMode('light');
-    }
-  }, [pathname]);
 
   return (
     <>
       <nav
         ref={navRef}
-        className={`  fixed left-0 top-0 z-[999]  flex h-20  w-full items-center justify-between px-4 py-3 md:h-24 lg:h-28`}
+        className={`   fixed left-0 top-0 z-[999]  flex   w-full items-center justify-between px-4 py-2.5 h-24 `}
       >
         <Link
           href='/'
@@ -266,19 +319,19 @@ export default function GlobalNavBar() {
           <GlobalNavLogo />
         </Link>
         <div />
-        <div className=' flex h-fit  items-center gap-2'>
+        <div className=' flex h-full max-h-14  items-center gap-2'>
           <GlobalButton
             color={colorMode === 'light' || navOpen ? 'white' : 'black'}
-            className={` whitespace-nowrap rounded-full px-9  py-2 text-sm font-normal transition-all duration-300 ease-in-out md:text-base  lg:px-14  lg:py-3 lg:text-lg`}
+            className={` whitespace-nowrap rounded-full px-9   h-full font-normal transition-all duration-300 ease-in-out text-lg  `}
           >
             Lets Talk
           </GlobalButton>
           <GlobalButton
             color={colorMode === 'light' || navOpen ? 'white' : 'black'}
             onClick={onClickMenu}
-            className={`   flex items-center  justify-center rounded-full p-2.5 transition-all duration-300 ease-in-out md:p-3 lg:p-4 `}
+            className={`   flex items-center  justify-center rounded-full  transition-all duration-300 ease-in-out h-full aspect-square`}
           >
-            <span className='  flex aspect-square h-4 flex-col justify-center gap-[4.5px] md:h-5 lg:h-6 '>
+            <span className='  flex aspect-square  flex-col justify-center gap-[4.5px] h-5 '>
               <div
                 ref={firstDash}
                 className={`
@@ -329,7 +382,7 @@ export default function GlobalNavBar() {
       >
         <div
           ref={navMenuContainer}
-          className=' mt-16 flex h-[calc(100%-64px)] flex-col  items-start  justify-center overflow-hidden text-5xl font-bold text-white md:mt-20  md:h-[calc(100%-80px)] md:text-6xl lg:mt-24  lg:h-[calc(100%-96px)]  lg:text-7xl'
+          className=' mt-4 flex flex-col  items-start  justify-center overflow-hidden text-5xl font-bold text-white  h-[calc(100%-96px)] md:text-5xl    lg:text-6xl'
         >
           <hr id='line' className=' w-full bg-white' />
           <Link
@@ -337,42 +390,28 @@ export default function GlobalNavBar() {
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
               HOME
             </div>
             <div className=' relative  hidden w-full items-center  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
               <div className='animate-marquee  whitespace-nowrap'>
                 <span className='mx-4'>HOME</span>
-                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
-                  .
-                </span>
                 <span className='mx-4'>HOME</span>
-                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
-                  .
-                </span>
                 <span className='mx-4'>HOME</span>
-                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
-                  .
-                </span>
+                <span className='mx-4'>HOME</span>
+                <span className='mx-4'>HOME</span>
+                <span className='mx-4'>HOME</span>
                 <span className='mx-4'>HOME</span>
               </div>
 
               <div className='absolute  m-auto animate-marquee2 whitespace-nowrap'>
-                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
-                  .
-                </span>
                 <span className='mx-4'>HOME</span>
-                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
-                  .
-                </span>
                 <span className='mx-4'>HOME</span>
-                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
-                  .
-                </span>
                 <span className='mx-4'>HOME</span>
-                <span className=' inline-block h-full w-64 rounded-full bg-gray-500'>
-                  .
-                </span>
+                <span className='mx-4'>HOME</span>
+                <span className='mx-4'>HOME</span>
+                <span className='mx-4'>HOME</span>
+                <span className='mx-4'>HOME</span>
               </div>
             </div>
           </Link>
@@ -382,24 +421,28 @@ export default function GlobalNavBar() {
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/contact'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
               CONTACT
             </div>
             <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
               <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
               </div>
 
               <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
+                <span className='mx-4 '>CONTACT</span>
               </div>
             </div>
           </Link>
@@ -409,24 +452,30 @@ export default function GlobalNavBar() {
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/about'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
               ABOUT
             </div>
             <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
               <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
               </div>
 
               <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
+                <span className='mx-4 '>ABOUT</span>
               </div>
             </div>
           </Link>
@@ -436,24 +485,28 @@ export default function GlobalNavBar() {
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/commercial'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
               COMMERCIAL
             </div>
             <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
               <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
               </div>
 
               <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
+                <span className='mx-4 '>COMMERCIAL</span>
               </div>
             </div>
           </Link>
@@ -463,28 +516,65 @@ export default function GlobalNavBar() {
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/residential'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-4 group-hover:hidden md:py-6'>
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
               RESIDENTIAL
             </div>
             <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
               <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
               </div>
 
               <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>Marquee Item 1</span>
-                <span className='mx-4 '>Marquee Item 2</span>
-                <span className='mx-4 '>Marquee Item 3</span>
-                <span className='mx-4 '>Marquee Item 4</span>
-                <span className='mx-4 '>Marquee Item 5</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
+                <span className='mx-4 '>RESIDENTIAL</span>
               </div>
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
+          <div className=' flex-col md:flex-row flex items-center md:justify-between absolute bottom-2 w-full px-2 text-base font-normal text-white'>
+            <span>SR Group all right reserved {new Date().getFullYear()}</span>
+            <div className=' flex gap-4 flex-wrap'>
+              <Link
+                href='https://www.instagram.com/sr_group_pune/'
+                className='cursorReduce '
+                target='_blank'
+              >
+                Instagram
+              </Link>
+              <Link
+                href='https://www.facebook.com/people/SRGroupPune/61557562022935/'
+                className='cursorReduce '
+                target='_blank'
+              >
+                Facebook
+              </Link>
+              <Link
+                href='https://www.linkedin.com/company/sr-group-pune/about/'
+                className='cursorReduce '
+                target='_blank'
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href='https://wa.me/+917448007500'
+                className='cursorReduce '
+                target='_blank'
+              >
+                Whatsapp
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       <div
