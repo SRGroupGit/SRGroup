@@ -308,7 +308,7 @@ export default function GlobalNavBar() {
     <>
       <nav
         ref={navRef}
-        className={`   fixed left-0 top-0 z-[999]  flex   w-full items-center justify-between px-4 py-2.5 h-24 `}
+        className={`   fixed left-0 top-0 z-[999]  flex   h-24 w-full items-center justify-between px-4 py-2.5 `}
       >
         <Link
           href='/'
@@ -322,16 +322,16 @@ export default function GlobalNavBar() {
         <div className=' flex h-full max-h-14  items-center gap-2'>
           <GlobalButton
             color={colorMode === 'light' || navOpen ? 'white' : 'black'}
-            className={` whitespace-nowrap rounded-full px-9   h-full font-normal transition-all duration-300 ease-in-out text-lg  `}
+            className={` h-full whitespace-nowrap rounded-full   px-9 text-lg font-normal transition-all duration-300 ease-in-out  `}
           >
             Lets Talk
           </GlobalButton>
           <GlobalButton
             color={colorMode === 'light' || navOpen ? 'white' : 'black'}
             onClick={onClickMenu}
-            className={`   flex items-center  justify-center rounded-full  transition-all duration-300 ease-in-out h-full aspect-square`}
+            className={`   flex aspect-square  h-full items-center  justify-center rounded-full transition-all duration-300 ease-in-out`}
           >
-            <span className='  flex aspect-square  flex-col justify-center gap-[4.5px] h-5 '>
+            <span className='  flex aspect-square  h-5 flex-col justify-center gap-[4.5px] '>
               <div
                 ref={firstDash}
                 className={`
@@ -382,7 +382,7 @@ export default function GlobalNavBar() {
       >
         <div
           ref={navMenuContainer}
-          className=' mt-4 flex flex-col  items-start  justify-center overflow-hidden text-5xl font-bold text-white  h-[calc(100%-96px)] md:text-5xl    lg:text-6xl'
+          className=' mt-4 flex h-[calc(100%-96px)]  flex-col  items-start justify-center overflow-hidden text-5xl font-bold  text-white md:text-5xl    lg:text-6xl'
         >
           <hr id='line' className=' w-full bg-white' />
           <Link
@@ -542,9 +542,9 @@ export default function GlobalNavBar() {
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
-          <div className=' flex-col md:flex-row flex items-center md:justify-between absolute bottom-2 w-full px-2 text-base font-normal text-white'>
+          <div className=' absolute bottom-2 flex w-full flex-col items-center px-2 text-base font-normal text-white md:flex-row md:justify-between'>
             <span>SR Group all right reserved {new Date().getFullYear()}</span>
-            <div className=' flex gap-4 flex-wrap'>
+            <div className=' flex flex-wrap gap-4'>
               <Link
                 href='https://www.instagram.com/sr_group_pune/'
                 className='cursorReduce '

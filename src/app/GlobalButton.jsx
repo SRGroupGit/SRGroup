@@ -51,11 +51,11 @@ export default function GlobalButton({ children, className, ...props }) {
       className={`${className} 
     ${
       props.color === 'white'
-        ? '  text-neutral-900 bg-neutral-200   active:text-neutral-900   hover:text-neutral-200 '
-        : '  text-neutral-200 bg-neutral-900  active:text-neutral-200   hover:text-neutral-900  '
-    } group
-    active:scale-90 transition-transform duration-200
-    relative cursor-none cursorHide `}
+        ? '  bg-neutral-200 text-neutral-900   hover:text-neutral-200   active:text-neutral-900 '
+        : '  bg-neutral-900 text-neutral-200  hover:text-neutral-900   active:text-neutral-200  '
+    } cursorHide
+    group relative cursor-none
+    transition-transform duration-200 active:scale-90 `}
       {...props}
     >
       <span className=' pointer-events-none relative z-20'>{children}</span>
@@ -68,10 +68,10 @@ export default function GlobalButton({ children, className, ...props }) {
         className={` 
         ${
           props.color === 'white'
-            ? '    bg-neutral-900 -outline-offset-1 outline-neutral-900  outline group-active:bg-neutral-100  group-active:outline-neutral-100'
-            : '   bg-neutral-200  -outline-offset-1 outline-neutral-200 outline group-active:bg-neutral-900 group-active:outline-neutral-900'
+            ? '    bg-neutral-900 outline -outline-offset-1  outline-neutral-900 group-active:bg-neutral-100  group-active:outline-neutral-100'
+            : '   bg-neutral-200  outline -outline-offset-1 outline-neutral-200 group-active:bg-neutral-900 group-active:outline-neutral-900'
         } 
-        z-10 transition-[background-color,outline]   duration-200  size-full absolute left-0 top-0  rounded-full`}
+        absolute left-0   top-0  z-10 size-full rounded-full transition-[background-color,outline]  duration-200`}
       ></span>
     </button>
   );
