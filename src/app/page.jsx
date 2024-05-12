@@ -15,6 +15,7 @@ export default function Home() {
   const heroSection = useRef();
   const professionalServices = useRef();
   const textInPutIntro = useRef();
+  const FourPointsSection = useRef();
   const tl = useRef();
 
   if (typeof window !== 'undefined') {

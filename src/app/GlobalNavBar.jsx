@@ -545,34 +545,34 @@ export default function GlobalNavBar() {
           <div className=' absolute bottom-2 flex w-full flex-col items-center px-2 text-base font-normal text-white md:flex-row md:justify-between'>
             <span>SR Group all right reserved {new Date().getFullYear()}</span>
             <div className=' flex flex-wrap gap-4'>
-              <Link
+              <a
                 href='https://www.instagram.com/sr_group_pune/'
                 className='cursorReduce '
                 target='_blank'
               >
                 Instagram
-              </Link>
-              <Link
+              </a>
+              <a
                 href='https://www.facebook.com/people/SRGroupPune/61557562022935/'
                 className='cursorReduce '
                 target='_blank'
               >
                 Facebook
-              </Link>
-              <Link
+              </a>
+              <a
                 href='https://www.linkedin.com/company/sr-group-pune/about/'
                 className='cursorReduce '
                 target='_blank'
               >
                 LinkedIn
-              </Link>
-              <Link
+              </a>
+              <a
                 href='https://wa.me/+917448007500'
                 className='cursorReduce '
                 target='_blank'
               >
                 Whatsapp
-              </Link>
+              </a>
             </div>
           </div>
         </div>

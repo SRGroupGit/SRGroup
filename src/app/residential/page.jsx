@@ -1,10 +1,9 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 export default function Residential() {
-  const router = useRouter();
-  router.push('/', { scroll: false });
-
-  return <div>page</div>;
+  return (
+    <div className=' w-full h-dvh flex items-center justify-center'>
+      coming Soon
+    </div>
+  );
 }
