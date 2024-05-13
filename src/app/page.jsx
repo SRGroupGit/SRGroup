@@ -226,8 +226,17 @@ export default function Home() {
             </div>
             <p
               ref={textInPutIntro}
-              className='    w-full max-w-xl  text-sm  font-normal text-neutral-800   md:text-base'
+              className=' hidden w-full   max-w-xl text-sm  font-normal  text-neutral-800 md:block   md:text-base'
             />
+            <p className=' block w-full   max-w-xl text-sm  font-normal  text-neutral-800 md:hidden   md:text-base'>
+              SR Group specializes in residential and commercial projects and
+              maintains our on-time delivery commitment. Our layouts, crafted in
+              compliance with Good Vastu and Feng Shui principles, ensure
+              harmony and prosperity for your family. Lastly, along with good
+              transparency with our clients, we uphold high compliance with all
+              real estate laws, maintaining our longstanding reputation for
+              integrity and trust.
+            </p>
           </div>
         </div>
       </section>
@@ -327,8 +336,17 @@ export default function Home() {
             </div>
             <p
               ref={textInPutIntro2}
-              className=' w-full max-w-xl  text-sm  font-normal text-neutral-800   md:text-base'
+              className=' hidden w-full max-w-xl text-sm  font-normal  text-neutral-800 md:block   md:text-base'
             />
+            <p className=' block w-full   max-w-xl text-sm  font-normal  text-neutral-800 md:hidden   md:text-base'>
+              SR Group specializes in residential and commercial projects and
+              maintains our on-time delivery commitment. Our layouts, crafted in
+              compliance with Good Vastu and Feng Shui principles, ensure
+              harmony and prosperity for your family. Lastly, along with good
+              transparency with our clients, we uphold high compliance with all
+              real estate laws, maintaining our longstanding reputation for
+              integrity and trust.
+            </p>
           </div>
         </div>
       </section>
