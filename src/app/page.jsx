@@ -240,7 +240,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section ref={FourPointsSection} className=' my-10 w-full px-3 '>
         <div className=' mx-auto w-full max-w-screen-2xl'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
@@ -320,11 +319,10 @@ export default function Home() {
       </section>
       <section
         ref={selectionGallery}
-        className='fadeIn my-14 h-[calc(100dvh-80px)]   w-full'
+        className=' my-14 h-[calc(100dvh-80px)]   w-full'
       >
         <SelectGallery />
       </section>
-
       <section ref={upcoming} className=' my-10 w-full px-3 '>
         <div className=' mx-auto w-full max-w-screen-2xl'>
           <div className=' flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
@@ -334,11 +332,7 @@ export default function Home() {
                 <span className=' fadeFromBelow  font-black'>Projects</span>
               </h2>
             </div>
-            <p
-              ref={textInPutIntro2}
-              className=' hidden w-full max-w-xl text-sm  font-normal  text-neutral-800 md:block   md:text-base'
-            />
-            <p className=' block w-full   max-w-xl text-sm  font-normal  text-neutral-800 md:hidden   md:text-base'>
+            <p className='  w-full   max-w-xl text-sm  font-normal  text-neutral-800  md:text-base'>
               SR Group specializes in residential and commercial projects and
               maintains our on-time delivery commitment. Our layouts, crafted in
               compliance with Good Vastu and Feng Shui principles, ensure
@@ -350,8 +344,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className=' fadeIn mx-auto w-full max-w-screen-2xl'>
+      <section className='  mx-auto w-full max-w-screen-2xl'>
         <Gallery />
       </section>
     </main>

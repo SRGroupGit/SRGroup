@@ -1,4 +1,5 @@
 import GlobalNavBar from './GlobalNavBar';
+import GlobalFooter from './GlobalFooter';
 import './globals.css';
 
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className=' font-sans   '>
         <GlobalNavBar />
         {children}
+        <GlobalFooter />
       </body>
     </html>
   );

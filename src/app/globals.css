@@ -9,23 +9,12 @@
 
 body {
   @apply bg-neutral-50  selection:bg-slate-900/40;
+}
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
   scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-@keyframes circularReveal {
-  from {
-    clip-path: circle(0% at 0% 50%);
-  }
-  to {
-    clip-path: circle(150% at 100% 50%);
-  }
-}
-
-.circularRevealImage {
-  animation: circularReveal 3s forwards; /* Adjust duration as needed */
 }
