@@ -24,6 +24,7 @@ export default function GlobalNavBar() {
   const thirdDash = useRef();
   const navMenuContainer = useRef();
   const tl = useRef();
+  const tl2 = useRef();
   const NavBg = useRef();
 
   const onClickMenu = contextSafe(() => {
@@ -144,8 +145,8 @@ export default function GlobalNavBar() {
   useEffect(() => {
     setBackgroundColorValue(
       colorMode === 'light' || navOpen
-        ? 'rgba(0,0,0,0.8)'
-        : 'rgba(255,255,255,0.8)'
+        ? 'rgba(0,0,0,0.9)'
+        : 'rgba(255,255,255,0.9)'
     );
   }, [colorMode, navOpen]);
 
@@ -173,7 +174,7 @@ export default function GlobalNavBar() {
     );
     gsap.set(navRef.current, {
       backgroundColor: 'rgba(0,0,0,0)',
-      backdropFilter: 'none',
+
       height: '6rem',
     });
 
@@ -184,7 +185,7 @@ export default function GlobalNavBar() {
       if (scrollY > 200 && !animate) {
         gsap.to(navRef.current, {
           backgroundColor: backgroundColorValue,
-          backdropFilter: 'blur(10px)',
+
           duration: 0.5,
           height: '5rem',
           ease: 'power2.inOut',
@@ -193,7 +194,7 @@ export default function GlobalNavBar() {
       } else if (scrollY <= 200 && animate) {
         gsap.to(navRef.current, {
           backgroundColor: 'rgba(0,0,0,0)',
-          backdropFilter: 'none',
+
           height: '6rem',
           duration: 0.5,
           ease: 'power2.inOut',
@@ -250,6 +251,13 @@ export default function GlobalNavBar() {
       gsap.to('.cursor', { scale: 2, ease: 'power1.inOut' }); // Adjust scale value as needed
     };
 
+    const sizeChangeOnClick = () => {
+      tl2.current = gsap.timeline();
+      tl2.current
+        .to('.cursor', { scale: 0.5, ease: 'power1.inOut  ', duration: 0.1 })
+        .to('.cursor', { scale: 1, ease: 'power1.inOut  ' });
+    };
+
     // Function to reset cursor size
     const resetCursorSize = () => {
       gsap.to('.cursor', { scale: 1, ease: 'power1.inOut' });
@@ -274,6 +282,8 @@ export default function GlobalNavBar() {
       element.addEventListener('mouseenter', enlargeCursor);
       element.addEventListener('mouseleave', resetCursorSize);
     });
+
+    document.addEventListener('click', sizeChangeOnClick);
 
     const cursorHideElements = document.querySelectorAll('.cursorHide');
     cursorHideElements.forEach((element) => {
@@ -301,6 +311,8 @@ export default function GlobalNavBar() {
         element.removeEventListener('mouseenter', reduceCursor);
         element.removeEventListener('mouseleave', resetCursorSize);
       });
+
+      document.removeEventListener('click', sizeChangeOnClick);
     };
   }, [position]);
 
@@ -545,34 +557,34 @@ export default function GlobalNavBar() {
           <div className=' absolute bottom-2 flex w-full flex-col items-center px-2 text-base font-normal text-white md:flex-row md:justify-between'>
             <span>SR Group all right reserved {new Date().getFullYear()}</span>
             <div className=' flex flex-wrap gap-4'>
-              <a
+              <Link
                 href='https://www.instagram.com/sr_group_pune/'
                 className='cursorReduce '
                 target='_blank'
               >
                 Instagram
-              </a>
-              <a
+              </Link>
+              <Link
                 href='https://www.facebook.com/people/SRGroupPune/61557562022935/'
                 className='cursorReduce '
                 target='_blank'
               >
                 Facebook
-              </a>
-              <a
+              </Link>
+              <Link
                 href='https://www.linkedin.com/company/sr-group-pune/about/'
                 className='cursorReduce '
                 target='_blank'
               >
                 LinkedIn
-              </a>
-              <a
+              </Link>
+              <Link
                 href='https://wa.me/+917448007500'
                 className='cursorReduce '
                 target='_blank'
               >
                 Whatsapp
-              </a>
+              </Link>
             </div>
           </div>
         </div>
