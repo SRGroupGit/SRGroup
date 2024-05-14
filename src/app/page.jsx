@@ -66,36 +66,12 @@ export default function Home() {
 
   useGSAP(
     () => {
-      gsap.to(textInPutIntro.current, {
-        text: ' SR Group specializes in residential and commercial projects and maintains our on-time delivery commitment. Our layouts, crafted in compliance with Good Vastu and Feng Shui principles, ensure harmony and prosperity for your family. Lastly, along with good transparency with our clients, we uphold high compliance with all real estate laws, maintaining our longstanding reputation for integrity and trust.',
-        scrollTrigger: {
-          trigger: textInPutIntro.current,
-          start: 'top bottom',
-          end: 'bottom 40%',
-          scrub: true,
-        },
-      });
-
-      gsap.to(textInPutIntro2.current, {
-        text: 'we showcase a handpicked collection of our most distinguished and impactful projects. Each project highlighted here demonstrates our comprehensive capabilities in construction and design, emphasizing our commitment to quality, innovation, and customer satisfaction. From state-of-the-art commercial complexes to luxurious residential developments, these projects encapsulate our expertise and the trust placed in us by our clients.',
-        scrollTrigger: {
-          trigger: textInPutIntro2.current,
-          start: 'top bottom',
-          end: 'bottom 40%',
-          scrub: true,
-        },
-      });
-    },
-    { scope: homeRef.current }
-  );
-
-  useGSAP(
-    () => {
       const headings = gsap.utils.toArray('.fadeFromBelow');
       const fadeIn = gsap.utils.toArray('.fadeIn');
       fadeIn.forEach((fade) => {
         gsap.from(fade, {
           opacity: 0,
+          y: 200,
           scrollTrigger: {
             trigger: fade,
             start: 'top bottom',
@@ -107,12 +83,12 @@ export default function Home() {
 
       headings.forEach((heading) => {
         gsap.from(heading, {
-          y: 30,
-          opacity: 0,
+          y: 80,
+
           scrollTrigger: {
             trigger: heading,
             start: 'top bottom',
-            end: 'bottom 40%',
+            end: 'bottom center',
             scrub: true,
           },
         });
@@ -224,18 +200,16 @@ export default function Home() {
                 Contact Us
               </GlobalButton>
             </div>
-            <p
-              ref={textInPutIntro}
-              className=' hidden w-full   max-w-xl text-sm  font-normal  text-neutral-800 md:block   md:text-base'
-            />
-            <p className=' block w-full   max-w-xl text-sm  font-normal  text-neutral-800 md:hidden   md:text-base'>
-              SR Group specializes in residential and commercial projects and
-              maintains our on-time delivery commitment. Our layouts, crafted in
-              compliance with Good Vastu and Feng Shui principles, ensure
-              harmony and prosperity for your family. Lastly, along with good
-              transparency with our clients, we uphold high compliance with all
-              real estate laws, maintaining our longstanding reputation for
-              integrity and trust.
+            <p className='fadeIn w-full   max-w-xl   overflow-hidden text-sm  font-normal  text-neutral-800    md:text-base'>
+              <span>
+                SR Group specializes in residential and commercial projects and
+                maintains our on-time delivery commitment. Our layouts, crafted
+                in compliance with Good Vastu and Feng Shui principles, ensure
+                harmony and prosperity for your family. Lastly, along with good
+                transparency with our clients, we uphold high compliance with
+                all real estate laws, maintaining our longstanding reputation
+                for integrity and trust.
+              </span>
             </p>
           </div>
         </div>
@@ -332,15 +306,17 @@ export default function Home() {
                 <span className=' fadeFromBelow  font-black'>Projects</span>
               </h2>
             </div>
-            <p className='  w-full   max-w-xl text-sm  font-normal  text-neutral-800  md:text-base'>
-              SR Group specializes in residential and commercial projects and
-              maintains our on-time delivery commitment. Our layouts, crafted in
-              compliance with Good Vastu and Feng Shui principles, ensure
-              harmony and prosperity for your family. Lastly, along with good
-              transparency with our clients, we uphold high compliance with all
-              real estate laws, maintaining our longstanding reputation for
-              integrity and trust.
-            </p>
+            <div className='fadeIn overflow-hidden'>
+              <p className='  w-full   max-w-xl text-sm  font-normal  text-neutral-800  md:text-base'>
+                SR Group specializes in residential and commercial projects and
+                maintains our on-time delivery commitment. Our layouts, crafted
+                in compliance with Good Vastu and Feng Shui principles, ensure
+                harmony and prosperity for your family. Lastly, along with good
+                transparency with our clients, we uphold high compliance with
+                all real estate laws, maintaining our longstanding reputation
+                for integrity and trust.
+              </p>
+            </div>
           </div>
         </div>
       </section>

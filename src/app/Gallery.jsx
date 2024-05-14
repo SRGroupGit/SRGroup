@@ -108,10 +108,10 @@ export default function Gallery() {
   return (
     <div className=' flex  flex-col px-4 md:gap-3 '>
       <div className=' flex w-full justify-between max-md:mb-3'>
-        <div onClick={previousHandler}>
+        <div className='cursorReduce p-4' onClick={previousHandler}>
           <PreviousArrow />
         </div>
-        <div onClick={nextHandler}>
+        <div className='cursorReduce p-4' onClick={nextHandler}>
           <NextArrow />
         </div>
       </div>
