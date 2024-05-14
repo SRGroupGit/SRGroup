@@ -75,7 +75,7 @@ export default function Home() {
           scrollTrigger: {
             trigger: fade,
             start: 'top bottom',
-            end: 'bottom 90%',
+            end: 'bottom 85%',
             scrub: true,
           },
         });
@@ -200,8 +200,8 @@ export default function Home() {
                 Contact Us
               </GlobalButton>
             </div>
-            <p className='fadeIn w-full   max-w-xl   overflow-hidden text-sm  font-normal  text-neutral-800    md:text-base'>
-              <span>
+            <p className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-neutral-800    md:text-base'>
+              <span className='fadeIn  '>
                 SR Group specializes in residential and commercial projects and
                 maintains our on-time delivery commitment. Our layouts, crafted
                 in compliance with Good Vastu and Feng Shui principles, ensure
@@ -217,7 +217,7 @@ export default function Home() {
       <section ref={FourPointsSection} className=' my-10 w-full px-3 '>
         <div className=' mx-auto w-full max-w-screen-2xl'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
-            <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
+            <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
                 <b>Years of experience</b> , As we continue to grow and evolve,
                 our extensive experience forms the cornerstone of our success,
@@ -233,7 +233,7 @@ export default function Home() {
               <div ref={topLine} className=' h-1/2 w-full bg-black'></div>
             </div>
 
-            <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
+            <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
                 <b>Customers Served</b> ,The trust placed in us by our customers
                 motivates us to continue improving and innovating.
@@ -254,7 +254,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
+          <div className=' flex h-fit w-full flex-row items-start overflow-hidden  lg:items-end '>
             <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
                 <b>Total projects completed</b> ,Each project, whether large or
@@ -306,8 +306,8 @@ export default function Home() {
                 <span className=' fadeFromBelow  font-black'>Projects</span>
               </h2>
             </div>
-            <div className='fadeIn overflow-hidden'>
-              <p className='  w-full   max-w-xl text-sm  font-normal  text-neutral-800  md:text-base'>
+            <div className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-neutral-800  md:text-base'>
+              <p className=' fadeIn  '>
                 SR Group specializes in residential and commercial projects and
                 maintains our on-time delivery commitment. Our layouts, crafted
                 in compliance with Good Vastu and Feng Shui principles, ensure

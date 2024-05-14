@@ -161,7 +161,7 @@ export default function GlobalNavBar() {
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      if (scrollY > 200 && !animate) {
+      if (scrollY > 80 && !animate) {
         gsap.to(navRef.current, {
           backgroundColor: backgroundColorValue,
 
@@ -170,7 +170,7 @@ export default function GlobalNavBar() {
           ease: 'power2.inOut',
         }),
           (animate = true);
-      } else if (scrollY <= 200 && animate) {
+      } else if (scrollY <= 80 && animate) {
         gsap.to(navRef.current, {
           backgroundColor: 'rgba(0,0,0,0)',
 

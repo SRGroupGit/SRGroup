@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import GlobalButton from '../GlobalButton';
 import { useState } from 'react';
+import Testimonials from './Testimonials';
 
 export default function Contact() {
   const [data, setData] = useState({
@@ -81,9 +82,9 @@ export default function Contact() {
   };
 
   return (
-    <div className=' mx-auto mt-20 flex h-[calc(100dvh-80px)] w-full max-w-screen-2xl  items-center justify-center gap-8  px-3'>
-      <div className=' flex  h-[calc(100dvh-200px)] w-full flex-col gap-4  overflow-visible'>
-        <div>
+    <div className=' mx-auto mt-20 flex size-full max-w-screen-2xl flex-col  items-center  justify-center gap-8 px-3 md:min-h-[calc(100dvh-80px)] md:flex-row'>
+      <div className=' flex size-full  flex-col gap-4 overflow-visible'>
+        <div className='  h-[424px]'>
           <h1 className=' mb-4 text-5xl font-bold text-black'>Contact Us</h1>
           <form className='flex w-full flex-col'>
             <div className=' w-full cursor-text gap-2 md:flex'>
@@ -176,14 +177,16 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className=' cursorHide  size-full overflow-hidden rounded-md'>
+        <div className=' cursorHide   h-[300px] w-full overflow-hidden rounded-md'>
           <iframe
             className='size-full  border-none '
             src='https://maps.google.com/maps?width=100%25&amp;height=100%&amp;hl=en&amp;q=18.573012280479954,%2073.77072384224962+(SR%20Group)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
           ></iframe>
         </div>
       </div>
-      <div className='flex  h-[calc(100dvh-200px)] w-full overflow-visible rounded-md  bg-black '></div>
+      <div className='flex h-[400px] w-full overflow-hidden rounded-lg  bg-black   md:h-[724px]  '>
+        <Testimonials />
+      </div>
     </div>
   );
 }
