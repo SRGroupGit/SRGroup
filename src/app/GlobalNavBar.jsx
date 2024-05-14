@@ -152,27 +152,6 @@ export default function GlobalNavBar() {
 
   useGSAP(() => {
     gsap.set(navRef.current, {
-      y: -150, // Adjust this value as needed
-      opacity: 0,
-    });
-    gsap.set(navMenu.current, {
-      clipPath: 'circle(0% at 99% 2%)',
-    });
-    gsap.set(
-      '#line',
-      {
-        width: 0,
-      },
-      { scope: navMenuContainer }
-    );
-    gsap.set(
-      '#menuItem',
-      {
-        opacity: 0,
-      },
-      { scope: navMenuContainer }
-    );
-    gsap.set(navRef.current, {
       backgroundColor: 'rgba(0,0,0,0)',
 
       height: '6rem',
@@ -202,6 +181,30 @@ export default function GlobalNavBar() {
           (animate = false);
       }
     });
+  }, [backgroundColorValue]);
+
+  useGSAP(() => {
+    gsap.set(navRef.current, {
+      y: -150, // Adjust this value as needed
+      opacity: 0,
+    });
+    gsap.set(navMenu.current, {
+      clipPath: 'circle(0% at 99% 2%)',
+    });
+    gsap.set(
+      '#line',
+      {
+        width: 0,
+      },
+      { scope: navMenuContainer }
+    );
+    gsap.set(
+      '#menuItem',
+      {
+        opacity: 0,
+      },
+      { scope: navMenuContainer }
+    );
 
     // Animate to final position
     gsap.to(navRef.current, {
@@ -211,7 +214,7 @@ export default function GlobalNavBar() {
       opacity: 1,
       ease: 'power2.In',
     });
-  }, [backgroundColorValue]);
+  }, []);
 
   useEffect(() => {
     const isTouchDevice =
@@ -244,18 +247,20 @@ export default function GlobalNavBar() {
     gsap.to('.cursor', {
       x: position.x,
       y: position.y,
-      stagger: 0.05,
     });
 
     const enlargeCursor = () => {
       gsap.to('.cursor', { scale: 2, ease: 'power1.inOut' }); // Adjust scale value as needed
     };
 
-    const sizeChangeOnClick = () => {
+    const blendChangeOnClick = () => {
       tl2.current = gsap.timeline();
       tl2.current
-        .to('.cursor', { scale: 0.5, ease: 'power1.inOut  ', duration: 0.1 })
-        .to('.cursor', { scale: 1, ease: 'power1.inOut  ' });
+        .to('.cursor', {
+          outline: '4px solid white',
+          duration: 0.1,
+        })
+        .to('.cursor', { outline: '0px solid white', duration: 0.1 }, '>-0.1');
     };
 
     // Function to reset cursor size
@@ -283,7 +288,7 @@ export default function GlobalNavBar() {
       element.addEventListener('mouseleave', resetCursorSize);
     });
 
-    document.addEventListener('click', sizeChangeOnClick);
+    document.addEventListener('click', blendChangeOnClick);
 
     const cursorHideElements = document.querySelectorAll('.cursorHide');
     cursorHideElements.forEach((element) => {
@@ -312,7 +317,7 @@ export default function GlobalNavBar() {
         element.removeEventListener('mouseleave', resetCursorSize);
       });
 
-      document.removeEventListener('click', sizeChangeOnClick);
+      document.removeEventListener('click', blendChangeOnClick);
     };
   }, [position]);
 
@@ -390,7 +395,7 @@ export default function GlobalNavBar() {
           clipPath: 'circle(0% at 99% 2%)',
         }}
         ref={navMenu}
-        className=' fixed left-0  z-[99] h-dvh w-full bg-black  '
+        className=' fixed left-0 top-0  z-[99] h-dvh w-full bg-black  '
       >
         <div
           ref={navMenuContainer}
@@ -398,6 +403,7 @@ export default function GlobalNavBar() {
         >
           <hr id='line' className=' w-full bg-white' />
           <Link
+            onClick={onClickMenu}
             id='menuItem'
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/'
@@ -429,6 +435,7 @@ export default function GlobalNavBar() {
           </Link>
           <hr id='line' className=' w-full bg-white' />
           <Link
+            onClick={onClickMenu}
             id='menuItem'
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/contact'
@@ -460,6 +467,7 @@ export default function GlobalNavBar() {
           </Link>
           <hr id='line' className=' w-full bg-white' />
           <Link
+            onClick={onClickMenu}
             id='menuItem'
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/about'
@@ -493,6 +501,7 @@ export default function GlobalNavBar() {
           </Link>
           <hr id='line' className=' w-full bg-white' />
           <Link
+            onClick={onClickMenu}
             id='menuItem'
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/commercial'
@@ -524,6 +533,7 @@ export default function GlobalNavBar() {
           </Link>
           <hr id='line' className=' w-full bg-white' />
           <Link
+            onClick={onClickMenu}
             id='menuItem'
             className=' group w-full bg-black text-white  hover:bg-white hover:text-black'
             href='/residential'
@@ -596,9 +606,7 @@ export default function GlobalNavBar() {
           position: 'fixed',
           left: 0,
           top: 0,
-          minWidth: '30px',
-          width: '3vw',
-          maxWidth: '100px',
+          width: '3rem',
           aspectRatio: '1/1',
           borderRadius: '50%',
           backgroundColor: 'white',
@@ -606,6 +614,7 @@ export default function GlobalNavBar() {
           mixBlendMode: 'difference',
           zIndex: 9999,
           display: hidden ? 'none' : 'block',
+          outlineOffset: '2px',
         }}
       ></div>
     </>
