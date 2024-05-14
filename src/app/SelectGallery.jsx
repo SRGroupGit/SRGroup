@@ -18,7 +18,9 @@ export default function SelectGalLery() {
             Business Environment: Explore SR Group&apos;s Meticulously Designed
             Commercial Spaces, Where Light, Space, and Positive Vastu Unite
           </p>
-          <h4 className=' text-5xl font-bold text-white'>Commercial</h4>
+          <h4 className=' text-2xl font-bold text-white md:text-4xl lg:text-5xl'>
+            Commercial
+          </h4>
         </div>
       </div>
       <div className='cursorBig group relative h-full w-1/2   overflow-hidden transition-all  duration-200  hover:w-5/6'>
@@ -33,7 +35,9 @@ export default function SelectGalLery() {
             Discover Your Perfect Harmony: Explore SR Group&apos;s Exquisite
             Residences Where Vastu, Space, and Luxury Converge
           </p>
-          <h4 className=' text-5xl font-bold text-white'>Commercial</h4>
+          <h4 className=' text-2xl font-bold text-white md:text-4xl lg:text-5xl'>
+            Residential
+          </h4>
         </div>
       </div>
     </div>

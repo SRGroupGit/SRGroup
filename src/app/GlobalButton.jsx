@@ -47,6 +47,7 @@ export default function GlobalButton({ children, className, ...props }) {
       onMouseEnter={rippleOnHover}
       onMouseLeave={rippleOut}
       ref={buttonRef}
+      type={props.type || 'button'}
       onClick={props.onClick}
       className={`${className} 
     ${

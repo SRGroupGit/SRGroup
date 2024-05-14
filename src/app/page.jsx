@@ -219,7 +219,7 @@ export default function Home() {
               </h2>
               <GlobalButton
                 color='black'
-                className=' fadeFromBelow w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+                className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
               >
                 Contact Us
               </GlobalButton>
