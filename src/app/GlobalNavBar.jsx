@@ -337,12 +337,14 @@ export default function GlobalNavBar() {
         </Link>
         <div />
         <div className=' flex h-full max-h-14  items-center gap-2'>
-          <GlobalButton
-            color={colorMode === 'light' || navOpen ? 'white' : 'black'}
-            className={` h-full whitespace-nowrap rounded-full   px-9 text-lg font-normal transition-all duration-300 ease-in-out  `}
-          >
-            Lets Talk
-          </GlobalButton>
+          <Link className=' h-full' href='/contact'>
+            <GlobalButton
+              color={colorMode === 'light' || navOpen ? 'white' : 'black'}
+              className={` h-full whitespace-nowrap rounded-full   px-9 text-lg font-normal transition-all duration-300 ease-in-out  `}
+            >
+              Lets Talk
+            </GlobalButton>
+          </Link>
           <GlobalButton
             color={colorMode === 'light' || navOpen ? 'white' : 'black'}
             onClick={onClickMenu}
