@@ -70,12 +70,12 @@ export default function Home() {
       const fadeIn = gsap.utils.toArray('.fadeIn');
       fadeIn.forEach((fade) => {
         gsap.from(fade, {
-          opacity: 0,
+          opacity: 40,
           y: 200,
           scrollTrigger: {
             trigger: fade,
             start: 'top bottom',
-            end: 'bottom 85%',
+            end: 'bottom 95%',
             scrub: true,
           },
         });
@@ -219,6 +219,27 @@ export default function Home() {
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
             <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
+                <b>Total volume of area built</b> with 5 lakh Sq. ft. built with
+                3.2lakh sq. ft. of on-going projects
+              </p>
+              <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
+                <span className=' fadeFromBelow'>
+                  <CountUp
+                    enableScrollSpy={true}
+                    decimals={2}
+                    end={8.21}
+                    duration={1}
+                  />
+                  <span className=' text-[0.2em] uppercase'>Lakh Sqft</span>
+                </span>
+              </h3>
+            </div>
+            <div className=' h-[320px] w-px   md:h-[270px] lg:h-[260px]'>
+              <div ref={topLine} className=' h-1/2 w-full bg-black'></div>
+            </div>
+
+            <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
+              <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
                 <b>Years of experience</b> , As we continue to grow and evolve,
                 our extensive experience forms the cornerstone of our success,
                 guiding us in our mission.
@@ -226,21 +247,6 @@ export default function Home() {
               <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={16} duration={1.5} />+
-                </span>
-              </h3>
-            </div>
-            <div className=' h-[320px] w-[2px]   md:h-[270px] lg:h-[260px]'>
-              <div ref={topLine} className=' h-1/2 w-full bg-black'></div>
-            </div>
-
-            <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
-              <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Customers Served</b> ,The trust placed in us by our customers
-                motivates us to continue improving and innovating.
-              </p>
-              <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
-                <span className=' fadeFromBelow'>
-                  <CountUp enableScrollSpy={true} end={2000} duration={1} />+
                 </span>
               </h3>
             </div>
@@ -267,24 +273,18 @@ export default function Home() {
                 </span>
               </h3>
             </div>
-            <div className=' flex h-[320px] w-[2px] items-end   md:h-[270px] lg:h-[260px]'>
+            <div className=' flex h-[320px] w-px items-end   md:h-[270px] lg:h-[260px]'>
               <div ref={bottomLine} className=' h-1/2 w-full bg-black'></div>
             </div>
 
             <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Total volume of area built</b> with 5 lakh Sq. ft. built with
-                3.2lakh sq. ft. of on-going projects
+                <b>Customers Served</b> ,The trust placed in us by our customers
+                motivates us to continue improving and innovating.
               </p>
               <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
                 <span className=' fadeFromBelow'>
-                  <CountUp
-                    enableScrollSpy={true}
-                    decimals={2}
-                    end={8.21}
-                    duration={1}
-                  />
-                  <span className=' text-[0.2em] uppercase'>Lakh Sqft</span>
+                  <CountUp enableScrollSpy={true} end={2000} duration={1} />+
                 </span>
               </h3>
             </div>
