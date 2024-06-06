@@ -1,6 +1,7 @@
 import GlobalNavBar from './GlobalNavBar';
 import GlobalFooter from './GlobalFooter';
 import './globals.css';
+import ProviderShell from './ProviderShell';
 
 export const metadata = {
   title: 'SR Group',
@@ -14,11 +15,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className=' font-sans   '>
-        <GlobalNavBar />
-        {children}
-        <GlobalFooter />
-      </body>
+      <ProviderShell>
+        <body className=' font-sans   '>
+          <GlobalNavBar />
+          {children}
+          <GlobalFooter />
+        </body>
+      </ProviderShell>
     </html>
   );
 }
