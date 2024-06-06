@@ -15,13 +15,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <ProviderShell>
-        <body className=' font-sans   '>
+      <body className=' font-sans   '>
+        <ProviderShell>
           <GlobalNavBar />
           {children}
           <GlobalFooter />
-        </body>
-      </ProviderShell>
+        </ProviderShell>
+      </body>
     </html>
   );
 }
