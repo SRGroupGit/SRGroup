@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
 import commercialListSlice from './features/commercialList';
 import residentialListSlice from './features/residentialList';
 

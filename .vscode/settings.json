@@ -13,5 +13,5 @@
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
-  "cSpell.words": ["gsap", "satoshi", "tailwindcss"]
+  "cSpell.words": ["gsap", "reduxjs", "satoshi", "tailwindcss"]
 }

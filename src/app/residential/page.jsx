@@ -9,8 +9,6 @@ import Image from 'next/image';
 import { Icon } from '@iconify/react';
 
 export default function Residential() {
-  const subNavRef = useRef();
-
   useGSAP(() => {
     gsap.set(subNavRef.current, {
       top: '6rem',

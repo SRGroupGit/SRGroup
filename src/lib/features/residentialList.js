@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const url = 'https://sendoff.wtf/api';
+
 const initialState = {
   data: [],
   loading: true,
@@ -11,7 +13,7 @@ const initialState = {
 export const fetchresidentialList = createAsyncThunk(
   'residentialList/fetchresidentialList',
   async () => {
-    const response = await axios.get('https://api.example.com/residential');
+    const response = await axios.get(`${url}/collections/residential/records`);
     return response.data;
   }
 );
