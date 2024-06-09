@@ -32,9 +32,11 @@ export default function Residential() {
     });
   }, []);
 
+  const subNavRef = useRef(null);
+
   return (
     <main>
-      <nav
+      {/* <nav
         ref={subNavRef}
         className=' fixed top-24 z-10 flex h-16 w-full items-center justify-between bg-neutral-800 px-4'
       >
@@ -69,7 +71,10 @@ export default function Residential() {
       </section>
       <br />
       <hr className=' border-t-2 border-black' />
-      <br />
+      <br /> */}
+      <div className=' flex h-dvh w-full items-center justify-center bg-neutral-200'>
+        coming Soon
+      </div>
     </main>
   );
 }

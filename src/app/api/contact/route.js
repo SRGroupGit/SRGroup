@@ -5,7 +5,12 @@ const email = process.env.EMAIL;
 const pass = process.env.EMAIL_PASS;
 
 export async function POST(request) {
-  const { name, userEmail, phone, message } = await request.json();
+  const { name, userEmail, phone, message, subject } = await request.json();
+
+  const finalSubject = subject
+    ? `New query for ${subject} from ${name}`
+    : `New query from ${name}`;
+
   const transporter = nodemailer.createTransport({
     service: 'Mailgun',
     auth: {
@@ -17,7 +22,7 @@ export async function POST(request) {
   const mailOptions = {
     from: email,
     to: 'siddhant.v@angle.services',
-    subject: `New query from ${name}`,
+    subject: `${finalSubject}`,
     text: `Name: ${name}`,
     html: `
       <h1>New query from ${name}</h1>

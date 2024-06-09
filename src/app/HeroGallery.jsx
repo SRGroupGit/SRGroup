@@ -95,13 +95,13 @@ export default function HeroGallery(props) {
     <div className='  relative flex aspect-video max-h-[70vh] w-full items-center  justify-center overflow-hidden rounded-md '>
       <div className=' absolute z-10 flex w-full  justify-between px-4 '>
         <div
-          className='cursorReduce flex aspect-square items-center justify-center rounded-full border border-black bg-black/15  p-4  backdrop-blur-xl'
+          className='cursorReduce flex aspect-square items-center justify-center rounded-full border-black bg-black/15 p-2   backdrop-blur-xl md:border   md:p-4'
           onClick={previousHandler}
         >
           <PreviousArrow />
         </div>
         <div
-          className='cursorReduce flex aspect-square items-center justify-center rounded-full border border-black bg-black/15  p-4  backdrop-blur-xl'
+          className='cursorReduce flex aspect-square items-center justify-center rounded-full border-black bg-black/15 p-2  backdrop-blur-xl md:border  md:p-4'
           onClick={nextHandler}
         >
           <NextArrow />

@@ -3,9 +3,9 @@
 @tailwind utilities;
 @import 'satoshi.css';
 
-/* * {
+* {
   cursor: none;
-} */
+}
 
 body {
   @apply bg-neutral-50  selection:bg-slate-900/40;
@@ -17,4 +17,11 @@ body {
 
 body {
   scrollbar-width: none;
+}
+
+img {
+  -webkit-user-select: none !important; /* Chrome 49+ */
+  -moz-user-select: none !important; /* Firefox 43+ */
+  -ms-user-select: none !important; /* No support yet */
+  user-select: none !important;
 }

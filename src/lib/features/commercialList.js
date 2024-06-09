@@ -13,7 +13,9 @@ const initialState = {
 export const fetchCommercialList = createAsyncThunk(
   'commercialList/fetchCommercialList',
   async () => {
-    const response = await axios.get(`${url}/collections/commercial/records`);
+    const response = await axios.get(
+      `${url}/collections/commercial/records?sort=-launch_date`
+    );
     return response.data.items;
   }
 );
