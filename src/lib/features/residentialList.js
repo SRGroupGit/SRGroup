@@ -10,11 +10,13 @@ const initialState = {
   errorMessage: '',
 };
 
-export const fetchresidentialList = createAsyncThunk(
-  'residentialList/fetchresidentialList',
+export const fetchResidentialList = createAsyncThunk(
+  'residentialList/fetchResidentialList',
   async () => {
-    const response = await axios.get(`${url}/collections/residential/records`);
-    return response.data;
+    const response = await axios.get(
+      `${url}/collections/residential/records?sort=-launch_date`
+    );
+    return response.data.items;
   }
 );
 
@@ -22,21 +24,22 @@ const residentialListSlice = createSlice({
   name: 'residentialList',
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchresidentialList.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchResidentialList.pending, (state) => {
       state.loading = true;
       state.error = false;
-    },
-    [fetchresidentialList.fulfilled]: (state, action) => {
-      state.loading = false;
+    });
+    builder.addCase(fetchResidentialList.fulfilled, (state, action) => {
       state.data = action.payload;
-    },
-    [fetchresidentialList.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = false;
+    });
+    builder.addCase(fetchResidentialList.rejected, (state, action) => {
       state.loading = false;
       state.error = true;
       state.errorMessage = action.error.message;
-    },
+    });
   },
 });
 
-export default residentialListSlice;
+export default residentialListSlice.reducer;

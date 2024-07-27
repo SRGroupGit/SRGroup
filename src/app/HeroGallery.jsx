@@ -92,7 +92,7 @@ export default function HeroGallery(props) {
   };
 
   return (
-    <div className='  relative flex aspect-video max-h-[70vh] w-full items-center  justify-center overflow-hidden rounded-md '>
+    <div className='  relative m-auto flex aspect-video w-full  max-w-screen-2xl items-center  justify-center overflow-hidden rounded-md '>
       <div className=' absolute z-10 flex w-full  justify-between px-4 '>
         <div
           className='cursorReduce flex aspect-square items-center justify-center rounded-full border-black bg-black/15 p-2   backdrop-blur-xl md:border   md:p-4'

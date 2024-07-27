@@ -5,52 +5,36 @@ export default function LayoutGallery(props) {
   const url = 'https://sendoff.wtf/api/files';
 
   const [selectedGallery, setSelectedGallery] = useState(props.GalleryData[0]);
-  const [previousGallery, setPreviousGallery] = useState(props.GalleryData[1]);
+  const [nextGallery, setNextGallery] = useState(props.GalleryData[1]);
   const [selectedData, setSelectedData] = useState(props.GalleryDiscription[0]);
   const [lightBox, setLightBox] = useState(false);
 
   const [direction, setDirection] = useState('next');
 
   const previousHandler = async () => {
-    const currentIndex = props.GalleryData.findIndex(
-      (gallery) => gallery === selectedGallery
-    );
-
-    const currentDataIndex = props.GalleryDiscription.findIndex(
-      (gallery) => gallery === selectedData
-    );
-
-    const previousIndex =
-      (currentIndex - 1 + props.GalleryData.length) % props.GalleryData.length;
-    const previousDataIndex =
-      (currentDataIndex - 1 + props.GalleryDiscription.length) %
-      props.GalleryDiscription.length;
-    const nextIndexForPrevious = (currentIndex + 1) % props.GalleryData.length; // Calculate next index for setting as previousGallery
-
-    setPreviousGallery(props.GalleryData[nextIndexForPrevious]); // Set the next item as previousGallery
-    setSelectedGallery(props.GalleryData[previousIndex]);
-    setSelectedData(props.GalleryDiscription[previousDataIndex]);
-    setDirection('previous');
+    let index = props.GalleryData.indexOf(selectedGallery);
+    if (index === 0) {
+      setSelectedGallery(props.GalleryData[props.GalleryData.length - 1]);
+      setNextGallery(props.GalleryData[0]);
+      setSelectedData(props.GalleryDiscription[props.GalleryData.length - 1]);
+    } else {
+      setSelectedGallery(props.GalleryData[index - 1]);
+      setNextGallery(props.GalleryData[index]);
+      setSelectedData(props.GalleryDiscription[index - 1]);
+    }
   };
 
   const nextHandler = async () => {
-    const currentIndex = props.GalleryData.findIndex(
-      (gallery) => gallery === selectedGallery
-    );
-
-    const currentDataIndex = props.GalleryDiscription.findIndex(
-      (gallery) => gallery === selectedData
-    );
-
-    const nextIndex = (currentIndex + 1) % props.GalleryData.length;
-    const nextDataIndex =
-      (currentDataIndex + 1) % props.GalleryDiscription.length;
-    const nextIndexForPrevious = (currentIndex + 2) % props.GalleryData.length; // Calculate next index for setting as previousGallery
-
-    setPreviousGallery(props.GalleryData[nextIndexForPrevious]); // Set the next item as previousGallery
-    setSelectedGallery(props.GalleryData[nextIndex]);
-    setSelectedData(props.GalleryDiscription[nextDataIndex]);
-    setDirection('next');
+    let index = props.GalleryData.indexOf(selectedGallery);
+    if (index === props.GalleryData.length - 1) {
+      setSelectedGallery(props.GalleryData[0]);
+      setNextGallery(props.GalleryData[1] || props.GalleryData[0]);
+      setSelectedData(props.GalleryDiscription[0]);
+    } else {
+      setSelectedGallery(props.GalleryData[index + 1]);
+      setNextGallery(props.GalleryData[index + 2] || props.GalleryData[0]);
+      setSelectedData(props.GalleryDiscription[index + 1]);
+    }
   };
 
   return (
@@ -135,7 +119,7 @@ export default function LayoutGallery(props) {
               )}
               <img
                 className=' hidden aspect-video size-full rounded-xl bg-zinc-200 object-contain object-center md:block ' // Apply the animation class here
-                src={`${url}/${props.collection}/${props.recordId}/${previousGallery}`}
+                src={`${url}/${props.collection}/${props.recordId}/${nextGallery}`}
                 alt={props.collection}
               />
             </div>

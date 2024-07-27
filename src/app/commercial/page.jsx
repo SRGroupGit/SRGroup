@@ -128,7 +128,7 @@ export default function Commercial() {
 
   return (
     <main>
-      <nav
+      {/* <nav
         ref={subNavRef}
         className=' fixed top-24 z-10 flex h-16 w-full items-center justify-between bg-neutral-800 px-4'
       >
@@ -136,8 +136,8 @@ export default function Commercial() {
         <GlobalButton color='white' className=' rounded-full p-4'>
           <Icon icon='clarity:filter-line' />
         </GlobalButton>
-      </nav>
-      <section className=' mt-[calc(64px+96px)]  flex h-[60dvh] min-h-[400px] w-full overflow-hidden'>
+      </nav> */}
+      <section className=' m-auto   mt-[calc(64px+96px)] flex  h-[60dvh] min-h-[400px] w-full max-w-screen-2xl overflow-hidden'>
         <div className='  flex w-full flex-col items-start'>
           <div className='relative size-full'>
             <Image
