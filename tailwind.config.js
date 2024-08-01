@@ -20,6 +20,16 @@ module.exports = {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',
       },
+      colors: {
+        yellow: {
+          100: '#FEBE18',
+          200: '#FEAA16',
+        },
+        blue: {
+          100: '#1E90FF',
+          200: '#013E5F',
+        },
+      },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },

@@ -14,11 +14,11 @@ export default function SelectGalLery() {
           fill
         />
         <div className=' absolute z-10 flex size-full flex-col items-center justify-between p-12'>
-          <p className=' text-sm font-medium text-neutral-200'>
+          <p className=' text-sm font-medium text-yellow-200'>
             Business Environment: Explore SR Group&apos;s Meticulously Designed
             Commercial Spaces, Where Light, Space, and Positive Vastu Unite
           </p>
-          <h4 className=' text-2xl font-bold text-white md:text-4xl lg:text-5xl'>
+          <h4 className=' text-2xl font-bold text-yellow-200 md:text-4xl lg:text-5xl'>
             Commercial
           </h4>
         </div>
@@ -31,11 +31,11 @@ export default function SelectGalLery() {
           fill
         />
         <div className=' absolute z-10 flex size-full flex-col items-center justify-between p-12'>
-          <p className=' text-sm font-medium text-neutral-200'>
+          <p className=' text-sm font-medium text-yellow-200'>
             Discover Your Perfect Harmony: Explore SR Group&apos;s Exquisite
             Residences Where Vastu, Space, and Luxury Converge
           </p>
-          <h4 className=' text-2xl font-bold text-white md:text-4xl lg:text-5xl'>
+          <h4 className=' text-2xl font-bold text-yellow-200 md:text-4xl lg:text-5xl'>
             Residential
           </h4>
         </div>

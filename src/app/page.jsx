@@ -189,18 +189,18 @@ export default function Home() {
         <div className=' mx-auto w-full max-w-screen-2xl'>
           <div className=' flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
             <div className=' flex flex-col gap-4'>
-              <h2 className=' flex flex-col overflow-hidden text-4xl md:text-6xl'>
+              <h2 className=' flex flex-col overflow-hidden text-4xl text-blue-200 md:text-6xl'>
                 <span className='fadeFromBelow  '>Professional</span>
                 <span className=' fadeFromBelow  font-black'>Services</span>
               </h2>
               <GlobalButton
-                color='black'
+                color='white'
                 className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
               >
                 Contact Us
               </GlobalButton>
             </div>
-            <p className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-neutral-800    md:text-base'>
+            <p className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-blue-200    md:text-base'>
               <span className='fadeIn  '>
                 SR Group specializes in residential and commercial projects and
                 maintains our on-time delivery commitment. Our layouts, crafted
@@ -222,7 +222,7 @@ export default function Home() {
                 <b>Total volume of area built</b> with 5 lakh Sq. ft. built with
                 3.2lakh sq. ft. of on-going projects
               </p>
-              <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp
                     enableScrollSpy={true}
@@ -235,7 +235,7 @@ export default function Home() {
               </h3>
             </div>
             <div className=' h-[320px] w-px   md:h-[270px] lg:h-[260px]'>
-              <div ref={topLine} className=' h-1/2 w-full bg-black'></div>
+              <div ref={topLine} className=' h-1/2 w-full bg-blue-200'></div>
             </div>
 
             <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
@@ -244,7 +244,7 @@ export default function Home() {
                 our extensive experience forms the cornerstone of our success,
                 guiding us in our mission.
               </p>
-              <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={16} duration={1.5} />+
                 </span>
@@ -253,10 +253,10 @@ export default function Home() {
           </div>
           <div className=' flex h-px w-full justify-between'>
             <div className=' w-full '>
-              <div ref={leftLine} className=' h-full w-1/2 bg-black'></div>
+              <div ref={leftLine} className=' h-full w-1/2 bg-blue-200'></div>
             </div>
             <div className=' flex w-full justify-end'>
-              <div ref={rightLine} className=' h-full w-1/2 bg-black'></div>
+              <div ref={rightLine} className=' h-full w-1/2 bg-blue-200'></div>
             </div>
           </div>
 
@@ -267,14 +267,14 @@ export default function Home() {
                 small, has been meticulously planned and executed with
                 precision.
               </p>
-              <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={15} duration={1.5} />+
                 </span>
               </h3>
             </div>
             <div className=' flex h-[320px] w-px items-end   md:h-[270px] lg:h-[260px]'>
-              <div ref={bottomLine} className=' h-1/2 w-full bg-black'></div>
+              <div ref={bottomLine} className=' h-1/2 w-full bg-blue-200'></div>
             </div>
 
             <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
@@ -282,7 +282,7 @@ export default function Home() {
                 <b>Customers Served</b> ,The trust placed in us by our customers
                 motivates us to continue improving and innovating.
               </p>
-              <h3 className=' overflow-hidden text-4xl font-bold lg:text-8xl '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={2000} duration={1} />+
                 </span>
@@ -301,14 +301,14 @@ export default function Home() {
         <div className=' mx-auto w-full max-w-screen-2xl'>
           <div className=' flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
             <div className=' flex flex-col gap-4'>
-              <h2 className=' flex flex-col overflow-hidden text-4xl md:text-6xl'>
+              <h2 className=' flex flex-col overflow-hidden text-4xl text-blue-200 md:text-6xl'>
                 <span className='fadeFromBelow  '>Upcoming</span>
                 <span className=' fadeFromBelow  pb-2 font-black'>
                   Projects
                 </span>
               </h2>
             </div>
-            <div className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-neutral-800  md:text-base'>
+            <div className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-blue-200  md:text-base'>
               <p className=' fadeIn  '>
                 SR Group specializes in residential and commercial projects and
                 maintains our on-time delivery commitment. Our layouts, crafted

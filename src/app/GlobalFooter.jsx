@@ -83,7 +83,7 @@ export default function GlobalFooter() {
   };
 
   return (
-    <footer className=' mt-10 w-full bg-neutral-950 px-3 py-8 text-neutral-200'>
+    <footer className=' mt-10 w-full bg-blue-200 px-3 py-8 text-neutral-200'>
       {success && (
         <div className=' fixed bottom-10 right-0 z-[9] bg-black px-12 py-3 text-white'>
           Message sent successfully
@@ -92,7 +92,9 @@ export default function GlobalFooter() {
       <div className=' m-auto w-full max-w-screen-2xl'>
         <div className=' grid-cols-2 gap-20 md:grid'>
           <div>
-            <span className=' text-4xl font-bold'>Contact Us</span>
+            <span className=' text-4xl font-bold text-yellow-200'>
+              Contact Us
+            </span>
             <form className='flex max-w-3xl flex-col'>
               <div className=' w-full gap-2 md:flex'>
                 <div className=' w-full'>
@@ -194,20 +196,20 @@ export default function GlobalFooter() {
           </div>
           <div className='  mt-20 flex w-full  flex-col gap-7'>
             <div className=' grid grid-cols-2'>
-              <span>CONTACT</span>
+              <span className='text-yellow-200'>CONTACT</span>
               <span className=' flex flex-col gap-4'>
                 +91 7448007500 info@sreddygroup.com
               </span>
             </div>
             <div className=' grid grid-cols-2'>
-              <span>OFFICE</span>
+              <span className='text-yellow-200'>OFFICE</span>
               <span>
                 5th floor, Business Point, Sai Chowk Rd, Laxman Nagar, Baner,
                 Pune, Maharashtra, 411045
               </span>
             </div>
             <div className=' grid grid-cols-2'>
-              <span>SOCIALS</span>
+              <span className='text-yellow-200'>SOCIALS</span>
               <span className=' flex flex-col gap-2'>
                 <Link
                   href='https://www.instagram.com/sr_group_pune/'

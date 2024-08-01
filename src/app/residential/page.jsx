@@ -147,7 +147,7 @@ export default function Residential() {
               className=' object-cover object-center'
             ></Image>
           </div>
-          <h1 className=' flex  h-fit w-full flex-col p-4 text-5xl md:text-6xl'>
+          <h1 className=' flex h-fit  w-full flex-col p-4 text-5xl text-blue-200 md:text-6xl'>
             Residential
             <span className='  font-bold'>Projects</span>
           </h1>
@@ -169,14 +169,16 @@ export default function Residential() {
           <div key={item.id}>
             <div>
               <div className=' mx-auto flex max-w-screen-2xl  flex-col gap-4  px-4'>
-                <h2 className=' text-4xl font-bold'>{item.Title}</h2>
-                <span className=' flex items-center gap-0.5  text-xl font-light  italic text-neutral-700'>
+                <h2 className=' text-6xl font-bold text-blue-200'>
+                  {item.Title}
+                </h2>
+                <span className=' flex items-center gap-0.5 text-2xl  font-light italic   text-yellow-200'>
                   <Icon icon='carbon:location-filled' />
                   {item.location}
                 </span>
               </div>
 
-              <div className=' mt-10'>
+              <div className=' mt-10 px-4'>
                 <HeroGallery
                   collection={item.collectionName}
                   recordId={item.id}
@@ -187,11 +189,11 @@ export default function Residential() {
             <div className='  m-auto mt-4 flex h-fit max-w-screen-2xl flex-col gap-4 px-4 md:flex-row'>
               <div className=' relative  size-full md:h-full md:w-2/3'>
                 <div className=' sticky top-0  flex w-full flex-col gap-4 px-2 '>
-                  <p className=' text-xl font-medium'>{item.discription}</p>
+                  <p className=' my-10 text-lg '>{item.discription}</p>
                   <div className=' grid grid-cols-2 gap-2 '>
                     {item.amenities.map((aminity) => (
                       <div className=' flex items-center gap-2 text-neutral-700'>
-                        <div className=' relative size-16'>
+                        <div className=' relative size-14'>
                           <Image
                             className=' object-contain object-center'
                             fill
@@ -212,10 +214,10 @@ export default function Residential() {
                   </div>
                 </div>
               </div>
-              <div className=' h-fit w-full overflow-hidden rounded-xl bg-black p-8  text-white  md:w-1/3'>
+              <div className=' h-fit w-full overflow-hidden rounded-xl bg-blue-200 p-8  text-white  md:w-1/3'>
                 {item.contact_us === true ? (
                   <div className=' flex flex-col gap-2'>
-                    <div className=' flex flex-col overflow-hidden text-3xl md:text-4xl'>
+                    <div className=' flex  flex-col overflow-hidden text-3xl text-yellow-200 md:text-4xl'>
                       <span className='fadeFromBelow  '>Units Available</span>
                       <span className=' fadeFromBelow  font-black'>
                         For Sale
@@ -342,7 +344,7 @@ export default function Residential() {
                   </div>
                 ) : (
                   <div className=' flex flex-col gap-2'>
-                    <div className=' flex flex-col overflow-hidden text-3xl md:text-4xl'>
+                    <div className='flex flex-col overflow-hidden text-3xl text-yellow-200 md:text-4xl'>
                       <span className='fadeFromBelow  '>All units </span>
                       <span className=' fadeFromBelow  font-black'>Sold.</span>
                     </div>
@@ -366,7 +368,7 @@ export default function Residential() {
                 )}
               </div>
             </div>
-            <div className=' mt-10'>
+            <div className=' mt-10 px-4'>
               <LayoutGallery
                 collection={item.collectionName}
                 recordId={item.id}

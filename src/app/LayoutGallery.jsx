@@ -81,23 +81,23 @@ export default function LayoutGallery(props) {
         </div>
       )}
       <div className=' mx-auto w-full max-w-screen-2xl'>
-        <div className='mt-4 flex w-full  justify-between px-4 '>
-          <div
-            className='cursorReduce flex items-center justify-center rounded-full   p-2 md:p-4  '
-            onClick={previousHandler}
-          >
-            <PreviousArrowBlack />
-          </div>
-          <div
-            className='cursorReduce flex items-center justify-center rounded-full   p-2 md:p-4  '
-            onClick={nextHandler}
-          >
-            <NextArrowBlack />
-          </div>
-        </div>
         <div>
           <div className='  relative flex w-full flex-col  items-end justify-center gap-4  overflow-hidden rounded-md md:flex-row '>
-            <div className='  w-full md:w-2/3'>
+            <div className=' relative  w-full md:w-2/3'>
+              <div className='absolute mt-4 flex size-full items-center justify-between  px-4 '>
+                <div
+                  className='cursorReduce flex aspect-square size-14 items-center justify-center rounded-full border border-black bg-black/15 p-2 backdrop-blur-xl   md:size-20 md:p-4'
+                  onClick={previousHandler}
+                >
+                  <PreviousArrow />
+                </div>
+                <div
+                  className='cursorReduce flex aspect-square size-14  items-center justify-center rounded-full border border-black bg-black/15 p-2  backdrop-blur-xl md:size-20  md:p-4'
+                  onClick={nextHandler}
+                >
+                  <NextArrow />
+                </div>
+              </div>
               <img
                 onClick={() => {
                   setLightBox(true);

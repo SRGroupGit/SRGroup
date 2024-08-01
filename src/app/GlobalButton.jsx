@@ -52,8 +52,8 @@ export default function GlobalButton({ children, className, ...props }) {
       className={`${className} 
     ${
       props.color === 'white'
-        ? '  bg-neutral-200 text-neutral-900   hover:text-neutral-200   active:text-neutral-900 '
-        : '  bg-neutral-900 text-neutral-200  hover:text-neutral-900   active:text-neutral-200  '
+        ? '  bg-yellow-200 text-neutral-900     '
+        : '  bg-blue-200 text-neutral-200  '
     } cursorHide
     group relative cursor-none
     transition-transform duration-200 active:scale-90 `}
@@ -69,8 +69,8 @@ export default function GlobalButton({ children, className, ...props }) {
         className={` 
         ${
           props.color === 'white'
-            ? '    bg-neutral-900 outline -outline-offset-1  outline-neutral-900 group-active:bg-neutral-100  group-active:outline-neutral-100'
-            : '   bg-neutral-200  outline -outline-offset-1 outline-neutral-200 group-active:bg-neutral-900 group-active:outline-neutral-900'
+            ? '    bg-yellow-100 outline -outline-offset-1  outline-yellow-100 group-active:bg-yellow-200  group-active:outline-yellow-200'
+            : '   bg-blue-100 outline -outline-offset-1 outline-blue-100 group-active:bg-blue-200 group-active:outline-blue-200'
         } 
         absolute left-0   top-0  z-10 size-full rounded-full transition-[background-color,outline]  duration-200`}
       ></span>
