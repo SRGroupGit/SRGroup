@@ -34,6 +34,7 @@ export default function Commercial() {
 
   useEffect(() => {
     dispatch(fetchCommercialList());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const subNavRef = useRef();
@@ -128,6 +129,11 @@ export default function Commercial() {
 
   return (
     <main>
+      {success && (
+        <div className=' fixed bottom-10 right-0 z-[9] bg-black px-12 py-3 text-white'>
+          Message sent successfully
+        </div>
+      )}
       {/* <nav
         ref={subNavRef}
         className=' fixed top-24 z-10 flex h-16 w-full items-center justify-between bg-neutral-800 px-4'
