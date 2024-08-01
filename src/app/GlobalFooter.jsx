@@ -12,6 +12,7 @@ export default function GlobalFooter() {
     phone: '',
     message: '',
   });
+  const [cookies, setCookies] = useState(true);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
@@ -87,6 +88,37 @@ export default function GlobalFooter() {
       {success && (
         <div className=' fixed bottom-10 right-0 z-[9] bg-black px-12 py-3 text-white'>
           Message sent successfully
+        </div>
+      )}
+      {cookies && (
+        <div className=' fixed bottom-0  right-0 z-[999999] flex  flex-col items-center justify-center  bg-black px-12 py-3 text-white'>
+          <span className=' w-full text-xl font-bold text-yellow-200'>
+            {' '}
+            Disclaimer{' '}
+          </span>
+          <p className=' w-full text-sm'>
+            The information provided on the SRgroup real estate website is for
+            general informational purposes only. While we strive to keep the
+            information up to date and accurate, we make no representations or
+            warranties of any kind, express or implied, about the completeness,
+            accuracy, reliability, suitability, or availability with respect to
+            the website or the information, products, services, or related
+            graphics contained on the website for any purpose. Any reliance you
+            place on such information is therefore strictly at your own risk.{' '}
+          </p>
+          <p className=' w-full text-sm'>
+            In no event will SRgroup or its employees be liable for any loss or
+            damage including without limitation, indirect or consequential loss
+            or damage, or any loss or damage whatsoever arising from loss of
+            data or profits.
+          </p>
+          <GlobalButton
+            color='white'
+            className=' mt-4 hidden w-full rounded-full px-6  py-2 text-base font-medium md:block md:h-fit md:w-32'
+            onClick={() => setCookies(false)}
+          >
+            I accept
+          </GlobalButton>
         </div>
       )}
       <div className=' m-auto w-full max-w-screen-2xl'>
