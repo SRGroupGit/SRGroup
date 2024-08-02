@@ -552,7 +552,7 @@ export default function GlobalNavBar() {
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
-          <div className=' absolute bottom-2 flex w-full flex-col items-center px-2 text-base font-normal text-white md:flex-row md:justify-between'>
+          <div className=' absolute bottom-2 flex w-full flex-col items-center px-2 text-base font-bold text-black md:flex-row md:justify-between'>
             <span>SR Group all right reserved {new Date().getFullYear()}</span>
             <div className=' flex flex-wrap gap-4'>
               <Link

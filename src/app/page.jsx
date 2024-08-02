@@ -160,7 +160,7 @@ export default function Home() {
       >
         <video
           src='/Video.mp4'
-          className='size-full object-cover brightness-50 contrast-125 saturate-150'
+          className='= size-full object-cover'
           autoPlay
           loop
           muted
