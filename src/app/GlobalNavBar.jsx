@@ -135,17 +135,13 @@ export default function GlobalNavBar() {
 
   useEffect(() => {
     setBackgroundColorValue(
-      colorMode === 'light' || navOpen
-        ? 'rgba(0,0,0,0.9)'
-        : 'rgba(255,255,255,0.9)'
+      colorMode === 'light' || navOpen ? 'rgba(0,0,0,1)' : 'rgba(255,255,255,1)'
     );
   }, [colorMode, navOpen]);
 
   useGSAP(() => {
     gsap.set(navRef.current, {
-      backgroundColor: 'rgba(0,0,0,0)',
-
-      height: '6rem',
+      backgroundColor: 'rgba(255,255,255,1)',
     });
 
     let animate = false;
@@ -157,15 +153,14 @@ export default function GlobalNavBar() {
           backgroundColor: backgroundColorValue,
 
           duration: 0.5,
-          height: '5rem',
+
           ease: 'power2.inOut',
         }),
           (animate = true);
       } else if (scrollY <= 80 && animate) {
         gsap.to(navRef.current, {
-          backgroundColor: 'rgba(0,0,0,0)',
+          backgroundColor: 'rgba(255,255,255,1)',
 
-          height: '6rem',
           duration: 0.5,
           ease: 'power2.inOut',
         }),
@@ -316,7 +311,7 @@ export default function GlobalNavBar() {
     <>
       <nav
         ref={navRef}
-        className={`   fixed left-0 top-0 z-[999]  flex   h-24 w-full items-center justify-between px-4 py-2.5 `}
+        className={`   fixed left-0 top-0 z-[999]  flex h-[110px]   w-full items-center justify-between bg-white px-4 py-2.5 `}
       >
         <Link
           href='/'
@@ -392,7 +387,7 @@ export default function GlobalNavBar() {
       >
         <div
           ref={navMenuContainer}
-          className=' mt-4 flex h-[calc(100%-96px)]  flex-col  items-start justify-center overflow-hidden text-5xl font-bold  text-white md:text-5xl    lg:text-6xl'
+          className=' mt-4 flex h-[calc(100%-110px)]  flex-col  items-start justify-center overflow-hidden text-5xl font-bold  text-white md:text-5xl    lg:text-6xl'
         >
           <hr id='line' className=' w-full bg-blue-200' />
           <Link

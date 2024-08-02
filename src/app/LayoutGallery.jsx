@@ -110,11 +110,11 @@ export default function LayoutGallery(props) {
             </div>
             <div className=' flex  w-full flex-col items-end justify-start gap-8 md:w-1/3'>
               {selectedData && (
-                <div className='flex flex-col gap-2'>
+                <div className='flex w-full flex-col gap-2'>
                   <span className='text-2xl font-bold'>
                     {selectedData.title}
                   </span>
-                  <p className='text-base'>{selectedData.Discription}</p>
+                  <p className='w-full text-base'>{selectedData.Discription}</p>
                 </div>
               )}
               <img

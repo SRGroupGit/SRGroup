@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import GlobalButton from '../GlobalButton';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
@@ -11,8 +12,13 @@ import { fetchResidentialList } from '@/lib/features/residentialList';
 import { useDispatch, useSelector } from 'react-redux';
 import HeroGallery from '../HeroGallery';
 import LayoutGallery from '../LayoutGallery';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 export default function Residential() {
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
+  }
+
   const dispatch = useDispatch();
   const dataList = useSelector((state) => state.residentialList);
   const [data, setData] = useState({
@@ -31,36 +37,55 @@ export default function Residential() {
   const [messageError, setMessageError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [loadingData, setLoadingData] = useState(true);
+  const [indexMenu, setIndexMenu] = useState(false);
+  const [indexId, setIndexId] = useState('none');
 
   useEffect(() => {
-    dispatch(fetchResidentialList());
+    const fetchData = async () => {
+      if (dataList.data.length === 0) {
+        await dispatch(fetchResidentialList());
+        setLoadingData(false);
+        ScrollTrigger.refresh();
+      }
+    };
+    fetchData();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const subNavRef = useRef();
+  useGSAP(() => {
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: { y: `#a${indexId}`, offsetY: 240 },
+    });
+  }, [indexId]);
 
   useGSAP(() => {
-    gsap.set(subNavRef.current, {
-      top: '6rem',
+    const fadeIn = gsap.utils.toArray('.fadeIn');
+    fadeIn.forEach((fade) => {
+      gsap.from(fade, {
+        x: 200,
+        scrollTrigger: {
+          trigger: fade,
+          start: 'top bottom',
+          end: 'top 40%',
+          scrub: true,
+        },
+      });
+      gsap.to(fade, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: fade,
+          start: 'bottom 80%',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
     });
+  }, [loadingData]);
 
-    let animate = false;
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 80 && !animate) {
-        gsap.to(subNavRef.current, {
-          top: '5rem ',
-        }),
-          (animate = true);
-      } else if (scrollY <= 80 && animate) {
-        gsap.to(subNavRef.current, {
-          top: '6rem',
-        }),
-          (animate = false);
-      }
-    });
-  }, []);
+  const subNavRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -134,16 +159,45 @@ export default function Residential() {
           Message sent successfully
         </div>
       )}
-      {/* <nav
+      <nav
         ref={subNavRef}
-        className=' fixed top-24 z-10 flex h-16 w-full items-center justify-between bg-neutral-800 px-4'
+        className=' fixed top-[110px]   z-10 flex h-16 w-full items-center justify-between bg-neutral-800 px-4'
       >
-        <span className=' text-3xl font-medium text-neutral-200'>Filters</span>
-        <GlobalButton color='white' className=' rounded-full p-4'>
-          <Icon icon='clarity:filter-line' />
+        <span className=' text-3xl font-medium text-neutral-200'>Index</span>
+        <GlobalButton
+          onClick={() => setIndexMenu(!indexMenu)}
+          color='white'
+          className=' rounded-full p-4'
+        >
+          {indexMenu ? (
+            <Icon icon='material-symbols:close' />
+          ) : (
+            <Icon icon='icon-park-outline:application-menu' />
+          )}
         </GlobalButton>
-      </nav> */}
-      <section className=' m-auto mt-[calc(64px+96px)] flex  h-[60dvh] min-h-[400px] w-full max-w-screen-2xl overflow-hidden'>
+      </nav>
+      {indexMenu && (
+        <div className=' fixed right-0 top-[174px] z-20 max-h-[calc(100vh-174px)] overflow-y-auto bg-neutral-800 p-4'>
+          <ul className=' flex flex-col gap-2'>
+            {dataList.data.map((item) => (
+              <li key={item.id}>
+                <div
+                  onClick={() => {
+                    setIndexId(item.id), setIndexMenu(false);
+                  }}
+                  className=' mb-2 flex flex-col  border-b border-gray-600 pb-1'
+                >
+                  <span className=' text-2xl text-white'>{item.Title}</span>
+                  <span className=' text-sm text-yellow-200'>
+                    {item.location}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <section className=' m-auto mt-[calc(64px+110px)] flex  h-[60dvh] min-h-[400px] w-full max-w-screen-2xl overflow-hidden'>
         <div className='  flex w-full  flex-col items-start'>
           <div className='relative size-full'>
             <Image
@@ -170,9 +224,9 @@ export default function Residential() {
       <br />
       <hr className=' border-t-2 border-black' />
       <br />
-      <section>
+      <section className=' w-full overflow-x-hidden'>
         {dataList.data.map((item) => (
-          <div key={item.id}>
+          <div className='fadeIn' id={`a${item.id}`} key={item.id}>
             <div>
               <div className=' mx-auto flex max-w-screen-2xl  flex-col gap-4  px-4'>
                 <h2 className=' text-6xl font-bold text-blue-200'>

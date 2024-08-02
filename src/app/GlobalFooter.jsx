@@ -12,7 +12,7 @@ export default function GlobalFooter() {
     phone: '',
     message: '',
   });
-  const [cookies, setCookies] = useState(true);
+  const [cookies, setCookies] = useState(false);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
