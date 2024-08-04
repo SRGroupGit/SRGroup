@@ -214,7 +214,7 @@ export default function Residential() {
       <br />
       <hr className=' border-t-2 border-blue-200' />
       <br />
-      <section className=' w-full overflow-x-hidden'>
+      <section className=' w-full overflow-x-hidden px-3'>
         {dataList.data.map((item) => (
           <div className='fadeIn' id={`a${item.id}`} key={item.id}>
             <div>
@@ -228,7 +228,7 @@ export default function Residential() {
                 </span>
               </div>
 
-              <div className=' mt-10 px-4'>
+              <div className=' mt-10 '>
                 <HeroGallery
                   collection={item.collectionName}
                   recordId={item.id}
@@ -236,7 +236,7 @@ export default function Residential() {
                 />
               </div>
             </div>
-            <div className='  m-auto mt-4 flex h-fit max-w-screen-2xl flex-col gap-4 md:flex-row'>
+            <div className=' m-auto  mt-4 flex h-fit max-w-screen-2xl flex-col gap-4 md:flex-row'>
               <div className=' relative  size-full md:h-full md:w-2/3'>
                 <div className=' sticky top-0  flex w-full flex-col gap-4  '>
                   <p className=' my-10 text-lg '>{item.discription}</p>
@@ -418,7 +418,7 @@ export default function Residential() {
                 )}
               </div>
             </div>
-            <div className=' mt-10 px-4'>
+            <div className=' mt-10 '>
               <LayoutGallery
                 collection={item.collectionName}
                 recordId={item.id}
