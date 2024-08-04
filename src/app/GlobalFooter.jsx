@@ -279,6 +279,21 @@ export default function GlobalFooter() {
           </div>
         </div>
       </div>
+      <section className=' m-auto flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4 text-sm md:flex-row'>
+        <div>
+          <span>SR Group all right reserved {new Date().getFullYear()}</span>
+        </div>
+        <div>
+          Designed and developed by{' '}
+          <Link
+            className=' text-yellow-200'
+            target='blank_'
+            href='https://www.angle.services'
+          >
+            Angle
+          </Link>
+        </div>
+      </section>
     </footer>
   );
 }

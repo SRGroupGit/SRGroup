@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import GlobalButton from './GlobalButton';
+import { Icon } from '@iconify/react';
 
 export default function GlobalNavBar() {
   const pathname = usePathname();
@@ -140,40 +141,6 @@ export default function GlobalNavBar() {
   }, [colorMode, navOpen]);
 
   useGSAP(() => {
-    gsap.set(navRef.current, {
-      backgroundColor: 'rgba(255,255,255,1)',
-    });
-
-    let animate = false;
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 80 && !animate) {
-        gsap.to(navRef.current, {
-          backgroundColor: backgroundColorValue,
-
-          duration: 0.5,
-
-          ease: 'power2.inOut',
-        }),
-          (animate = true);
-      } else if (scrollY <= 80 && animate) {
-        gsap.to(navRef.current, {
-          backgroundColor: 'rgba(255,255,255,1)',
-
-          duration: 0.5,
-          ease: 'power2.inOut',
-        }),
-          (animate = false);
-      }
-    });
-  }, [backgroundColorValue]);
-
-  useGSAP(() => {
-    gsap.set(navRef.current, {
-      y: -150, // Adjust this value as needed
-      opacity: 0,
-    });
     gsap.set(navMenu.current, {
       clipPath: 'circle(0% at 99% 2%)',
     });
@@ -193,13 +160,6 @@ export default function GlobalNavBar() {
     );
 
     // Animate to final position
-    gsap.to(navRef.current, {
-      duration: 0.75,
-      delay: 0.5,
-      y: 0,
-      opacity: 1,
-      ease: 'power2.In',
-    });
   }, []);
 
   useEffect(() => {
@@ -311,16 +271,44 @@ export default function GlobalNavBar() {
     <>
       <nav
         ref={navRef}
-        className={`   fixed left-0 top-0 z-[999]  flex h-[110px]   w-full items-center justify-between bg-white px-4 py-2.5 `}
+        className={`   fixed left-0 top-0 z-[999]  flex h-[110px]   w-full items-center justify-between bg-white px-4 py-3 `}
       >
-        <Link
-          href='/'
-          className={`
+        <div className=' hidden items-center gap-2 text-2xl text-blue-200 md:flex '>
+          <Link
+            href='https://www.instagram.com/sr_group_pune/'
+            className='cursorReduce '
+            target='_blank'
+          >
+            <Icon icon='hugeicons:instagram' />
+          </Link>
+
+          <Link
+            href='https://www.linkedin.com/company/sr-group-pune/about/'
+            className='cursorReduce '
+            target='_blank'
+          >
+            <Icon icon='ri:linkedin-line' />
+          </Link>
+
+          <Link
+            href='https://wa.me/+917448007500'
+            className='cursorReduce '
+            target='_blank'
+          >
+            <Icon icon='ic:baseline-whatsapp' />
+          </Link>
+        </div>
+        <div className=' pointer-events-none fixed left-0 top-0  z-[999] grid h-[110px]   w-full items-center justify-start px-4 py-3 md:justify-center '>
+          <Link
+            href='/'
+            className={`
       ${colorMode === 'light' || navOpen ? ' text-white  bg-blend-difference  ' : ' text-black'}
-       aspect-square h-full`}
-        >
-          <GlobalNavLogo />
-        </Link>
+       pointer-events-auto aspect-square h-full`}
+          >
+            <GlobalNavLogo />
+          </Link>
+        </div>
+
         <div />
         <div className=' flex h-full max-h-14  items-center gap-2'>
           <Link className=' h-full' href='/contact'>
@@ -422,38 +410,7 @@ export default function GlobalNavBar() {
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
-          <Link
-            onClick={onClickMenu}
-            id='menuItem'
-            className=' group w-full bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
-            href='/contact'
-          >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
-              CONTACT
-            </div>
-            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
-              <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-              </div>
 
-              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-                <span className='mx-4 '>CONTACT</span>
-              </div>
-            </div>
-          </Link>
-          <hr id='line' className=' w-full bg-white' />
           <Link
             onClick={onClickMenu}
             id='menuItem'
@@ -551,8 +508,41 @@ export default function GlobalNavBar() {
               </div>
             </div>
           </Link>
+
           <hr id='line' className=' w-full bg-white' />
-          <div className=' absolute bottom-2 flex w-full flex-col items-center px-2 text-base font-bold text-black md:flex-row md:justify-between'>
+          <Link
+            onClick={onClickMenu}
+            id='menuItem'
+            className=' group w-full bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
+            href='/contact'
+          >
+            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
+              CONTACT US
+            </div>
+            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
+              <div className='animate-marquee whitespace-nowrap'>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+              </div>
+
+              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+                <span className='mx-4 '>CONTACT US</span>
+              </div>
+            </div>
+          </Link>
+          <hr id='line' className=' w-full bg-white' />
+          <div className=' absolute bottom-2 flex w-full flex-col items-center px-2 text-base font-bold text-blue-200 md:flex-row md:justify-between'>
             <span>SR Group all right reserved {new Date().getFullYear()}</span>
             <div className=' flex flex-wrap gap-4'>
               <Link

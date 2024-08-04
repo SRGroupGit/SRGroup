@@ -85,7 +85,7 @@ export default function Contact() {
     <div className=' mx-auto mt-20 flex size-full max-w-screen-2xl flex-col  items-center  justify-center gap-8 px-3 md:min-h-[calc(100dvh-80px)] md:flex-row'>
       <div className=' flex size-full  flex-col gap-4 overflow-visible'>
         <div className='  h-[424px]'>
-          <h1 className=' mb-4 text-5xl font-bold text-black'>Contact Us</h1>
+          <h1 className=' mb-4 text-5xl font-bold text-blue-200'>Contact Us</h1>
           <form className='flex w-full flex-col'>
             <div className=' w-full cursor-text gap-2 md:flex'>
               <div className=' w-full'>

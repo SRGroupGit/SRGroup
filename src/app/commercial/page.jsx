@@ -11,8 +11,14 @@ import { fetchCommercialList } from '@/lib/features/commercialList';
 import { useDispatch, useSelector } from 'react-redux';
 import HeroGallery from '../HeroGallery';
 import LayoutGallery from '../LayoutGallery';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 
 export default function Commercial() {
+  if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
+  }
+
   const dispatch = useDispatch();
   const dataList = useSelector((state) => state.commercialList);
   const [data, setData] = useState({
@@ -31,36 +37,55 @@ export default function Commercial() {
   const [messageError, setMessageError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [loadingData, setLoadingData] = useState(true);
+  const [indexMenu, setIndexMenu] = useState(false);
+  const [indexId, setIndexId] = useState('none');
 
   useEffect(() => {
-    dispatch(fetchCommercialList());
+    const fetchData = async () => {
+      if (dataList.data.length === 0) {
+        await dispatch(fetchCommercialList());
+        setLoadingData(false);
+        ScrollTrigger.refresh();
+      }
+    };
+    fetchData();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const subNavRef = useRef();
 
   useGSAP(() => {
-    gsap.set(subNavRef.current, {
-      top: '6rem',
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: { y: `#a${indexId}`, offsetY: 240 },
     });
+  }, [indexId]);
 
-    let animate = false;
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 80 && !animate) {
-        gsap.to(subNavRef.current, {
-          top: '5rem ',
-        }),
-          (animate = true);
-      } else if (scrollY <= 80 && animate) {
-        gsap.to(subNavRef.current, {
-          top: '6rem',
-        }),
-          (animate = false);
-      }
+  useGSAP(() => {
+    const fadeIn = gsap.utils.toArray('.fadeIn');
+    fadeIn.forEach((fade) => {
+      gsap.from(fade, {
+        x: 200,
+        scrollTrigger: {
+          trigger: fade,
+          start: 'top bottom',
+          end: 'top 40%',
+          scrub: true,
+        },
+      });
+      gsap.to(fade, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: fade,
+          start: 'bottom +=400',
+          end: 'bottom 10%',
+          scrub: true,
+        },
+      });
     });
-  }, []);
+  }, [loadingData]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -134,31 +159,50 @@ export default function Commercial() {
           Message sent successfully
         </div>
       )}
-      {/* <nav
+      <nav
         ref={subNavRef}
-        className=' fixed top-24 z-10 flex h-16 w-full items-center justify-between bg-neutral-800 px-4'
+        className=' fixed top-[110px]   z-10 flex h-16 w-full items-center justify-between bg-neutral-800 px-4'
       >
-        <span className=' text-3xl font-medium text-neutral-200'>Filters</span>
-        <GlobalButton color='white' className=' rounded-full p-4'>
-          <Icon icon='clarity:filter-line' />
+        <span className=' text-3xl font-medium text-neutral-200'>Index</span>
+        <GlobalButton
+          onClick={() => setIndexMenu(!indexMenu)}
+          color='white'
+          className=' rounded-full p-4'
+        >
+          {indexMenu ? (
+            <Icon icon='material-symbols:close' />
+          ) : (
+            <Icon icon='icon-park-outline:application-menu' />
+          )}
         </GlobalButton>
-      </nav> */}
-      <section className=' m-auto   mt-[calc(64px+96px)] flex  h-[60dvh] min-h-[400px] w-full max-w-screen-2xl overflow-hidden'>
-        <div className='  flex w-full flex-col items-start'>
-          <div className='relative size-full'>
-            <Image
-              src='/resLarge.png'
-              fill
-              alt='residential image'
-              className=' object-cover object-center'
-            ></Image>
-          </div>
-          <h1 className=' flex h-fit  w-full flex-col p-4 text-5xl text-blue-200 md:text-6xl'>
-            Commercial
-            <span className='  font-bold'>Projects</span>
-          </h1>
+      </nav>
+      {indexMenu && (
+        <div className=' fixed right-0 top-[174px] z-20 max-h-[calc(100vh-174px)] overflow-y-auto bg-neutral-800 p-4'>
+          <ul className=' flex flex-col gap-2'>
+            {dataList.data.map((item) => (
+              <li key={item.id}>
+                <div
+                  onClick={() => {
+                    setIndexId(item.id), setIndexMenu(false);
+                  }}
+                  className=' mb-2 flex cursor-pointer flex-col  border-b border-gray-600 pb-1'
+                >
+                  <span className=' text-2xl text-white'>{item.Title}</span>
+                  <span className=' text-sm text-yellow-200'>
+                    {item.location}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className=' relative hidden w-full md:block '>
+      )}
+      <section className=' m-auto mt-[calc(64px+110px)] flex h-[calc(100vh-174px)] min-h-[400px]  w-full max-w-screen-2xl  flex-col items-center justify-center gap-10 overflow-hidden p-4 md:flex-row'>
+        <h1 className=' flex   w-full flex-col text-5xl  text-blue-200 md:w-1/3 md:text-6xl'>
+          Commercial
+          <span className='  font-bold'>Projects</span>
+        </h1>
+        <div className=' relative   h-[70vh] w-full '>
           <Image
             src='/resSmall.png'
             fill
@@ -168,11 +212,11 @@ export default function Commercial() {
         </div>
       </section>
       <br />
-      <hr className=' border-t-2 border-black' />
+      <hr className=' border-t-2 border-blue-200' />
       <br />
       <section>
         {dataList.data.map((item) => (
-          <div key={item.id}>
+          <div className='fadeIn' id={`a${item.id}`} key={item.id}>
             <div>
               <div className=' mx-auto flex max-w-screen-2xl  flex-col gap-4  px-4'>
                 <h2 className=' text-6xl font-bold text-blue-200'>
@@ -192,9 +236,9 @@ export default function Commercial() {
                 />
               </div>
             </div>
-            <div className='  m-auto mt-4 flex h-fit max-w-screen-2xl flex-col gap-4 px-4 md:flex-row'>
+            <div className='  m-auto mt-4 flex h-fit max-w-screen-2xl flex-col gap-4  md:flex-row'>
               <div className=' relative  size-full md:h-full md:w-2/3'>
-                <div className=' sticky top-0  flex w-full flex-col gap-4 px-2 '>
+                <div className=' sticky top-0  flex w-full flex-col gap-4  '>
                   <p className='   my-10 text-lg '>{item.discription}</p>
                   <div className=' grid grid-cols-2 gap-2 '>
                     {item.amenities.map((aminity) => (
@@ -382,9 +426,7 @@ export default function Commercial() {
                 GalleryDiscription={item.plan_discription}
               />
             </div>
-            <br />
-            <hr className=' border-t-2 border-black' />
-            <br />
+            <div className=' mb-40 size-1'></div>
           </div>
         ))}
       </section>

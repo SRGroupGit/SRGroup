@@ -35,24 +35,7 @@ export default function Home() {
 
   useGSAP(() => {
     tl.current = gsap.timeline();
-    tl.current
-      .from(heroHeadingLine1.current, {
-        duration: 0.75,
-        opacity: 0,
-        delay: 0.5,
-        y: 300,
-        ease: 'power2.out',
-      })
-      .from(
-        heroHeadingLine2.current,
-        {
-          duration: 0.75,
-          opacity: 0,
-          y: 200,
-          ease: 'power2.out',
-        },
-        '>-0.1'
-      );
+
     gsap.to(heroHeadingLine.current, {
       y: -200,
       scrollTrigger: {
@@ -215,7 +198,7 @@ export default function Home() {
         </div>
       </section>
       <section ref={FourPointsSection} className=' my-10 w-full px-3 '>
-        <div className=' mx-auto w-full max-w-screen-2xl'>
+        <div className=' mx-auto w-full max-w-screen-2xl text-blue-200'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
             <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>

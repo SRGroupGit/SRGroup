@@ -106,8 +106,8 @@ export default function Gallery() {
   };
 
   return (
-    <div className=' flex  flex-col px-4 md:gap-3 '>
-      <div className=' flex flex-col-reverse md:flex-row md:gap-4 lg:gap-6 '>
+    <div className=' flex  flex-col md:gap-3 '>
+      <div className=' flex flex-col-reverse justify-between md:flex-row md:gap-4 lg:gap-6 '>
         <div className=' flex flex-col justify-between md:w-1/4 md:max-w-sm'>
           <h5 className=' block hyphens-auto break-words text-xl    font-medium text-yellow-200 md:hidden md:w-1/4 md:max-w-sm md:text-3xl lg:text-4xl'>
             {selectedGallery.location}
@@ -115,7 +115,7 @@ export default function Gallery() {
           <h4 className=' block text-2xl font-bold  text-yellow-200  md:hidden md:text-3xl lg:text-5xl'>
             {selectedGallery.title}
           </h4>
-          <p>{selectedGallery.description}</p>
+          <p className=' text-blue-200'>{selectedGallery.description}</p>
         </div>
         <div className=' cursorBig relative aspect-video max-h-[calc(70dvh-90px)]   w-full overflow-hidden rounded-md '>
           <div className=' absolute z-10 flex size-full items-center justify-between px-2 max-md:mb-3'>

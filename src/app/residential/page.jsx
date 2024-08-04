@@ -77,8 +77,8 @@ export default function Residential() {
         opacity: 0,
         scrollTrigger: {
           trigger: fade,
-          start: 'bottom 80%',
-          end: 'bottom top',
+          start: 'bottom +=400',
+          end: 'bottom 10%',
           scrub: true,
         },
       });
@@ -185,7 +185,7 @@ export default function Residential() {
                   onClick={() => {
                     setIndexId(item.id), setIndexMenu(false);
                   }}
-                  className=' mb-2 flex flex-col  border-b border-gray-600 pb-1'
+                  className=' mb-2 flex cursor-pointer flex-col  border-b border-gray-600 pb-1'
                 >
                   <span className=' text-2xl text-white'>{item.Title}</span>
                   <span className=' text-sm text-yellow-200'>
@@ -197,22 +197,12 @@ export default function Residential() {
           </ul>
         </div>
       )}
-      <section className=' m-auto mt-[calc(64px+110px)] flex  h-[60dvh] min-h-[400px] w-full max-w-screen-2xl overflow-hidden'>
-        <div className='  flex w-full  flex-col items-start'>
-          <div className='relative size-full'>
-            <Image
-              src='/resLarge.png'
-              fill
-              alt='residential image'
-              className=' object-cover object-center'
-            ></Image>
-          </div>
-          <h1 className=' flex h-fit  w-full flex-col p-4 text-5xl text-blue-200 md:text-6xl'>
-            Residential
-            <span className='  font-bold'>Projects</span>
-          </h1>
-        </div>
-        <div className=' relative hidden w-full md:block '>
+      <section className=' m-auto mt-[calc(64px+110px)] flex h-[calc(100vh-174px)] min-h-[400px]  w-full max-w-screen-2xl  flex-col items-center justify-center gap-10 overflow-hidden p-4 md:flex-row'>
+        <h1 className=' flex   w-full flex-col text-5xl  text-blue-200 md:w-1/3 md:text-6xl'>
+          Residential
+          <span className='  font-bold'>Projects</span>
+        </h1>
+        <div className=' relative   h-[70vh] w-full '>
           <Image
             src='/resSmall.png'
             fill
@@ -222,7 +212,7 @@ export default function Residential() {
         </div>
       </section>
       <br />
-      <hr className=' border-t-2 border-black' />
+      <hr className=' border-t-2 border-blue-200' />
       <br />
       <section className=' w-full overflow-x-hidden'>
         {dataList.data.map((item) => (
@@ -246,9 +236,9 @@ export default function Residential() {
                 />
               </div>
             </div>
-            <div className='  m-auto mt-4 flex h-fit max-w-screen-2xl flex-col gap-4 px-4 md:flex-row'>
+            <div className='  m-auto mt-4 flex h-fit max-w-screen-2xl flex-col gap-4 md:flex-row'>
               <div className=' relative  size-full md:h-full md:w-2/3'>
-                <div className=' sticky top-0  flex w-full flex-col gap-4 px-2 '>
+                <div className=' sticky top-0  flex w-full flex-col gap-4  '>
                   <p className=' my-10 text-lg '>{item.discription}</p>
                   <div className=' grid grid-cols-2 gap-2 '>
                     {item.amenities.map((aminity) => (
@@ -436,9 +426,7 @@ export default function Residential() {
                 GalleryDiscription={item.plan_discription}
               />
             </div>
-            <br />
-            <hr className=' border-t-2 border-black' />
-            <br />
+            <div className=' mb-40 size-1'></div>
           </div>
         ))}
       </section>
