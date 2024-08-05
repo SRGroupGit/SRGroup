@@ -2,11 +2,15 @@ import React from 'react';
 import CommercialCover from './_images/commercialCover.jpg';
 import ResidentialCover from './_images/residentialCover.jpg';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function SelectGalLery() {
   return (
     <div className=' flex size-full overflow-hidden bg-black'>
-      <div className='cursorBig relative h-full w-1/2  overflow-hidden transition-all    duration-200 hover:w-5/6'>
+      <Link
+        href='/commercial'
+        className=' cursorBig relative h-full w-1/2 cursor-pointer  overflow-hidden transition-all    duration-200 hover:w-5/6'
+      >
         <Image
           className='  object-cover object-center '
           src={CommercialCover}
@@ -22,8 +26,11 @@ export default function SelectGalLery() {
             Commercial
           </h4>
         </div>
-      </div>
-      <div className='cursorBig group relative h-full w-1/2   overflow-hidden transition-all  duration-200  hover:w-5/6'>
+      </Link>
+      <Link
+        href='/residential'
+        className=' cursorBig group relative h-full w-1/2 cursor-pointer   overflow-hidden transition-all  duration-200  hover:w-5/6'
+      >
         <Image
           className='  object-cover object-center  '
           src={ResidentialCover}
@@ -39,7 +46,7 @@ export default function SelectGalLery() {
             Residential
           </h4>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

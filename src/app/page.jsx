@@ -137,6 +137,16 @@ export default function Home() {
 
   return (
     <main ref={homeRef}>
+      <marquee
+        className=' fixed top-[110px] z-[9999] bg-blue-200 text-white'
+        behavior='scroll'
+        direction='left'
+      >
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
+        consectetur necessitatibus quisquam ipsa quod eveniet, omnis nulla vitae
+        aut ullam, vel eum corporis quidem magni vero quae at reiciendis veniam
+        et, fuga quam. Veritatis dignissimos ea omnis culpa cum quas!
+      </marquee>
       <section
         ref={heroSection}
         className='flex h-dvh w-full items-end justify-center overflow-hidden  '

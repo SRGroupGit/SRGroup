@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import GlobalButton from './GlobalButton';
 import { Icon } from '@iconify/react';
+import { horizontalLoop } from '@/lib/horizontalHelper';
+import Image from 'next/image';
 
 export default function GlobalNavBar() {
   const pathname = usePathname();
@@ -27,6 +29,8 @@ export default function GlobalNavBar() {
   const tl = useRef();
   const tl2 = useRef();
   const NavBg = useRef();
+  const boxesContainer = useRef();
+  const [boxesContainerHover, setBoxesContainerHover] = useState('');
 
   const onClickMenu = contextSafe(() => {
     tl.current = gsap.timeline();
@@ -267,6 +271,17 @@ export default function GlobalNavBar() {
     };
   }, [position]);
 
+  useGSAP(
+    () => {
+      const boxes = gsap.utils.toArray('.box');
+
+      const loop = horizontalLoop(boxes, { repeat: -1 });
+    },
+    {
+      scope: navMenuContainer,
+    }
+  );
+
   return (
     <>
       <nav
@@ -381,32 +396,170 @@ export default function GlobalNavBar() {
           <Link
             onClick={onClickMenu}
             id='menuItem'
-            className=' group w-full bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
+            className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
             href='/'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
+            <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap bg-white  py-4 group-hover:z-0'>
               HOME
             </div>
-            <div className=' relative  hidden w-full items-center  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
-              <div className='animate-marquee  whitespace-nowrap'>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-              </div>
+            <div className='   absolute z-0 flex w-full   items-center overflow-x-hidden  bg-blue-200  py-4 text-yellow-200 group-hover:z-10'>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
 
-              <div className='absolute  m-auto animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-                <span className='mx-4'>HOME</span>
-              </div>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>HOME</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
@@ -414,98 +567,345 @@ export default function GlobalNavBar() {
           <Link
             onClick={onClickMenu}
             id='menuItem'
-            className=' group w-full bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
+            className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
             href='/about'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
-              ABOUT
+            <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap bg-white py-4 group-hover:z-0'>
+              ABOUT US
             </div>
-            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
-              <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-              </div>
-
-              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-                <span className='mx-4 '>ABOUT</span>
-              </div>
+            <div className='   absolute z-0 flex w-full   items-center overflow-x-hidden  bg-blue-200 py-4  text-yellow-200 group-hover:z-10 '>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>ABOUT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
           <Link
             onClick={onClickMenu}
             id='menuItem'
-            className=' group w-full bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
+            className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
             href='/commercial'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
+            <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap bg-white py-4 group-hover:z-0 '>
               COMMERCIAL
             </div>
-            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
-              <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-              </div>
-
-              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-                <span className='mx-4 '>COMMERCIAL</span>
-              </div>
+            <div className='   absolute z-0 flex w-full   items-center overflow-x-hidden  bg-blue-200 py-4  text-yellow-200 group-hover:z-10 '>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>COMMERCIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
           <Link
             onClick={onClickMenu}
             id='menuItem'
-            className=' group w-full bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
+            className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
             href='/residential'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
+            <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap bg-white py-4 group-hover:z-0 '>
               RESIDENTIAL
             </div>
-            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
-              <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-              </div>
-
-              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-                <span className='mx-4 '>RESIDENTIAL</span>
-              </div>
+            <div className='   absolute z-0 flex w-full   items-center overflow-x-hidden  bg-blue-200   py-4 text-yellow-200 group-hover:z-10'>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>RESIDENTIAL</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
             </div>
           </Link>
 
@@ -513,32 +913,112 @@ export default function GlobalNavBar() {
           <Link
             onClick={onClickMenu}
             id='menuItem'
-            className=' group w-full bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
+            className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
             href='/contact'
           >
-            <div className=' flex w-full items-center  justify-center whitespace-nowrap py-2 group-hover:hidden md:py-6'>
+            <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap bg-white py-4 group-hover:z-0 '>
               CONTACT US
             </div>
-            <div className=' relative  hidden w-full  overflow-x-hidden py-4 group-hover:visible group-hover:flex md:py-6'>
-              <div className='animate-marquee whitespace-nowrap'>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-              </div>
-
-              <div className='absolute top-0 animate-marquee2 whitespace-nowrap'>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-                <span className='mx-4 '>CONTACT US</span>
-              </div>
+            <div className='   absolute z-0 flex w-full   items-center overflow-x-hidden  bg-blue-200 py-4 text-yellow-200 group-hover:z-10 '>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
+              <span className='box w-fit '>CONTACT US</span>
+              <span className=' box   aspect-[21/9] h-[50px] rounded-full'>
+                <Image
+                  className=' rounded-full'
+                  src='/resSmall.png'
+                  fill
+                  alt='residential'
+                />
+              </span>
             </div>
           </Link>
           <hr id='line' className=' w-full bg-white' />
