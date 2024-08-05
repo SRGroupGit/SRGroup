@@ -67,7 +67,6 @@ export default function Home() {
       headings.forEach((heading) => {
         gsap.from(heading, {
           y: 80,
-
           scrollTrigger: {
             trigger: heading,
             start: 'top bottom',
@@ -145,11 +144,15 @@ export default function Home() {
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
         consectetur necessitatibus quisquam ipsa quod eveniet, omnis nulla vitae
         aut ullam, vel eum corporis quidem magni vero quae at reiciendis veniam
-        et, fuga quam. Veritatis dignissimos ea omnis culpa cum quas!
+        et, fuga quam. Veritatis dignissimos ea omnis culpa cum quas! Lorem
+        ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur
+        necessitatibus quisquam ipsa quod eveniet, omnis nulla vitae aut ullam,
+        vel eum corporis quidem magni vero quae at reiciendis veniam et, fuga
+        quam. Veritatis dignissimos ea omnis culpa cum quas!
       </marquee>
       <section
         ref={heroSection}
-        className='flex h-dvh w-full items-end justify-center overflow-hidden  '
+        className='mt-[120px] flex h-[calc(100vh-120px)] w-full items-end justify-center overflow-hidden  '
       >
         <video
           src='/Video.mp4'
