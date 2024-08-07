@@ -136,7 +136,7 @@ export default function Home() {
 
   return (
     <main ref={homeRef}>
-      <marquee
+      {/* <marquee
         className=' fixed top-[110px] z-[9999] bg-blue-200 text-white'
         behavior='scroll'
         direction='left'
@@ -149,7 +149,7 @@ export default function Home() {
         necessitatibus quisquam ipsa quod eveniet, omnis nulla vitae aut ullam,
         vel eum corporis quidem magni vero quae at reiciendis veniam et, fuga
         quam. Veritatis dignissimos ea omnis culpa cum quas!
-      </marquee>
+      </marquee> */}
       <section
         ref={heroSection}
         className='mt-[120px] flex h-[calc(100vh-120px)] w-full items-end justify-center overflow-hidden  '
