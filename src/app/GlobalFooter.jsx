@@ -114,7 +114,7 @@ export default function GlobalFooter() {
           </p>
           <GlobalButton
             color='white'
-            className=' mt-4 hidden w-full rounded-full px-6  py-2 text-base font-medium md:block md:h-fit md:w-32'
+            className=' mt-4  w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit md:w-32'
             onClick={() => setCookies(false)}
           >
             I accept

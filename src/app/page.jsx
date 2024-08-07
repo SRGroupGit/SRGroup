@@ -223,7 +223,7 @@ export default function Home() {
                   <CountUp
                     enableScrollSpy={true}
                     decimals={2}
-                    end={8.21}
+                    end={8.63}
                     duration={1}
                   />
                   <span className=' text-[0.2em] uppercase'>Lakh Sqft</span>
@@ -259,13 +259,13 @@ export default function Home() {
           <div className=' flex h-fit w-full flex-row items-start overflow-hidden  lg:items-end '>
             <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Total projects completed</b> ,Each project, whether large or
-                small, has been meticulously planned and executed with
-                precision.
+                <b>Total projects completed</b> with <b>4 on going projects</b>
+                ,Each project, whether large or small, has been meticulously
+                planned and executed with precision.
               </p>
               <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
-                  <CountUp enableScrollSpy={true} end={15} duration={1.5} />+
+                  <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
               </h3>
             </div>
@@ -280,7 +280,7 @@ export default function Home() {
               </p>
               <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
-                  <CountUp enableScrollSpy={true} end={2000} duration={1} />+
+                  <CountUp enableScrollSpy={true} end={1100} duration={1} />+
                 </span>
               </h3>
             </div>
