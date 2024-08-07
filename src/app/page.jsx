@@ -152,11 +152,11 @@ export default function Home() {
       </marquee> */}
       <section
         ref={heroSection}
-        className='mt-[120px] flex h-[calc(100vh-120px)] w-full items-end justify-center overflow-hidden  '
+        className='relative mt-[120px] flex h-[calc(100vh-120px)] w-full items-end justify-center overflow-hidden  '
       >
         <video
           src='/Video.mp4'
-          className='= size-full object-cover'
+          className=' size-full object-cover contrast-[1.2] '
           autoPlay
           loop
           muted
