@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function LayoutGallery(props) {
-  const url = 'https://sendoff.wtf/api/files';
+  const url = 'https://admin.sreddygroup.com/api/files';
 
   const [selectedGallery, setSelectedGallery] = useState(props.GalleryData[0]);
   const [nextGallery, setNextGallery] = useState(props.GalleryData[1]);

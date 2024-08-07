@@ -29,7 +29,7 @@ export default function Commercial() {
     subject: '',
   });
 
-  const url = 'https://sendoff.wtf/api/files';
+  const url = 'https://admin.sreddygroup.com/api/files';
 
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);

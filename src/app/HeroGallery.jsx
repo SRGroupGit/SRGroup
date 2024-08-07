@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 export default function HeroGallery(props) {
-  const url = 'https://sendoff.wtf/api/files';
+  const url = 'https://admin.sreddygroup.com/api/files';
 
   const { contextSafe } = useGSAP();
   const activeImage = useRef();

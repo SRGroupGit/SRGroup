@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'https://sendoff.wtf/api';
+const url = 'https://admin.sreddygroup.com/api';
 
 const initialState = {
   data: [],
