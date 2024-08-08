@@ -1,24 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
-import commercialCover from './_images/commercialCover.jpg';
-import residentialCover from './_images/residentialCover.jpg';
+import commercialCover from './_images/bus.jpeg';
+import residentialCover from './_images/ash.jpeg';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import Link from 'next/link';
 
 const GalleryData = [
   {
-    title: 'Commercial',
-    location: 'commercial location',
+    title: 'SR Business Hub',
+    location: 'Balewadi',
     description:
-      "Business Environment: Explore SR Group's Meticulously Designed Commercial Spaces, Where Light, Space, and Positive Vastu Unite",
+      "Thoughtfully crafted layouts for healthcare and business professionals - Welcome to SR Business Hub, strategically situated in the heart of Baner’s bustling commercial district. Our meticulous design ensures every detail exceeds your expectations. Office spaces in the North and South blocks are connected by a central lobby for seamless connectivity & accessibility. From inception to completion, we at SR, prioritise quality and client satisfaction, crafting spaces with a positive Vastu that not only encourages productivity but also well being. Whether you're leasing or investing, SR Business Hub promises an exceptional experience. Visit today and make one of these beautiful offices your stepping stone to success.",
     image: commercialCover,
+    link: '/commercial/#ab7fktd9u3iywa1o',
   },
   {
-    title: 'Residential',
-    location: 'residential location',
+    title: 'SR Aishwaryam',
+    location: 'Balewadi',
     description:
-      "Discover Your Perfect Harmony: Explore SR Group's Exquisite Residences Where Vastu, Space, and Luxury Converge",
+      'Spacious 3.5 BHK Homes - 10 Floors of luxurious living, with a lifestyle space to impress you and your guests. Each floor has only 1 Apartment, thus ensuring complete privacy and security. For those who would not like to step out or drive, we have provided a luxurious Gymnasium. Despite being close to the Pune-Mumbai expressway, it is also within walking distance of the Balewadi Highstreet, Metro station, and the Balewadi stadium.',
     image: residentialCover,
+    link: '/residential/#ai1qnumx84kepvb4',
   },
 ];
 
@@ -161,9 +164,11 @@ export default function Gallery() {
           <h4 className=' hidden text-2xl  font-bold  text-yellow-200 md:block md:text-3xl lg:text-5xl'>
             {selectedGallery.title}
           </h4>
-          <span className=' cursorBig text-xl  font-medium text-yellow-200 underline md:text-3xl lg:text-4xl'>
-            See Details
-          </span>
+          <Link href={selectedGallery.link}>
+            <span className=' cursorBig text-xl  font-medium text-yellow-200 underline md:text-3xl lg:text-4xl'>
+              See Details
+            </span>
+          </Link>
         </div>
       </div>
     </div>
