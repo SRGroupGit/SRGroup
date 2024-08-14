@@ -198,9 +198,9 @@ export default function Home() {
             </div>
             <p className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-blue-200    md:text-base'>
               <span className='fadeIn  '>
-                SR Group specializes in residential and commercial projects and
+                SR Group specialises in residential and commercial projects and
                 maintains our on-time delivery commitment. Our layouts, crafted
-                in compliance with Good Vastu and Feng Shui principles, ensure
+                in compliance with good Vastu and Feng Shui principles, ensure
                 harmony and prosperity for your family. Lastly, along with good
                 transparency with our clients, we uphold high compliance with
                 all real estate laws, maintaining our longstanding reputation
@@ -215,8 +215,8 @@ export default function Home() {
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
             <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Total volume of area built</b> with 5 lakh Sq. ft. built with
-                3.2lakh sq. ft. of on-going projects
+                <b>Total volume of area built</b> with 5 lakh sq.ft. built with
+                3.2 lakh sq.ft. of on-going projects.
               </p>
               <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
@@ -226,7 +226,7 @@ export default function Home() {
                     end={8.63}
                     duration={1}
                   />
-                  <span className=' text-[0.2em] uppercase'>Lakh Sqft</span>
+                  <span className=' text-[0.2em] uppercase'>Lakh Sq Ft</span>
                 </span>
               </h3>
             </div>
@@ -236,7 +236,7 @@ export default function Home() {
 
             <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Years of experience</b> , As we continue to grow and evolve,
+                <b>Years of experience</b> , as we continue to grow and evolve,
                 our extensive experience forms the cornerstone of our success,
                 guiding us in our mission.
               </p>
@@ -306,13 +306,10 @@ export default function Home() {
             </div>
             <div className=' flex w-full max-w-xl flex-col   overflow-hidden text-sm  font-normal  text-blue-200  md:text-base'>
               <p className=' fadeIn  '>
-                SR Group specializes in residential and commercial projects and
-                maintains our on-time delivery commitment. Our layouts, crafted
-                in compliance with Good Vastu and Feng Shui principles, ensure
-                harmony and prosperity for your family. Lastly, along with good
-                transparency with our clients, we uphold high compliance with
-                all real estate laws, maintaining our longstanding reputation
-                for integrity and trust.
+                Check our latest upcoming and on sale projects in residential
+                and commercial categories. Our layouts, crafted in compliance
+                with Good Vastu and Feng Shui principles, ensure harmony and
+                prosperity for your family or your business.
               </p>
             </div>
           </div>

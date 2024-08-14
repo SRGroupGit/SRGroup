@@ -19,8 +19,9 @@ export default function SelectGalLery() {
         />
         <div className=' absolute z-10 flex size-full flex-col items-center justify-between p-12'>
           <p className=' text-lg font-medium text-gray-200'>
-            Business Environment: Explore SR Group&apos;s Meticulously Designed
-            Commercial Spaces, Where Light, Space, and Positive Vastu Unite
+            Elevate your business environment: Explore SR Group&apos;s
+            meticulously designed commercial spaces, where light, space, and
+            positive Vastu unite.
           </p>
           <h4 className=' text-2xl font-bold text-yellow-200 md:text-4xl lg:text-5xl'>
             Commercial
@@ -39,8 +40,8 @@ export default function SelectGalLery() {
         />
         <div className=' absolute z-10 flex size-full flex-col items-center justify-between p-12'>
           <p className=' text-lg font-medium text-gray-200'>
-            Discover Your Perfect Harmony: Explore SR Group&apos;s Exquisite
-            Residences Where Vastu, Space, and Luxury Converge
+            Discover your perfect harmony: Explore SR Group&apos;s exquisite
+            residences where Vastu, space, and luxury converge.
           </p>
           <h4 className=' text-2xl font-bold text-yellow-200 md:text-4xl lg:text-5xl'>
             Residential

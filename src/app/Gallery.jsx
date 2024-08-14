@@ -11,7 +11,7 @@ const GalleryData = [
     title: 'SR Business Hub',
     location: 'Balewadi',
     description:
-      "Thoughtfully crafted layouts for healthcare and business professionals - Welcome to SR Business Hub, strategically situated in the heart of Baner’s bustling commercial district. Our meticulous design ensures every detail exceeds your expectations. Office spaces in the North and South blocks are connected by a central lobby for seamless connectivity & accessibility. From inception to completion, we at SR, prioritise quality and client satisfaction, crafting spaces with a positive Vastu that not only encourages productivity but also well being. Whether you're leasing or investing, SR Business Hub promises an exceptional experience. Visit today and make one of these beautiful offices your stepping stone to success.",
+      "Where Innovation Meets Functionality.Explore vibrant layouts ideal for businesses and healthcare professionals, centrally located in Pune’s bustling commercial district. Benefit from proximity to Balewadi High Street and Aundh, and experience the building's excellent architecture featuring open-plan layouts and stunning facade aesthetics.",
     image: commercialCover,
     link: '/commercial/#ab7fktd9u3iywa1o',
   },
@@ -19,7 +19,7 @@ const GalleryData = [
     title: 'SR Aishwaryam',
     location: 'Balewadi',
     description:
-      'Spacious 3.5 BHK Homes - 10 Floors of luxurious living, with a lifestyle space to impress you and your guests. Each floor has only 1 Apartment, thus ensuring complete privacy and security. For those who would not like to step out or drive, we have provided a luxurious Gymnasium. Despite being close to the Pune-Mumbai expressway, it is also within walking distance of the Balewadi Highstreet, Metro station, and the Balewadi stadium.',
+      'Redefining Luxury Living.One floor, one flat, luxury 3.5 BHK Homes in the heart of Baner with world class rooftop amenities. This collection of 12 premium homes is delicately crafted for those who like a larger-than life lifestyle. Explore sheer elegance & comfort, Only at SR Aishwaryam.',
     image: residentialCover,
     link: '/residential/#ai1qnumx84kepvb4',
   },
