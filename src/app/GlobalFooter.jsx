@@ -97,7 +97,7 @@ export default function GlobalFooter() {
             Disclaimer{' '}
           </span>
           <p className=' w-full text-sm'>
-            The information provided on the SRgroup real estate website is for
+            The information provided on the SR group real estate website is for
             general informational purposes only. While we strive to keep the
             information up to date and accurate, we make no representations or
             warranties of any kind, express or implied, about the completeness,
