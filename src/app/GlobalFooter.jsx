@@ -97,21 +97,20 @@ export default function GlobalFooter() {
             Disclaimer{' '}
           </span>
           <p className=' w-full text-sm'>
-            The information provided on the SR group real estate website is for
+            The information provided on the SR Group real estate website is for
             general informational purposes only. While we strive to keep the
             information up to date and accurate, we make no representations or
             warranties of any kind, express or implied, about the completeness,
             accuracy, reliability, suitability, or availability with respect to
             the website or the information, products, services, or related
             graphics contained on the website for any purpose. Any reliance you
-            place on such information is therefore strictly at your own risk.{' '}
-          </p>
-          <p className=' w-full text-sm'>
-            In no event will SRgroup or its employees be liable for any loss or
+            place on such information is therefore strictly at your own risk. In
+            no event will SRgroup or its employees be liable for any loss or
             damage including without limitation, indirect or consequential loss
             or damage, or any loss or damage whatsoever arising from loss of
             data or profits.
           </p>
+
           <GlobalButton
             color='white'
             className=' mt-4  w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit md:w-32'
@@ -229,9 +228,10 @@ export default function GlobalFooter() {
           <div className='  mt-20 flex w-full  flex-col gap-7'>
             <div className=' grid grid-cols-2'>
               <span className='text-yellow-200'>CONTACT</span>
-              <span className=' flex flex-col gap-4'>
-                +91 7448007500 info@sreddygroup.com
-              </span>
+              <div className=' flex flex-col gap-4'>
+                <span>+91 7448007500</span>
+                <span>info@sreddygroup.com</span>
+              </div>
             </div>
             <div className=' grid grid-cols-2'>
               <span className='text-yellow-200'>OFFICE</span>
@@ -281,7 +281,7 @@ export default function GlobalFooter() {
       </div>
       <section className=' m-auto flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4 text-sm md:flex-row'>
         <div>
-          <span>SR Group all right reserved {new Date().getFullYear()}</span>
+          <span>SR Group. All rights reserved, {new Date().getFullYear()}</span>
         </div>
         <div>
           Designed and developed by{' '}

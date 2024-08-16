@@ -154,6 +154,10 @@ export default function Home() {
         ref={heroSection}
         className='relative mt-[120px] flex h-[calc(100vh-120px)] w-full items-end justify-center overflow-hidden  '
       >
+        <span className=' absolute right-3 top-2 z-20 text-[8px] text-white mix-blend-difference'>
+          Property in video: SR Business Hub, opposite Jupiter hospital, Baner,
+          Pune. Rera number - P52100047555
+        </span>
         <video
           src='/Video.mp4'
           className=' size-full object-cover contrast-[1.2] '
@@ -186,8 +190,8 @@ export default function Home() {
           <div className=' flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
             <div className=' flex flex-col gap-4'>
               <h2 className=' flex flex-col overflow-hidden text-4xl text-blue-200 md:text-6xl'>
-                <span className='fadeFromBelow  '>Professional</span>
-                <span className=' fadeFromBelow  font-black'>Services</span>
+                <span className='fadeFromBelow  '>Our story in</span>
+                <span className=' fadeFromBelow  font-black'>Numbers</span>
               </h2>
               <GlobalButton
                 color='white'
@@ -215,8 +219,8 @@ export default function Home() {
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
             <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
               <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Total volume of area built</b> with 5 lakh sq.ft. built with
-                3.2 lakh sq.ft. of on-going projects.
+                <b>Total volume of area built</b> with 5 lakh sq.ft. built and
+                3.63 lakh sq.ft. of on-going projects.
               </p>
               <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
@@ -298,7 +302,7 @@ export default function Home() {
           <div className=' flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
             <div className=' flex flex-col gap-4'>
               <h2 className=' flex flex-col overflow-hidden text-4xl text-blue-200 md:text-6xl'>
-                <span className='fadeFromBelow  '>Upcoming</span>
+                <span className='fadeFromBelow  '>Our latest</span>
                 <span className=' fadeFromBelow  pb-2 font-black'>
                   Projects
                 </span>

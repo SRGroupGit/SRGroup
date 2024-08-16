@@ -118,7 +118,7 @@ export default function ProviderShell({ children }) {
                 Dreams.
               </span>
               <span ref={futureRef} className=' absolute opacity-0'>
-                Future.
+                The Future.
               </span>
             </div>
           </div>

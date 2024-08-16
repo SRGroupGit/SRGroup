@@ -11,7 +11,7 @@ const GalleryData = [
     title: 'SR Business Hub',
     location: 'Balewadi',
     description:
-      "Where Innovation Meets Functionality.Explore vibrant layouts ideal for businesses and healthcare professionals, centrally located in Pune’s bustling commercial district. Benefit from proximity to Balewadi High Street and Aundh, and experience the building's excellent architecture featuring open-plan layouts and stunning facade aesthetics.",
+      "Ideal for businesses and healthcare professionals, centrally located in Pune’s bustling commercial district. Benefit from proximity to Balewadi High Street and Aundh, and experience the building's excellent architecture featuring open-plan layouts and stunning facade aesthetics.",
     image: commercialCover,
     link: '/commercial/#ab7fktd9u3iywa1o',
   },
