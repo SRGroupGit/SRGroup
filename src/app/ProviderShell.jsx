@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { useRef, useState, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-
 export default function ProviderShell({ children }) {
   const storeRef = useRef();
   if (!storeRef.current) {
@@ -14,47 +13,76 @@ export default function ProviderShell({ children }) {
     gsap.registerPlugin(useGSAP);
   }
 
-  const navLogoRef = useRef();
   const backgroundRef = useRef();
-  const loadingRef = useRef();
-  const loadingSpanRef = useRef();
   const tl = useRef();
+  const foundationRef = useRef();
+  const communitiesRef = useRef();
+  const dreamsRef = useRef();
+  const futureRef = useRef();
+  const weBuildRef = useRef();
 
   const [isLoading, setIsLoading] = useState(true);
 
   useGSAP(() => {
-    gsap.to(navLogoRef.current, {
-      duration: 0.5,
-      opacity: 1,
-      ease: 'power2.inOut',
-    });
-    gsap.set(loadingSpanRef.current, {
-      width: '0%',
-    });
-    gsap.to(loadingRef.current, {
-      opacity: 1,
-    });
-  });
-
-  useGSAP(() => {
     tl.current = gsap.timeline();
     if (isLoading) {
-      tl.current.to(loadingSpanRef.current, {
-        duration: 1,
-        width: '100%',
+      tl.current.to(weBuildRef.current, {
+        duration: 0.5,
         ease: 'power2.inOut',
+        opacity: 1,
       });
-      tl.current.to(loadingRef.current, {
+      tl.current.to(foundationRef.current, {
+        duration: 0.5,
+        ease: 'power2.inOut',
+        opacity: 1,
+      });
+      tl.current.to(foundationRef.current, {
+        delay: 0.5,
+        duration: 0.5,
+        ease: 'power2.inOut',
         opacity: 0,
-        ease: 'power2.inOut',
       });
-      tl.current.to(navLogoRef.current, {
-        duration: 0.75,
-        scale: 1,
-        top: '0px',
+      tl.current.to(communitiesRef.current, {
+        duration: 0.5,
         ease: 'power2.inOut',
+        opacity: 1,
       });
+      tl.current.to(communitiesRef.current, {
+        delay: 0.5,
+        duration: 0.5,
+        ease: 'power2.inOut',
+        opacity: 0,
+      });
+      tl.current.to(dreamsRef.current, {
+        duration: 0.5,
+        ease: 'power2.inOut',
+        opacity: 1,
+      });
+      tl.current.to(dreamsRef.current, {
+        delay: 0.5,
+        duration: 0.5,
+        ease: 'power2.inOut',
+        opacity: 0,
+      });
+      tl.current.to(futureRef.current, {
+        duration: 0.5,
+        ease: 'power2.inOut',
+        opacity: 1,
+      });
+      tl.current.to(futureRef.current, {
+        delay: 0.5,
+        duration: 0.5,
+        ease: 'power2.inOut',
+        opacity: 0,
+      });
+      tl.current.to(weBuildRef.current, {
+        duration: 0.5,
+        ease: 'power2.inOut',
+        opacity: 0,
+      });
+
       tl.current.to(backgroundRef.current, {
+        delay: 0.25,
         duration: 0.5,
         ease: 'power2.inOut',
         opacity: 0,
@@ -72,28 +100,27 @@ export default function ProviderShell({ children }) {
           ref={backgroundRef}
           className='  fixed left-0 top-0 z-[99999] flex h-dvh w-full items-center justify-center bg-white'
         >
-          <div
-            ref={navLogoRef}
-            className={` fixed left-0 top-[200px] flex h-[110px]   w-full scale-[3]   items-center justify-between bg-white px-4 py-3 opacity-0 `}
-          >
-            <div className=' pointer-events-none fixed left-0 top-0  z-[999] grid h-[110px]   w-full items-center justify-start px-4 py-3 md:justify-center '>
-              <div
-                className={`pointer-events-auto  aspect-square h-full text-white bg-blend-difference`}
-              >
-                <GlobalNavLogo />
-              </div>
-            </div>
-
-            <div />
-          </div>
-          <div
-            ref={loadingRef}
-            className=' flex h-1 w-[250px] flex-col rounded-full bg-neutral-500 opacity-0'
-          >
+          <div className=' flex size-full flex-col items-center justify-center gap-8 px-3 text-5xl font-medium text-blue-200 md:flex-row md:items-center md:justify-between md:px-8'>
             <span
-              ref={loadingSpanRef}
-              className=' h-full w-0 rounded-full bg-blue-200'
-            ></span>
+              ref={weBuildRef}
+              className=' text-center opacity-0 md:w-full md:text-left'
+            >
+              We Build
+            </span>
+            <div className=' flex w-full items-center justify-center font-medium md:w-2/3 md:justify-start'>
+              <span ref={foundationRef} className=' absolute opacity-0 '>
+                Foundations.
+              </span>
+              <span ref={communitiesRef} className=' absolute opacity-0'>
+                Communities.
+              </span>
+              <span ref={dreamsRef} className=' absolute opacity-0'>
+                Dreams.
+              </span>
+              <span ref={futureRef} className=' absolute opacity-0'>
+                Future.
+              </span>
+            </div>
           </div>
         </div>
       )}
