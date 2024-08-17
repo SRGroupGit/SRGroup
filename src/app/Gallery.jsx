@@ -13,7 +13,7 @@ const GalleryData = [
     description:
       "Ideal for businesses and healthcare professionals, centrally located in Pune’s bustling commercial district. Benefit from proximity to Balewadi High Street and Aundh, and experience the building's excellent architecture featuring open-plan layouts and stunning facade aesthetics.",
     image: commercialCover,
-    link: '/commercial/#ab7fktd9u3iywa1o',
+    link: '/commercial/b7fktd9u3iywa1o',
   },
   {
     title: 'SR Aishwaryam',
@@ -21,7 +21,7 @@ const GalleryData = [
     description:
       'Redefining Luxury Living.One floor, one flat, luxury 3.5 BHK Homes in the heart of Baner with world class rooftop amenities. This collection of 12 premium homes is delicately crafted for those who like a larger-than life lifestyle. Explore sheer elegance & comfort, Only at SR Aishwaryam.',
     image: residentialCover,
-    link: '/residential/#ai1qnumx84kepvb4',
+    link: '/residential/i1qnumx84kepvb4',
   },
 ];
 
