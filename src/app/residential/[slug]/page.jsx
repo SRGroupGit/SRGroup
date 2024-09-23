@@ -193,7 +193,7 @@ export default function ResidentialSolo() {
                       </span>
                     </div>
                     <p className=' text-md font-normal text-zinc-300'>
-                      Contact us for more detail.datas
+                      Contact us for more details
                     </p>
                     <form className='flex max-w-3xl flex-col'>
                       <div className=' w-full gap-2 md:flex'>
@@ -318,7 +318,7 @@ export default function ResidentialSolo() {
                       <span className=' fadeFromBelow  font-black'>Sold.</span>
                     </div>
                     <p className=' text-md font-normal text-zinc-300'>
-                      Contact us for more detail.datas
+                      Contact us for more details
                     </p>
 
                     <Link
