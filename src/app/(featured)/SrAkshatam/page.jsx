@@ -12,7 +12,7 @@ import EnquireForm from './EnquireForm';
 import EnquireFormStatic from './EnquireFormStatic';
 import { Icon } from '@iconify/react';
 import ShopHero from './shopHero.jpg';
-import ResHero from './ResHero.jpg';
+import ResHero from './resHero.jpg';
 import In1 from './interioimage/in1.jpg';
 import In2 from './interioimage/in2.jpg';
 import In3 from './interioimage/in3.jpg';
