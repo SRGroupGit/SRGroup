@@ -21,7 +21,7 @@ export default function ProviderShell({ children }) {
   const futureRef = useRef();
   const weBuildRef = useRef();
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useGSAP(() => {
     tl.current = gsap.timeline();
