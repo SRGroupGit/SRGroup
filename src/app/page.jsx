@@ -152,7 +152,7 @@ export default function Home() {
       </marquee> */}
       <section
         ref={heroSection}
-        className='relative mt-[120px] flex h-[calc(100vh-120px)] w-full items-end justify-center overflow-hidden  '
+        className='relative mt-[110px] flex h-[calc(100vh-110px)] w-full items-end justify-center overflow-hidden  '
       >
         <span className=' absolute right-3 top-2 z-20 text-[8px] text-white mix-blend-difference'>
           Property in video: SR Business Hub, opposite Jupiter hospital, Baner,

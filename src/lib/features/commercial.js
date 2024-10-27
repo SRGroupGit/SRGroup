@@ -12,8 +12,8 @@ const initialState = {
 export const fetchCommercial = createAsyncThunk(
   'commercial/fetchCommercial',
   async (slug) => {
-    const response = await axios.get(`${url}/records/${slug}`);
-    return response.data;
+    const response = await axios.get(`${url}/records?filter=(slug='${slug}')`);
+    return response.data.items[0];
   }
 );
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import commercialCover from './_images/bus.jpeg';
 import residentialCover from './_images/ash.jpeg';
+import Aksahtam from './(featured)/SrAkshatam/hero.jpg';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -13,7 +14,8 @@ const GalleryData = [
     description:
       "Ideal for businesses and healthcare professionals, centrally located in Pune’s bustling commercial district. Benefit from proximity to Balewadi High Street and Aundh, and experience the building's excellent architecture featuring open-plan layouts and stunning facade aesthetics.",
     image: commercialCover,
-    link: '/commercial/b7fktd9u3iywa1o',
+    id: 'b7fktd9u3iywa1o',
+    link: '/commercial/SRBusinessHub',
   },
   {
     title: 'SR Aishwaryam',
@@ -21,7 +23,17 @@ const GalleryData = [
     description:
       'Redefining Luxury Living.One floor, one flat, luxury 3.5 BHK Homes in the heart of Baner with world class rooftop amenities. This collection of 12 premium homes is delicately crafted for those who like a larger-than life lifestyle. Explore sheer elegance & comfort, Only at SR Aishwaryam.',
     image: residentialCover,
-    link: '/residential/i1qnumx84kepvb4',
+    id: 'i1qnumx84kepvb4',
+    link: '/residential/SRAishwaryam',
+  },
+  {
+    title: 'SR Akshatam',
+    location: 'Keshav Nagar',
+    description:
+      'Introducing SR Akshatam by SR Group; a remarkable mixed-use development in the thriving heart of Pune. Blending the vibrancy of retail and the tranquillity of residential living, SR Akshatam offers a balanced and fulfilling lifestyle for those who seek both luxury and convenience.',
+    image: Aksahtam,
+    id: 'i1qnumx84kepvb4',
+    link: '/SrAkshatam',
   },
 ];
 

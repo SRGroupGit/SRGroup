@@ -8,11 +8,14 @@ export async function POST(request) {
   const { name, userEmail, phone, message, subject } = await request.json();
 
   const finalSubject = subject
-    ? `New query for ${subject} from ${name}`
+    ? `Query for${subject} from ${name}`
     : `New query from ${name}`;
 
   const transporter = nodemailer.createTransport({
-    service: 'Mailgun',
+    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: email,
       pass: pass,
@@ -21,11 +24,11 @@ export async function POST(request) {
 
   const mailOptions = {
     from: email,
-    to: 'siddhant.v@angle.services',
+    to: 'srgroupwebmaster@gmail.com',
     subject: `${finalSubject}`,
     text: `Name: ${name}`,
     html: `
-      <h1>New query from ${name}</h1>
+      <h1>New query from ${name} for ${subject}</h1>
       <p>Email: ${userEmail}</p>
       <p>Phone: ${phone}</p>
       <p>Message: ${message}</p>

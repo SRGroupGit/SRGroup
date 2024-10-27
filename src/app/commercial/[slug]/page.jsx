@@ -38,10 +38,21 @@ export default function CommercialSolo() {
   const [phoneError, setPhoneError] = useState(false);
   const [messageError, setMessageError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [floorPlanLoading, setFloorPlanLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [loadingData, setLoadingData] = useState(true);
   const [indexMenu, setIndexMenu] = useState(false);
   const [indexId, setIndexId] = useState('none');
+  const [FloorFormData, setFloorPlanFormData] = useState({
+    name: '',
+    userEmail: '',
+    phone: '',
+    message: '',
+    subject: '',
+  });
+  const [FloorPlanOpen, setFloorPlanOpen] = useState(false);
+  const [floorPlanLink, setFloorPlanLink] = useState('');
+  const [floorPlanSuccess, setFloorPlanSuccess] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -124,8 +135,189 @@ export default function CommercialSolo() {
     }
   };
 
+  const handleSubmitFloorPlan = async (e) => {
+    e.preventDefault();
+
+    if (!FloorFormData.name || FloorFormData.name.length < 3) {
+      setNameError(true);
+      return;
+    }
+    if (!FloorFormData.userEmail || !FloorFormData.userEmail.includes('@')) {
+      setEmailError(true);
+      return;
+    }
+    if (!FloorFormData.phone) {
+      setPhoneError(true);
+      return;
+    }
+
+    if (!nameError && !emailError && !phoneError) {
+      setFloorPlanLoading(true);
+      setFloorPlanSuccess(false);
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: FloorFormData.name,
+            userEmail: FloorFormData.userEmail,
+            phone: FloorFormData.phone,
+            message: `Floor plan requested for ${detail.data.Title}`,
+            subject: FloorFormData.subject,
+          }),
+        });
+
+        if (response.ok) {
+          console.log('Email sent successfully');
+          setFloorPlanFormData({
+            name: '',
+            userEmail: '',
+            phone: '',
+            message: '',
+            subject: '',
+          });
+          setFloorPlanSuccess(true);
+          setFloorPlanLoading(false);
+          console.log(floorPlanSuccess);
+        } else {
+          console.error('Error sending email');
+          setFloorPlanLoading(false);
+          setFloorPlanSuccess(false);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        setFloorPlanLoading(false);
+        setFloorPlanSuccess(false);
+      }
+    }
+  };
+
   return (
     <main>
+      {FloorPlanOpen && (
+        <div className=' fixed left-0 top-0  z-[999] flex h-dvh w-full items-center justify-center bg-white px-3 '>
+          <div className=' flex flex-col gap-2'>
+            <div className=' flex justify-between gap-4  overflow-hidden text-3xl text-yellow-200 md:text-4xl'>
+              <span>
+                {floorPlanSuccess ? 'Thanks' : 'Please fill the Form '}
+              </span>
+              <span
+                onClick={() => {
+                  setFloorPlanOpen(false);
+                  setFloorPlanLink('');
+                }}
+                className=' cursor-pointer text-2xl'
+              >
+                ⛌
+              </span>
+            </div>
+            <span>download Floor plan for {detail.data.Title}</span>
+
+            {floorPlanSuccess ? (
+              <Link href={floorPlanLink} target='_bank'>
+                <GlobalButton
+                  color='white'
+                  className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
+                  onClick={() => {}}
+                >
+                  Download Floor Plan
+                </GlobalButton>
+              </Link>
+            ) : (
+              <form className='flex max-w-3xl flex-col'>
+                <div className=' w-full gap-2 md:flex'>
+                  <div className=' w-full'>
+                    <label
+                      className={`
+              ${nameError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
+                      htmlFor='name'
+                    >
+                      {nameError ? 'Please enter a valid name' : 'Full Name*'}
+                    </label>
+                    <input
+                      placeholder='Full Name*'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 autofill:text-white  focus:border-neutral-100 focus:outline-none'
+                      type='text'
+                      value={FloorFormData.name}
+                      onChange={(e) => {
+                        setFloorPlanFormData({
+                          ...FloorFormData,
+                          name: e.target.value,
+                          subject: detail.data.Title,
+                        }),
+                          setNameError(false);
+                      }}
+                    />
+                  </div>
+
+                  <div className=' w-full'>
+                    <label
+                      className={`
+              ${emailError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
+                      htmlFor='userEmail'
+                    >
+                      {emailError ? 'Please enter a valid email' : 'Email*'}
+                    </label>
+                    <input
+                      placeholder='Email*'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
+                      type='email'
+                      value={FloorFormData.userEmail}
+                      onChange={(e) => {
+                        setFloorPlanFormData({
+                          ...FloorFormData,
+                          userEmail: e.target.value,
+                        }),
+                          setEmailError(false);
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className=' details.-center gap-7 md:flex'>
+                  <div className=' w-full'>
+                    <label
+                      className={`
+              ${phoneError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
+                      htmlFor='phone'
+                    >
+                      {phoneError
+                        ? 'Please enter a valid phone number'
+                        : 'Phone*'}
+                    </label>
+                    <input
+                      placeholder='Phone*'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
+                      type='tel'
+                      value={FloorFormData.phone}
+                      onChange={(e) => {
+                        setFloorPlanFormData({
+                          ...FloorFormData,
+                          phone: e.target.value,
+                        }),
+                          setPhoneError(false);
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <GlobalButton
+                  color='white'
+                  className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
+                  onClick={handleSubmitFloorPlan}
+                >
+                  {
+                    floorPlanLoading
+                      ? 'Loading...'
+                      : 'Submit' /* Added loading state */
+                  }
+                </GlobalButton>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
       {success && (
         <div className=' fixed bottom-10 right-0 z-[9] bg-black px-12 py-3 text-white'>
           Message sent successfully
@@ -298,18 +490,20 @@ export default function CommercialSolo() {
                         }
                       </GlobalButton>
                     </form>
-                    <Link
-                      className=' size-full'
-                      href={`${url}/${detail.data.collectionId}/${detail.data.id}/${detail.data.floorplan}`}
-                      target='_blank'
+
+                    <GlobalButton
+                      onClick={() => {
+                        setFloorPlanOpen(true);
+                        setFloorPlanSuccess(false);
+                        setFloorPlanLink(
+                          `${url}/${detail.data.collectionId}/${detail.data.id}/${detail.data.floorplan}`
+                        );
+                      }}
+                      color='white'
+                      className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
                     >
-                      <GlobalButton
-                        color='white'
-                        className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
-                      >
-                        Download Floor Plan
-                      </GlobalButton>
-                    </Link>
+                      Download Floor Plan
+                    </GlobalButton>
                   </div>
                 ) : (
                   <div className=' flex flex-col gap-2'>
@@ -321,18 +515,19 @@ export default function CommercialSolo() {
                       Contact us for more details.
                     </p>
 
-                    <Link
-                      className=' size-full'
-                      href={`${url}/${detail.data.collectionId}/${detail.data.id}/${detail.data.floorplan}`}
-                      target='_blank'
+                    <GlobalButton
+                      onClick={() => {
+                        setFloorPlanOpen(true);
+                        setFloorPlanSuccess(false);
+                        setFloorPlanLink(
+                          `${url}/${detail.data.collectionId}/${detail.data.id}/${detail.data.floorplan}`
+                        );
+                      }}
+                      color='white'
+                      className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
                     >
-                      <GlobalButton
-                        color='white'
-                        className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
-                      >
-                        Download Floor Plan
-                      </GlobalButton>
-                    </Link>
+                      Download Floor Plan
+                    </GlobalButton>
                   </div>
                 )}
               </div>
