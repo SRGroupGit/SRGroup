@@ -225,7 +225,7 @@ export default function Page() {
               411036
             </span>
             <div className=' flex w-full gap-2'>
-              <GlobalButton
+              {/* <GlobalButton
                 color='white'
                 className=' mt-4 w-fit whitespace-nowrap rounded-full px-6  py-2 text-base font-medium  md:h-fit '
                 onClick={
@@ -234,7 +234,7 @@ export default function Page() {
                 }
               >
                 Download Brochure
-              </GlobalButton>
+              </GlobalButton> */}
               <GlobalButton
                 color='white'
                 className=' mt-4 w-fit whitespace-nowrap rounded-full px-6  py-2 text-base font-medium  md:h-fit '
@@ -335,12 +335,12 @@ export default function Page() {
                 />
               </div>
               <div className=' flex'>
-                <div
+                {/* <div
                   onClick={() => setFloorPlanOpen(true)}
                   className='flex h-12 w-full cursor-pointer items-center justify-center bg-blue-200 text-yellow-200'
                 >
                   Download Brochure
-                </div>
+                </div> */}
                 <div
                   onClick={() => setEnquireOpen(true)}
                   className='flex h-12 w-full cursor-pointer items-center justify-center bg-yellow-200 text-blue-200'
@@ -404,12 +404,12 @@ export default function Page() {
                 />
               </div>
               <div className=' flex'>
-                <div
+                {/* <div
                   onClick={() => setFloorPlanOpen(true)}
                   className='flex h-12 w-full cursor-pointer items-center justify-center bg-blue-200 text-yellow-200'
                 >
                   Download Brochure
-                </div>
+                </div> */}
                 <div
                   onClick={() => setEnquireOpen(true)}
                   className='flex h-12 w-full cursor-pointer items-center justify-center bg-yellow-200 text-blue-200'

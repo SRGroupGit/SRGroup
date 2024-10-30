@@ -252,7 +252,7 @@ export default function EnquireFormStatic(props) {
                   : 'Submit' /* Added loading state */
               }
             </GlobalButton>
-            <GlobalButton
+            {/* <GlobalButton
               color='white'
               className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
               onClick={() => {
@@ -260,7 +260,7 @@ export default function EnquireFormStatic(props) {
               }}
             >
               Download Floor Plan
-            </GlobalButton>
+            </GlobalButton> */}
           </form>
         )}
       </div>
