@@ -1,9 +1,14 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import Hero from './hero.jpg';
-import Hero2 from './hero2.png';
-import Hero3 from './hero3.png';
+import Hero0 from './hero0.png';
+import Hero1 from './hero1.png';
+import Hero2 from './hero2.jpg';
+import Hero3 from './hero3.jpg';
+import MHero0 from './mhero0.png';
+import MHero1 from './mhero1.png';
+import MHero2 from './mhero2.png';
+import MHero3 from './mhero3.png';
 import Slider from './Slider';
 import GlobalButton from '@/app/GlobalButton';
 import { useState } from 'react';
@@ -32,8 +37,14 @@ import Am5 from './interioimage/am5.jpg';
 export default function Page() {
   const HeroImages = [
     {
+      id: 0,
+      src: Hero0,
+      alt: 'SR Akshatam 0',
+    },
+
+    {
       id: 1,
-      src: Hero,
+      src: Hero1,
       alt: 'SR Akshatam 1',
     },
     {
@@ -44,6 +55,30 @@ export default function Page() {
     {
       id: 3,
       src: Hero3,
+      alt: 'SR Akshatam 3',
+    },
+  ];
+
+  const MHeroImages = [
+    {
+      id: 0,
+      src: MHero0,
+      alt: 'SR Akshatam 0',
+    },
+
+    {
+      id: 1,
+      src: MHero1,
+      alt: 'SR Akshatam 1',
+    },
+    {
+      id: 2,
+      src: MHero2,
+      alt: 'SR Akshatam 2',
+    },
+    {
+      id: 3,
+      src: MHero3,
       alt: 'SR Akshatam 3',
     },
   ];
@@ -206,8 +241,12 @@ export default function Page() {
       />
       <main className=' m-auto  bg-white '>
         <section className='relative m-auto mt-[110px]  w-full max-w-screen-2xl items-center  md:flex '>
-          <div className='  relative aspect-video w-full  '>
+          <div className=' relative hidden  aspect-video w-full md:block  '>
             <Slider GalleryData={HeroImages} ArrowType='none' />
+          </div>
+
+          <div className=' relative block  aspect-video w-full md:hidden  '>
+            <Slider GalleryData={MHeroImages} ArrowType='none' />
           </div>
 
           <div className=' z-10 flex flex-col gap-3 from-black  to-black/0 p-3 md:absolute md:bg-gradient-to-r md:py-10 md:pl-12 md:pr-10 '>

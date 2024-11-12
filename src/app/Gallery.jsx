@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import commercialCover from './_images/bus.jpeg';
 import residentialCover from './_images/ash.jpeg';
-import Aksahtam from './(featured)/SrAkshatam/hero.jpg';
+import Aksahtam from './(featured)/SrAkshatam/hero1.png';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
