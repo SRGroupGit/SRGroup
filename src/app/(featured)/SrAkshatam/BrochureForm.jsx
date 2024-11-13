@@ -89,8 +89,8 @@ export default function BrochureForm(props) {
             }}
             className=' absolute left-0 top-0 size-full bg-black/40 backdrop-blur-md'
           ></div>
-          <div className=' relative z-10 flex flex-col gap-2 rounded-md bg-blue-200 px-6 py-8'>
-            <div className=' flex justify-between gap-4  overflow-hidden text-3xl text-yellow-200 md:text-4xl'>
+          <div className=' relative z-10 flex flex-col gap-2 rounded-md bg-white px-6 py-8'>
+            <div className=' flex justify-between gap-4  overflow-hidden text-3xl text-blue-200 md:text-4xl'>
               <span>
                 {floorPlanSuccess ? 'Thanks' : 'Please fill the Form '}
               </span>
@@ -104,7 +104,7 @@ export default function BrochureForm(props) {
                 ⛌
               </span>
             </div>
-            <span className=' text-white'>
+            <span className=' text-black'>
               download Floor plan for {props.Title}
             </span>
 
@@ -131,7 +131,7 @@ export default function BrochureForm(props) {
                     </label>
                     <input
                       placeholder='Full Name*'
-                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-white autofill:text-white  focus:border-neutral-100 focus:outline-none'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-black autofill:text-black  focus:border-neutral-100 focus:outline-none'
                       type='text'
                       value={FloorFormData.name}
                       onChange={(e) => {
@@ -155,7 +155,7 @@ export default function BrochureForm(props) {
                     </label>
                     <input
                       placeholder='Email*'
-                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-white focus:border-neutral-100 focus:outline-none'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-black focus:border-neutral-100 focus:outline-none'
                       type='email'
                       value={FloorFormData.userEmail}
                       onChange={(e) => {
@@ -181,7 +181,7 @@ export default function BrochureForm(props) {
                     </label>
                     <input
                       placeholder='Phone*'
-                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-white focus:border-neutral-100 focus:outline-none'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-black focus:border-neutral-100 focus:outline-none'
                       type='tel'
                       value={FloorFormData.phone}
                       onChange={(e) => {

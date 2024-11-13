@@ -33,6 +33,19 @@ import Am2 from './interioimage/am2.jpg';
 import Am3 from './interioimage/am3.jpg';
 import Am4 from './interioimage/am4.jpg';
 import Am5 from './interioimage/am5.jpg';
+import Am6 from './interioimage/am6.jpg';
+import Am7 from './interioimage/am7.jpg';
+import Am8 from './interioimage/am8.jpg';
+import Autoplay from 'embla-carousel-autoplay';
+import SliderData from './SliderData';
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 export default function Page() {
   const HeroImages = [
@@ -199,27 +212,42 @@ export default function Page() {
     {
       id: 1,
       src: Am1,
-      alt: 'SR Akshatam',
+      alt: 'Amphitheater',
     },
     {
       id: 2,
       src: Am2,
-      alt: 'SR Akshatam',
+      alt: 'Party Deck',
     },
     {
       id: 3,
       src: Am3,
-      alt: 'SR Akshatam',
+      alt: 'Gazebos',
     },
     {
       id: 4,
       src: Am4,
-      alt: 'SR Akshatam',
+      alt: 'Dedicated Temple',
     },
     {
       id: 5,
       src: Am5,
-      alt: 'SR Akshatam',
+      alt: 'Shrub Gardens',
+    },
+    {
+      id: 6,
+      src: Am6,
+      alt: 'Dedicated Parking',
+    },
+    {
+      id: 7,
+      src: Am7,
+      alt: 'Fully Equipped Gym',
+    },
+    {
+      id: 8,
+      src: Am8,
+      alt: 'Clubhouse',
     },
   ];
 
@@ -471,18 +499,48 @@ export default function Page() {
             children’s play area. With dedicated parking for residents and
             guests, comfort and convenience are prioritized.
           </p>
-          <div className=' mt-10 flex flex-wrap gap-10'>
+          {/* <div className=' mt-10 flex flex-wrap gap-10'>
             {AmenitiesData.map((item, index) => (
               <div className=' flex items-center gap-1 ' key={index}>
                 <Icon icon={item.icon} className=' text-xl text-blue-200' />
                 <span>{item.name}</span>
               </div>
             ))}
-          </div>
+          </div> */}
         </section>
 
         <section className=' relative m-auto my-10 aspect-video w-full max-w-screen-2xl md:aspect-[1443/442]'>
-          <Slider GalleryData={AmiData} />
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              {AmiData.map((item, index) => (
+                <CarouselItem
+                  key={index}
+                  className=' flex basis-1/2 flex-col items-center md:basis-1/4 '
+                >
+                  <div className=' relative aspect-square w-full'>
+                    <Image
+                      className=' aspect-square object-fill object-center'
+                      src={item.src}
+                      alt={item.alt}
+                    />
+                  </div>
+                  <span className=' w-full text-center text-xl font-medium'>
+                    {item.alt}
+                  </span>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </section>
 
         <section className=' m-auto mt-10 aspect-video w-full max-w-screen-2xl'>

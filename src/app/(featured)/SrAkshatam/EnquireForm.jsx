@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import GlobalButton from '@/app/GlobalButton';
 import { Icon } from '@iconify/react';
+import Image from 'next/image';
+import Phone from './phone.png';
 
 export default function EnquireForm(props) {
   const [FloorFormData, setFloorPlanFormData] = useState({
@@ -90,11 +92,9 @@ export default function EnquireForm(props) {
             }}
             className=' absolute left-0 top-0 size-full bg-black/40 backdrop-blur-md'
           ></div>
-          <div className=' relative z-10 flex flex-col gap-2 rounded-md bg-blue-200 px-6 py-8'>
-            <div className=' flex justify-between gap-4  overflow-hidden text-3xl text-yellow-200 md:text-4xl'>
-              <span>
-                {floorPlanSuccess ? 'Thanks' : 'Please fill the Form '}
-              </span>
+          <div className=' relative z-10 flex flex-col gap-2 rounded-md bg-white px-6 py-8'>
+            <div className=' flex justify-between gap-4  overflow-hidden text-3xl text-blue-200 md:text-4xl'>
+              <span>{floorPlanSuccess ? '' : 'Please fill the Form '}</span>
               <span
                 onClick={() => {
                   props.setEnquireOpen(false);
@@ -105,37 +105,55 @@ export default function EnquireForm(props) {
                 ⛌
               </span>
             </div>
-            <span className=' text-white'>
-              {floorPlanSuccess
-                ? 'We will contact you shortly'
-                : `Enquire for ${props.Title}`}
+            <span className=' text-black'>
+              {floorPlanSuccess ? '' : `Enquire for ${props.Title}`}
             </span>
-
-            <div className=' mt-4 flex w-full flex-wrap items-center gap-2'>
-              <Link
-                href='https://api.whatsapp.com/send/?phone=%2B917448007500&text&type=phone_number&app_absent=0'
-                target='_blank'
-              >
-                <GlobalButton
-                  color='white'
-                  className=' w-fit rounded-full p-2  text-base font-medium  '
+            {floorPlanSuccess ? (
+              <div className=' flex min-w-[340px] flex-col items-center  text-blue-200'>
+                <Image
+                  src={Phone}
+                  className=' mb-4'
+                  alt='Success'
+                  width={100}
+                />
+                <div className=' text-2xl font-bold'>
+                  Thank you for your inquiry!
+                </div>
+                 
+                <span className='  text-center  text-xl'>
+                  Our sales representative will <br /> contact you shortly.
+                </span>
+              </div>
+            ) : (
+              <div className=' mt-4 flex w-full flex-wrap items-center gap-2'>
+                <Link
+                  href='https://api.whatsapp.com/send/?phone=%2B917448007500&text&type=phone_number&app_absent=0'
+                  target='_blank'
                 >
-                  Whatsapp
-                </GlobalButton>
-              </Link>
-              <Link
-                href='tel:+917448007500'
-                className=' text-white'
-                target='_blank'
-              >
-                <GlobalButton
-                  color='white'
-                  className=' w-fit whitespace-nowrap rounded-full  p-2 text-base font-medium  '
+                  <GlobalButton
+                    color='white'
+                    className='  w-fit rounded-full  p-2 text-base font-medium  '
+                  >
+                    <span className=' flex items-center'>
+                      <Icon icon='akar-icons:whatsapp-fill' />
+                      Whatsapp
+                    </span>
+                  </GlobalButton>
+                </Link>
+                <Link
+                  href='tel:+917448007500'
+                  className=' text-black'
+                  target='_blank'
                 >
-                  Number : +91 7448007500
-                </GlobalButton>
-              </Link>
-            </div>
+                  <GlobalButton
+                    color='white'
+                    className=' w-fit whitespace-nowrap rounded-full  p-2 text-base font-medium  '
+                  >
+                    Number : +91 7448007500
+                  </GlobalButton>
+                </Link>
+              </div>
+            )}
 
             {floorPlanSuccess ? (
               <GlobalButton
@@ -160,7 +178,7 @@ export default function EnquireForm(props) {
                     </label>
                     <input
                       placeholder='Full Name*'
-                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-white autofill:text-white  focus:border-neutral-100 focus:outline-none'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-black autofill:text-black  focus:border-neutral-100 focus:outline-none'
                       type='text'
                       value={FloorFormData.name}
                       onChange={(e) => {
@@ -184,7 +202,7 @@ export default function EnquireForm(props) {
                     </label>
                     <input
                       placeholder='Email*'
-                      className='  cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-white focus:border-neutral-100 focus:outline-none'
+                      className='  cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-black focus:border-neutral-100 focus:outline-none'
                       type='email'
                       value={FloorFormData.userEmail}
                       onChange={(e) => {
@@ -210,7 +228,7 @@ export default function EnquireForm(props) {
                     </label>
                     <input
                       placeholder='Phone*'
-                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-white focus:border-neutral-100 focus:outline-none'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 text-black focus:border-neutral-100 focus:outline-none'
                       type='tel'
                       value={FloorFormData.phone}
                       onChange={(e) => {
@@ -233,7 +251,7 @@ export default function EnquireForm(props) {
                   </label>
                   <textarea
                     placeholder='Message'
-                    className=' cursorHide h-32  w-full cursor-text resize-none border-b border-neutral-400 bg-transparent p-1 text-white focus:border-neutral-100 focus:outline-none'
+                    className=' cursorHide h-32  w-full cursor-text resize-none border-b border-neutral-400 bg-transparent p-1 text-black focus:border-neutral-100 focus:outline-none'
                     value={FloorFormData.message}
                     onChange={(e) => {
                       setFloorPlanFormData({

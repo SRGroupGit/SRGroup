@@ -118,7 +118,10 @@ export default function EnquireFormStatic(props) {
               color='white'
               className=' w-fit rounded-full p-2  text-base font-medium  '
             >
-              Whatsapp
+              <span className=' flex items-center'>
+                <Icon icon='akar-icons:whatsapp-fill' />
+                Whatsapp
+              </span>
             </GlobalButton>
           </Link>
           <Link
