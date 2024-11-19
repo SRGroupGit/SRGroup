@@ -390,9 +390,21 @@ export default function Page() {
                     can thrive in a high-traffic, upscale shopping complex.
                   </p>
                 </div>
+                <div className=' flex flex-col gap-4'>
+                  <div className=' text-4xl text-yellow-200'>
+                    <Icon icon='iconoir:bright-star' />
+                  </div>
+
+                  <p>
+                    <b>Modern Amenities for Convenience</b> <br />
+                    Enjoy essential features like attached bathrooms, multiple
+                    elevators, and dedicated parking spaces, designed to enhance
+                    the experience for both businesses and their customers.
+                  </p>
+                </div>
               </div>
             </div>
-            <div className=' w-full'>
+            <div className=' mt-4 w-full'>
               <div className=' relative aspect-video w-full bg-black'>
                 <Image
                   src={ShopHero}
@@ -447,6 +459,7 @@ export default function Page() {
                     every corner.
                   </p>
                 </div>
+
                 <div className=' flex flex-col gap-4'>
                   <div className=' text-4xl text-yellow-200'>
                     <Icon icon='hugeicons:kettlebell' />
