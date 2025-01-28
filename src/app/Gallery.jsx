@@ -15,7 +15,7 @@ const GalleryData = [
       "Ideal for businesses and healthcare professionals, centrally located in Pune’s bustling commercial district. Benefit from proximity to Balewadi High Street and Aundh, and experience the building's excellent architecture featuring open-plan layouts and stunning facade aesthetics.",
     image: commercialCover,
     id: 'b7fktd9u3iywa1o',
-    link: '/commercial/SRBusinessHub',
+    link: '/SRBusinessHub',
   },
   {
     title: 'SR Aishwaryam',
