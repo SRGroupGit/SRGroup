@@ -526,7 +526,7 @@ export default function Page() {
                 >
                   <div className=' relative aspect-square w-full'>
                     <Image
-                      className=' aspect-square object-fill object-center'
+                      className=' aspect-square object-cover object-center'
                       src={item.src}
                       alt={item.alt}
                     />
