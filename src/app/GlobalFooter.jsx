@@ -91,33 +91,35 @@ export default function GlobalFooter() {
         </div>
       )}
       {cookies && (
-        <div className=' fixed bottom-0  right-0 z-[9999] flex  flex-col items-center justify-center  bg-blue-200 px-12 py-3 text-white'>
-          <span className=' w-full text-xl font-bold text-yellow-200'>
-            {' '}
-            Disclaimer{' '}
-          </span>
-          <p className=' w-full text-sm'>
-            The information provided on the SR Group real estate website is for
-            general informational purposes only. While we strive to keep the
-            information up to date and accurate, we make no representations or
-            warranties of any kind, express or implied, about the completeness,
-            accuracy, reliability, suitability, or availability with respect to
-            the website or the information, products, services, or related
-            graphics contained on the website for any purpose. Any reliance you
-            place on such information is therefore strictly at your own risk. In
-            no event will SRgroup or its employees be liable for any loss or
-            damage including without limitation, indirect or consequential loss
-            or damage, or any loss or damage whatsoever arising from loss of
-            data or profits.
-          </p>
+        <div className=' w-full h-full fixed flex items-center justify-center top-0 left-0 overflow-hidden z-[9999] px-4 bg-white'>
+          <div className='   flex  flex-col max-w-screen-xl  justify-end w-full h-[70vh]  rounded-md bg-[#D9D9D9] p-12 text-black'>
+            <span className=' w-full text-4xl mb-4 font-bold text-black'>
+              {' '}
+              Disclaimer{' '}
+            </span>
+            <p className=' w-full text-black/70 '>
+              The information provided on the SR Group real estate website is
+              for general informational purposes only. While we strive to keep
+              the information up to date and accurate, we make no
+              representations or warranties of any kind, express or implied,
+              about the completeness, accuracy, reliability, suitability, or
+              availability with respect to the website or the information,
+              products, services, or related graphics contained on the website
+              for any purpose. Any reliance you place on such information is
+              therefore strictly at your own risk. In no event will SRgroup or
+              its employees be liable for any loss or damage including without
+              limitation, indirect or consequential loss or damage, or any loss
+              or damage whatsoever arising from loss of data or profits.
+            </p>
 
-          <GlobalButton
-            color='white'
-            className=' mt-4  w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit md:w-32'
-            onClick={() => setCookies(false)}
-          >
-            I accept
-          </GlobalButton>
+            <GlobalButton
+              color='white'
+              className=' mt-4  w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit md:w-32'
+              onClick={() => setCookies(false)}
+            >
+              I accept
+            </GlobalButton>
+          </div>
         </div>
       )}
       <div className=' m-auto w-full max-w-screen-2xl'>

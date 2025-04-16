@@ -8,6 +8,8 @@ import GlobalButton from './GlobalButton';
 import CountUp from 'react-countup';
 import SelectGallery from './SelectGallery';
 import Gallery from './Gallery';
+import Link from 'next/link';
+import ProjectCard from './ProjectCard';
 
 export default function Home() {
   const { contextSafe } = useGSAP();
@@ -134,6 +136,59 @@ export default function Home() {
     });
   });
 
+  // Add new ref at the top with other refs
+  const introTextRef = useRef(null);
+
+  // Add this new GSAP animation
+  useGSAP(() => {
+    const words = introTextRef.current.textContent.split(' ');
+    introTextRef.current.innerHTML = '';
+
+    words.forEach((word, index) => {
+      const span = document.createElement('span');
+      span.textContent = word + ' ';
+      span.style.opacity = '0.1';
+      introTextRef.current.appendChild(span);
+    });
+
+    gsap.to(introTextRef.current.children, {
+      opacity: 0.8,
+      duration: 0.5,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: introTextRef.current,
+        start: 'top center',
+        end: 'bottom center',
+        scrub: true,
+      },
+    });
+  });
+
+  const CardData = [
+    {
+      title: 'SR AKSHATAM',
+      image: '/images/akshatam.png',
+      location: 'Keshav Nagar, Pune',
+      availability: 'Available',
+      locality: 'Mundhwa-Manjri Rd, Sasane Colony',
+      type: 'Residential',
+      size: '2BHKs | 3BHKs',
+      link: '/SrAkshatam',
+      map: 'https://maps.app.goo.gl/qkY5wKS1zetq7rQXA',
+    },
+    {
+      title: 'SR Business Hub',
+      image: '/images/businesshub.png',
+      location: 'Baner, Pune',
+      availability: 'Available',
+      locality: 'Old Baner Balewadi Road',
+      type: 'Commercial',
+      size: 'Showrooms | Office Spaces',
+      link: '/SRBusinessHub',
+      map: 'https://maps.app.goo.gl/znzJ8pFMLpyAspKR9',
+    },
+  ];
+
   return (
     <main ref={homeRef}>
       {/* <marquee
@@ -185,7 +240,26 @@ export default function Home() {
           </span>
         </h1>
       </section>
-      <section ref={professionalServices} className=' my-10 w-full px-3 '>
+
+      <section className='my-12 py-3 px-3 flex flex-col gap-4 font-medium mx-auto w-full text-[40px] max-w-screen-2xl'>
+        <p ref={introTextRef} className='text-black'>
+          SR Group specialises in residential and commercial projects and
+          maintains our on-time delivery commitment. Our layouts, crafted in
+          compliance with Good Vastu and Feng Shui principles, ensure harmony
+          and prosperity for your family. Lastly, along with good transparency
+          with our clients, we uphold high compliance with all real estate laws,
+          maintaining our longstanding reputation for integrity and trust.
+        </p>
+        <Link href='/about'>
+          <GlobalButton
+            color='white'
+            className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+          >
+            About Us
+          </GlobalButton>
+        </Link>
+      </section>
+      {/* <section ref={professionalServices} className=' my-10 w-full px-3 '>
         <div className=' mx-auto w-full max-w-screen-2xl'>
           <div className=' flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
             <div className=' flex flex-col gap-4'>
@@ -213,16 +287,15 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </section>
-      <section ref={FourPointsSection} className=' my-10 w-full px-3 '>
-        <div className=' mx-auto w-full max-w-screen-2xl text-blue-200'>
+      </section> */}
+      <section
+        ref={FourPointsSection}
+        className=' bg-blue-200 my-10 w-full px-3 py-12 '
+      >
+        <div className=' mx-auto w-full max-w-screen-2xl text-white/80'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
-            <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
-              <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Total volume of area built</b> with 5 lakh sq.ft. built and
-                3.63 lakh sq.ft. of on-going projects.
-              </p>
-              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
+            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp
                     enableScrollSpy={true}
@@ -233,71 +306,98 @@ export default function Home() {
                   <span className=' text-[0.2em] uppercase'>Lakh Sq Ft</span>
                 </span>
               </h3>
-            </div>
-            <div className=' h-[320px] w-px   md:h-[270px] lg:h-[260px]'>
-              <div ref={topLine} className=' h-1/2 w-full bg-blue-200'></div>
+              <p className=' fadeIn text-2xl w-full  '>
+                <b>Total volume of area built</b> with 5 lakh sq.ft. built and
+                3.63 lakh sq.ft. of on-going projects.
+              </p>
             </div>
 
-            <div className=' flex h-[320px] w-full   flex-col-reverse gap-3 overflow-hidden px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
-              <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Years of experience</b> , as we continue to grow and evolve,
-                our extensive experience forms the cornerstone of our success,
-                guiding us in our mission.
-              </p>
-              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
+            <div className=' h-[320px] w-px   md:h-[270px] lg:h-[260px]'>
+              <div ref={topLine} className=' h-1/2 w-full bg-white'></div>
+            </div>
+
+            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={16} duration={1.5} />+
                 </span>
               </h3>
+              <p className=' fadeIn text-2xl w-full  '>
+                <b>Years of experience</b> , as we continue to grow and evolve,
+                our extensive experience forms the cornerstone of our success,
+                guiding us in our mission.
+              </p>
             </div>
           </div>
           <div className=' flex h-px w-full justify-between'>
             <div className=' w-full '>
-              <div ref={leftLine} className=' h-full w-1/2 bg-blue-200'></div>
+              <div ref={leftLine} className=' h-full w-1/2 bg-white'></div>
             </div>
             <div className=' flex w-full justify-end'>
-              <div ref={rightLine} className=' h-full w-1/2 bg-blue-200'></div>
+              <div ref={rightLine} className=' h-full w-1/2 bg-white'></div>
             </div>
           </div>
 
           <div className=' flex h-fit w-full flex-row items-start overflow-hidden  lg:items-end '>
-            <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2 pb-4 md:h-[270px]  lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
-              <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Total projects completed</b> with <b>4 on going projects</b>
-                ,Each project, whether large or small, has been meticulously
-                planned and executed with precision.
-              </p>
-              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
+            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
               </h3>
-            </div>
-            <div className=' flex h-[320px] w-px items-end   md:h-[270px] lg:h-[260px]'>
-              <div ref={bottomLine} className=' h-1/2 w-full bg-blue-200'></div>
+              <p className=' fadeIn text-2xl w-full  '>
+                <b>Total projects completed</b> with <b>4 on going projects</b>
+                ,Each project, whether large or small, has been meticulously
+                planned and executed with precision.
+              </p>
             </div>
 
-            <div className=' flex h-[320px]   w-full flex-col-reverse gap-3 px-2  pb-4 md:h-[270px] lg:h-[260px] lg:flex-row lg:items-end lg:justify-between'>
-              <p className=' fadeIn w-full lg:w-1/3 lg:max-w-sm '>
-                <b>Customers Served</b> ,The trust placed in us by our customers
-                motivates us to continue improving and innovating.
-              </p>
-              <h3 className=' overflow-hidden text-4xl font-bold text-blue-200 lg:text-8xl '>
+            <div className=' flex h-[320px] w-px items-end   md:h-[270px] lg:h-[260px]'>
+              <div ref={bottomLine} className=' h-1/2 w-full bg-white'></div>
+            </div>
+
+            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={1100} duration={1} />+
                 </span>
               </h3>
+              <p className=' fadeIn text-2xl w-full  '>
+                <b>Customers Served</b> ,The trust placed in us by our customers
+                motivates us to continue improving and innovating.
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <section
+      <div className=' w-full max-w-screen-2xl p-3 text-6xl text-blue-200 mb-12'>
+        <h2>Prime Projects</h2>
+      </div>
+      <section className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto'>
+        {CardData.map((card, index) => {
+          return (
+            <ProjectCard
+              key={index}
+              title={card.title}
+              image={card.image}
+              location={card.location}
+              availability={card.availability}
+              locality={card.locality}
+              type={card.type}
+              size={card.size}
+              link={card.link}
+              map={card.map}
+            />
+          );
+        })}
+      </section>
+      {/* <section
         ref={selectionGallery}
         className=' my-14 h-[calc(100dvh-80px)]   w-full'
       >
         <SelectGallery />
-      </section>
-      <section ref={upcoming} className=' my-10 w-full px-3 '>
+      </section> */}
+      {/* <section ref={upcoming} className=' my-10 w-full px-3 '>
         <div className=' mx-auto w-full max-w-screen-2xl'>
           <div className=' flex flex-col gap-10 md:flex-row md:items-center md:justify-between'>
             <div className=' flex flex-col gap-4'>
@@ -321,7 +421,7 @@ export default function Home() {
       </section>
       <section className='  mx-auto w-full max-w-screen-2xl'>
         <Gallery />
-      </section>
+      </section> */}
     </main>
   );
 }
