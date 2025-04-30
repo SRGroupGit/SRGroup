@@ -6,10 +6,7 @@ import ProviderShell from './ProviderShell';
 export const metadata = {
   title: 'SR Group',
   description: 'SR Group',
-  authors: [
-    { name: 'Angle.services', url: 'https://Angle.services' },
-    { name: 'GlitchNobody', url: 'https://glitchnobody.com' },
-  ],
+  authors: [{ name: 'Angle.services', url: 'https://Angle.services' }],
 };
 
 export default function RootLayout({ children }) {

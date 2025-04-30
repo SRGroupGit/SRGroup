@@ -388,7 +388,7 @@ export default function GlobalNavBar() {
               className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
               href='/'
             >
-              <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap   py-4 '>
+              <div className=' relative z-10 flex w-full items-center justify-start  whitespace-nowrap px-3   py-4 '>
                 HOME
               </div>
             </Link>
@@ -400,7 +400,7 @@ export default function GlobalNavBar() {
               className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
               href='/about'
             >
-              <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap  py-4 '>
+              <div className=' relative z-10 flex w-full items-center justify-start  whitespace-nowrap px-3   py-4  '>
                 ABOUT US
               </div>
             </Link>
@@ -409,24 +409,25 @@ export default function GlobalNavBar() {
               onClick={onClickMenu}
               id='menuItem'
               className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
-              href='/commercial'
+              href='/portfolio'
             >
-              <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap  py-4  '>
-                COMMERCIAL
+              <div className=' relative z-10 flex w-full items-center justify-start  whitespace-nowrap px-3   py-4  '>
+                OUR PORTFOLIO
               </div>
             </Link>
             <hr id='line' className=' w-full bg-white' />
+
             <Link
               onClick={onClickMenu}
               id='menuItem'
               className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
-              href='/residential'
+              href='https://blog.sreddygroup.com/'
+              target='_blank'
             >
-              <div className=' e relative z-10 flex w-full items-center  justify-center whitespace-nowrap py-4  '>
-                RESIDENTIAL
+              <div className='relative z-10 flex w-full items-center justify-start  whitespace-nowrap px-3   py-4   '>
+                BLOGS
               </div>
             </Link>
-
             <hr id='line' className=' w-full bg-white' />
             <Link
               onClick={onClickMenu}
@@ -434,7 +435,7 @@ export default function GlobalNavBar() {
               className=' group relative flex w-full items-center justify-center bg-white text-blue-200  hover:bg-blue-200 hover:text-white'
               href='/contact'
             >
-              <div className=' relative z-10 flex w-full items-center justify-center  whitespace-nowrap  py-4  '>
+              <div className='relative z-10 flex w-full items-center justify-start  whitespace-nowrap px-3   py-4   '>
                 CONTACT US
               </div>
             </Link>

@@ -84,47 +84,49 @@ export default function GlobalFooter() {
   };
 
   return (
-    <footer className=' mt-10 w-full bg-blue-200 px-3 py-8 text-neutral-200'>
+    <footer className='  w-full bg-[#191919] px-3 py-8 text-neutral-200'>
       {success && (
         <div className=' fixed bottom-10 right-0 z-[9] bg-black px-12 py-3 text-white'>
           Message sent successfully
         </div>
       )}
       {cookies && (
-        <div className=' fixed bottom-0  right-0 z-[9999] flex  flex-col items-center justify-center  bg-blue-200 px-12 py-3 text-white'>
-          <span className=' w-full text-xl font-bold text-yellow-200'>
-            {' '}
-            Disclaimer{' '}
-          </span>
-          <p className=' w-full text-sm'>
-            The information provided on the SR Group real estate website is for
-            general informational purposes only. While we strive to keep the
-            information up to date and accurate, we make no representations or
-            warranties of any kind, express or implied, about the completeness,
-            accuracy, reliability, suitability, or availability with respect to
-            the website or the information, products, services, or related
-            graphics contained on the website for any purpose. Any reliance you
-            place on such information is therefore strictly at your own risk. In
-            no event will SRgroup or its employees be liable for any loss or
-            damage including without limitation, indirect or consequential loss
-            or damage, or any loss or damage whatsoever arising from loss of
-            data or profits.
-          </p>
+        <div className=' w-full h-full fixed flex items-center justify-center top-0 left-0 overflow-hidden z-[9999] px-4 bg-white'>
+          <div className='   flex  flex-col max-w-screen-xl  justify-end w-full h-[70vh]  rounded-md bg-[#D9D9D9] md:p-12 p-4 text-black'>
+            <span className=' w-full md:text-4xl text-2xl mb-4 font-bold text-black'>
+              {' '}
+              Disclaimer{' '}
+            </span>
+            <p className=' w-full text-sm md:text-base text-black/70 '>
+              The information provided on the SR Group real estate website is
+              for general informational purposes only. While we strive to keep
+              the information up to date and accurate, we make no
+              representations or warranties of any kind, express or implied,
+              about the completeness, accuracy, reliability, suitability, or
+              availability with respect to the website or the information,
+              products, services, or related graphics contained on the website
+              for any purpose. Any reliance you place on such information is
+              therefore strictly at your own risk. In no event will SRgroup or
+              its employees be liable for any loss or damage including without
+              limitation, indirect or consequential loss or damage, or any loss
+              or damage whatsoever arising from loss of data or profits.
+            </p>
 
-          <GlobalButton
-            color='white'
-            className=' mt-4  w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit md:w-32'
-            onClick={() => setCookies(false)}
-          >
-            I accept
-          </GlobalButton>
+            <GlobalButton
+              color='white'
+              className=' mt-4  w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit md:w-32'
+              onClick={() => setCookies(false)}
+            >
+              I accept
+            </GlobalButton>
+          </div>
         </div>
       )}
       <div className=' m-auto w-full max-w-screen-2xl'>
         <div className=' grid-cols-2 gap-20 md:grid'>
           <div>
             <span className=' text-4xl font-bold text-yellow-200'>
-              Contact Us
+              Looking for something specific?
             </span>
             <form className='flex max-w-3xl flex-col'>
               <div className=' w-full gap-2 md:flex'>
@@ -279,11 +281,31 @@ export default function GlobalFooter() {
           </div>
         </div>
       </div>
-      <section className=' m-auto flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4 text-sm md:flex-row'>
+      <section className=' m-auto flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4 text-md'>
+        <span className=' w-full md:text-4xl text-2xl mt-10 mb-4 font-bold text-yellow-200'>
+          {' '}
+          Disclaimer{' '}
+        </span>
+        <p className=' w-full text-sm md:text-base text-white/70 '>
+          The information provided on the SR Group real estate website is for
+          general informational purposes only. While we strive to keep the
+          information up to date and accurate, we make no representations or
+          warranties of any kind, express or implied, about the completeness,
+          accuracy, reliability, suitability, or availability with respect to
+          the website or the information, products, services, or related
+          graphics contained on the website for any purpose. Any reliance you
+          place on such information is therefore strictly at your own risk. In
+          no event will SRgroup or its employees be liable for any loss or
+          damage including without limitation, indirect or consequential loss or
+          damage, or any loss or damage whatsoever arising from loss of data or
+          profits.
+        </p>
+      </section>
+      <section className=' m-auto flex w-full max-w-screen-2xl mt-10 flex-col items-center justify-between pt-4 text-sm md:text-4xl md:flex-row'>
         <div>
           <span>SR Group. All rights reserved, {new Date().getFullYear()}</span>
         </div>
-        <div>
+        <div className=' text-xs'>
           Designed and developed by{' '}
           <Link
             className=' text-yellow-200'
