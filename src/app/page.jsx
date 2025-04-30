@@ -10,6 +10,7 @@ import SelectGallery from './SelectGallery';
 import Gallery from './Gallery';
 import Link from 'next/link';
 import ProjectCard from './ProjectCard';
+import Image from 'next/image';
 
 export default function Home() {
   const { contextSafe } = useGSAP();
@@ -138,6 +139,7 @@ export default function Home() {
 
   // Add new ref at the top with other refs
   const introTextRef = useRef(null);
+  const bottomTextRef = useRef(null);
 
   // Add this new GSAP animation
   useGSAP(() => {
@@ -157,6 +159,30 @@ export default function Home() {
       stagger: 0.1,
       scrollTrigger: {
         trigger: introTextRef.current,
+        start: 'top center',
+        end: 'bottom center',
+        scrub: true,
+      },
+    });
+  });
+
+  useGSAP(() => {
+    const words = bottomTextRef.current.textContent.split(' ');
+    bottomTextRef.current.innerHTML = '';
+
+    words.forEach((word, index) => {
+      const span = document.createElement('span');
+      span.textContent = word + ' ';
+      span.style.opacity = '0.1';
+      bottomTextRef.current.appendChild(span);
+    });
+
+    gsap.to(bottomTextRef.current.children, {
+      opacity: 0.8,
+      duration: 0.5,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: bottomTextRef.current,
         start: 'top center',
         end: 'bottom center',
         scrub: true,
@@ -186,6 +212,17 @@ export default function Home() {
       size: 'Showrooms | Office Spaces',
       link: '/SRBusinessHub',
       map: 'https://maps.app.goo.gl/znzJ8pFMLpyAspKR9',
+    },
+    {
+      title: 'SR Aishwaryam',
+      image: '/images/aishwaryam.png',
+      location: 'Balewadi, Pune',
+      availability: 'Available',
+      locality: 'Balewadi',
+      type: 'Residential',
+      size: '3.5 BHK Homes',
+      link: '/residential/SRAishwaryam',
+      map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
   ];
 
@@ -241,7 +278,7 @@ export default function Home() {
         </h1>
       </section>
 
-      <section className='my-12 py-3 px-3 flex flex-col gap-4 font-medium mx-auto w-full text-[40px] max-w-screen-2xl'>
+      <section className='my-12 py-3 px-3 flex flex-col gap-4 font-medium mx-auto w-full text-2xl md:text-4xl max-w-screen-2xl'>
         <p ref={introTextRef} className='text-black'>
           SR Group specialises in residential and commercial projects and
           maintains our on-time delivery commitment. Our layouts, crafted in
@@ -294,8 +331,8 @@ export default function Home() {
       >
         <div className=' mx-auto w-full max-w-screen-2xl text-white/80'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
-            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  h-[240px] flex flex-col   w-full  gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp
                     enableScrollSpy={true}
@@ -306,23 +343,23 @@ export default function Home() {
                   <span className=' text-[0.2em] uppercase'>Lakh Sq Ft</span>
                 </span>
               </h3>
-              <p className=' fadeIn text-2xl w-full  '>
+              <p className=' fadeIn text-sm md:text-2xl w-full  '>
                 <b>Total volume of area built</b> with 5 lakh sq.ft. built and
                 3.63 lakh sq.ft. of on-going projects.
               </p>
             </div>
 
-            <div className=' h-[320px] w-px   md:h-[270px] lg:h-[260px]'>
+            <div className=' h-[240px] w-px   md:h-[270px] lg:h-[260px]'>
               <div ref={topLine} className=' h-1/2 w-full bg-white'></div>
             </div>
 
-            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  h-[240px] flex flex-col   w-full   gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={16} duration={1.5} />+
                 </span>
               </h3>
-              <p className=' fadeIn text-2xl w-full  '>
+              <p className=' fadeIn text-sm md:text-2xl w-full  '>
                 <b>Years of experience</b> , as we continue to grow and evolve,
                 our extensive experience forms the cornerstone of our success,
                 guiding us in our mission.
@@ -339,30 +376,30 @@ export default function Home() {
           </div>
 
           <div className=' flex h-fit w-full flex-row items-start overflow-hidden  lg:items-end '>
-            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  h-[240px] flex flex-col   w-full  gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
               </h3>
-              <p className=' fadeIn text-2xl w-full  '>
+              <p className=' fadeIn text-sm md:text-2xl w-full  '>
                 <b>Total projects completed</b> with <b>4 on going projects</b>
                 ,Each project, whether large or small, has been meticulously
                 planned and executed with precision.
               </p>
             </div>
 
-            <div className=' flex h-[320px] w-px items-end   md:h-[270px] lg:h-[260px]'>
+            <div className=' flex h-[240px] w-px items-end   md:h-[270px] lg:h-[260px]'>
               <div ref={bottomLine} className=' h-1/2 w-full bg-white'></div>
             </div>
 
-            <div className='  h-[320px] flex flex-col   w-full  gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  h-[240px] flex flex-col   w-full  gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={1100} duration={1} />+
                 </span>
               </h3>
-              <p className=' fadeIn text-2xl w-full  '>
+              <p className=' fadeIn text-sm md:text-2xl w-full  '>
                 <b>Customers Served</b> ,The trust placed in us by our customers
                 motivates us to continue improving and innovating.
               </p>
@@ -370,8 +407,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className=' w-full max-w-screen-2xl p-3 text-6xl text-blue-200 mb-12'>
-        <h2>Prime Projects</h2>
+      <div className=' w-full overflow-hidden  mx-auto max-w-screen-2xl p-3 text-6xl text-blue-200 mb-12'>
+        <h2 className='fadeIn'>Prime Projects</h2>
       </div>
       <section className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto'>
         {CardData.map((card, index) => {
@@ -391,6 +428,55 @@ export default function Home() {
           );
         })}
       </section>
+
+      <section className=' w-full  flex md:flex-row mt-12 flex-col'>
+        <div className=' w-full p-4 bg-[#E8E8E8] flex flex-col justify-center gap-6'>
+          <h3 className=' md:text-6xl text-4xl text-blue-200 font-medium'>
+            Like What You See?
+          </h3>
+          <p ref={bottomTextRef} className=' text-2xl md:text-4xl'>
+            Explore our portfolio of premium commercial and residential spaces
+            designed to redefine modern living and business success. From
+            state-of-the-art commercial hubs to luxurious residences, our
+            projects blend innovation, functionality, and elegance in prime
+            locations.
+          </p>
+          <Link href='/contact'>
+            <GlobalButton
+              color='white'
+              className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+            >
+              OUR PORTFOLIO
+            </GlobalButton>
+          </Link>
+        </div>
+        <div className=' w-full  bg-[#E8E8E8] flex flex-col '>
+          <div className=' h-full aspect-video relative overflow-hidden'>
+            <Image
+              src='/images/businesshub.png'
+              fill
+              className=' object-cover'
+              alt='Image'
+            />
+          </div>
+          <div className=' w-full p-4 bg-yellow-200 flex flex-col gap-2 py-6'>
+            <h3 className=' text-4xl text-blue-200 font-medium'>
+              Like What You See?
+            </h3>
+            <p className=' text-[#3F3F3F]  text-2xl'>
+              Explore insights on real estate, design trends,
+              <span className=' text-white'> and smart investments!</span>
+            </p>
+            <GlobalButton
+              color='yellow'
+              className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+            >
+              OUR PORTFOLIO
+            </GlobalButton>
+          </div>
+        </div>
+      </section>
+
       {/* <section
         ref={selectionGallery}
         className=' my-14 h-[calc(100dvh-80px)]   w-full'
