@@ -224,6 +224,17 @@ export default function Home() {
       link: '/residential/SRAishwaryam',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
+    {
+      title: 'SR House',
+      image: '/images/SRHouse.png',
+      location: 'Baner, Pune',
+      availability: 'In Construction',
+      locality: 'Veerbhadra Nagar',
+      type: 'Commercial',
+      size: 'Shops, Showrooms, Office Spaces',
+      link: 'na',
+      map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
+    },
   ];
 
   return (
@@ -452,12 +463,17 @@ export default function Home() {
         </div>
         <div className=' w-full  bg-[#E8E8E8] flex flex-col '>
           <div className=' h-full aspect-video relative overflow-hidden'>
-            <Image
-              src='/images/businesshub.png'
-              fill
-              className=' object-cover'
-              alt='Image'
-            />
+            <video
+              src='/Video.mp4'
+              className=' size-full object-cover contrast-[1.2] '
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload='auto'
+              poster='/video-poster.jpg'
+              alt='Video background'
+            ></video>
           </div>
           <div className=' w-full p-4 bg-yellow-200 flex flex-col gap-2 py-6'>
             <h3 className=' text-4xl text-blue-200 font-medium'>
@@ -467,12 +483,14 @@ export default function Home() {
               Explore insights on real estate, design trends,
               <span className=' text-white'> and smart investments!</span>
             </p>
-            <GlobalButton
-              color='yellow'
-              className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
-            >
-              OUR PORTFOLIO
-            </GlobalButton>
+            <Link href='https://blog.sreddygroup.com/' target='_blank'>
+              <GlobalButton
+                color='yellow'
+                className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+              >
+                Check Blogs
+              </GlobalButton>
+            </Link>
           </div>
         </div>
       </section>

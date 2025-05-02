@@ -156,6 +156,20 @@ export default function Home() {
     });
   });
 
+  const UpComingProjects = [
+    {
+      title: 'SR House',
+      image: '/images/SRHouse.png',
+      location: 'Baner, Pune',
+      availability: 'In Construction',
+      locality: 'Veerbhadra Nagar',
+      type: 'Commercial',
+      size: 'Shops, Showrooms, Office Spaces',
+      link: 'na',
+      map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
+    },
+  ];
+
   const UnderConstruction = [
     {
       title: 'SR AKSHATAM',
@@ -195,19 +209,74 @@ export default function Home() {
     },
   ];
 
-  //   const SoldOut = [
-  //     {
-  //       title: 'SR Business Hub',
-  //       image: '/images/businesshub.png',
-  //       location: 'Baner, Pune',
-  //       availability: 'Available',
-  //       locality: 'Old Baner Balewadi Road',
-  //       type: 'Commercial',
-  //       size: 'Showrooms | Office Spaces',
-  //       link: '/SRBusinessHub',
-  //       map: 'https://maps.app.goo.gl/znzJ8pFMLpyAspKR9',
-  //     },
-  //   ];
+  const SoldOut = [
+    {
+      title: 'SR 45 Baner',
+      image: '/images/SR45Baner.png',
+      location: 'Baner, Pune',
+      availability: 'Sold Out',
+      locality: 'Baner',
+      type: 'Commercial',
+      size: 'Shops, Showrooms, Office Spaces',
+      link: '/commercial/SR45Baner',
+      map: 'na',
+    },
+    {
+      title: 'SR Business Point',
+      image: '/images/SRBusinessPoint.png',
+      location: 'Baner, Pune',
+      availability: 'Sold Out',
+      locality: 'Sai Chowk Rd',
+      type: 'Commercial',
+      size: 'Office Spaces',
+      link: '/commercial/SRBusinessPoint',
+      map: 'https://maps.app.goo.gl/8eKea5Rx2Wc5F9qz9',
+    },
+    {
+      title: 'SR Swasthi',
+      image: '/images/SRSwasthi.png',
+      location: 'Balewadi, Pune',
+      availability: 'Sold Out',
+      locality: 'Sapphire Park Rd',
+      type: 'Residential',
+      size: '2BHK, 3BHK',
+      link: '/residential/SRSwasthi',
+      map: 'https://maps.app.goo.gl/kDwkzGqGAraqpqnt5',
+    },
+    {
+      title: 'SR Om Paradise',
+      image: '/images/SROmParadise.png',
+      location: 'Sus, Pune',
+      availability: 'Sold Out',
+      locality: 'Sus Ln',
+      type: 'Residential and Commercial',
+      size: '2BHK, 3BHK, Shops',
+      link: '/residential/SROmParadise',
+      map: 'https://maps.app.goo.gl/euuUuFQ9Z2zTxTgr6',
+    },
+    {
+      title: 'SR Anand Residency',
+      image: '/images/SRAnandResidency.png',
+      location: 'Dhanori, Pune',
+      availability: 'Sold Out',
+      locality: 'Dhanori-Lohegaon Rd',
+      type: 'Residential',
+      size: '1BHK, 2BHK',
+      link: '/residential/SRAnandResidency',
+      map: 'https://maps.app.goo.gl/1aL5GcgaF3SmBHfe8',
+    },
+    {
+      title: 'SR Arambh',
+      image: '/images/SRArambh.png',
+      location: 'Sus, Pune',
+      availability: 'Sold Out',
+      locality: 'Sus Rd, Behind Audi Showroom',
+      type: 'Residential',
+      size: '1BHK, 2BHK',
+      link: '/residential/SRArambh',
+      map: 'https://maps.app.goo.gl/58tAKdiGMinoeYBN6',
+    },
+  ];
 
   return (
     <main ref={homeRef}>
@@ -242,6 +311,31 @@ export default function Home() {
           maintaining our longstanding reputation for integrity and trust.
         </p>
       </section>
+
+      <section>
+        <div className=' w-full overflow-hidden  mx-auto max-w-screen-2xl p-3 text-6xl text-blue-200 mt-12 mb-4'>
+          <h2 className='fadeIn'>Upcoming Projects</h2>
+        </div>
+        <div className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto'>
+          {UpComingProjects.map((card, index) => {
+            return (
+              <ProjectCard
+                key={index}
+                title={card.title}
+                image={card.image}
+                location={card.location}
+                availability={card.availability}
+                locality={card.locality}
+                type={card.type}
+                size={card.size}
+                link={card.link}
+                map={card.map}
+              />
+            );
+          })}
+        </div>
+      </section>
+
       <section>
         <div className=' w-full overflow-hidden  mx-auto max-w-screen-2xl p-3 text-6xl text-blue-200 mt-12 mb-4'>
           <h2 className='fadeIn'>Under Construction</h2>
@@ -292,10 +386,10 @@ export default function Home() {
 
       <section className=' mb-20'>
         <div className=' w-full overflow-hidden  mx-auto max-w-screen-2xl p-3 text-6xl text-blue-200 mt-12 mb-4'>
-          <h2 className='fadeIn'>Under Construction</h2>
+          <h2 className='fadeIn'>Sold out</h2>
         </div>
         <div className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto'>
-          {/* {SoldOut.map((card, index) => {
+          {SoldOut.map((card, index) => {
             return (
               <ProjectCard
                 key={index}
@@ -310,7 +404,7 @@ export default function Home() {
                 map={card.map}
               />
             );
-          })} */}
+          })}
         </div>
       </section>
     </main>
