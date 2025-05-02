@@ -380,7 +380,7 @@ export default function GlobalNavBar() {
           ref={navMenuContainer}
           className='  flex  h-[calc(100%-110px)]  items-start justify-center overflow-hidden text-5xl font-bold   md:text-4xl    lg:text-6xl'
         >
-          <div className=' flex size-full flex-col items-center justify-center md:w-1/2'>
+          <div className=' flex size-full flex-col items-center justify-center '>
             <hr id='line' className=' w-full bg-blue-200' />
             <Link
               onClick={onClickMenu}
@@ -476,7 +476,7 @@ export default function GlobalNavBar() {
               </div>
             </div>
           </div>
-          <div className=' relative hidden h-full w-1/2 md:block'>
+          <div className=' relative hidden  h-full aspect-square md:block'>
             <Image
               alt='residential'
               className=' object-cover object-center '

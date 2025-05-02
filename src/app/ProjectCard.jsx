@@ -111,17 +111,21 @@ export default function ProjectCard(props) {
           <span>{props.size}</span>
         </div>
         <div className=' flex px-2 pb-5   justify-between w-full text-3xl   items-center'>
-          <Link href={props.link}>
-            <GlobalButton
-              color='white'
-              className='  w-fit  rounded-full px-4 py-2.5  text-sm'
-            >
-              KNOW MORE
-            </GlobalButton>
-          </Link>
-          <Link href={props.map} target='_blank'>
-            <Icon icon='tabler:map-2' />
-          </Link>
+          {props.link == 'na' ? null : (
+            <Link href={props.link}>
+              <GlobalButton
+                color='white'
+                className='  w-fit  rounded-full px-4 py-2.5  text-sm'
+              >
+                KNOW MORE
+              </GlobalButton>
+            </Link>
+          )}
+          {props.map == 'na' ? null : (
+            <Link href={props.map} target='_blank'>
+              <Icon icon='tabler:map-2' />
+            </Link>
+          )}
         </div>
       </div>
     </div>

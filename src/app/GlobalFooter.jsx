@@ -91,7 +91,7 @@ export default function GlobalFooter() {
         </div>
       )}
       {cookies && (
-        <div className=' w-full h-full fixed flex items-center justify-center top-0 left-0 overflow-hidden z-[9999] px-4 bg-white'>
+        <div className=' w-full h-full fixed flex items-center justify-center top-0 left-0 overflow-hidden z-[9999] px-4 bg-white/20 backdrop-blur'>
           <div className='   flex  flex-col max-w-screen-xl  justify-end w-full h-[70vh]  rounded-md bg-[#D9D9D9] md:p-12 p-4 text-black'>
             <span className=' w-full md:text-4xl text-2xl mb-4 font-bold text-black'>
               {' '}
