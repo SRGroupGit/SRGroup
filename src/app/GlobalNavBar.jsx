@@ -378,7 +378,7 @@ export default function GlobalNavBar() {
       >
         <div
           ref={navMenuContainer}
-          className='  flex  h-[calc(100%-110px)]  items-start justify-center overflow-hidden text-5xl font-bold   md:text-4xl    lg:text-6xl'
+          className='  flex  h-[calc(100%-110px)]  items-start justify-center overflow-hidden text-4xl font-bold   md:text-4xl    lg:text-6xl'
         >
           <div className=' flex size-full flex-col items-center justify-center '>
             <hr id='line' className=' w-full bg-blue-200' />

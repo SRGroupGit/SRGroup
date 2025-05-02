@@ -172,7 +172,7 @@ export default function Home() {
 
   const UnderConstruction = [
     {
-      title: 'SR AKSHATAM',
+      title: 'SR Akshatam',
       image: '/images/akshatam.png',
       location: 'Keshav Nagar, Pune',
       availability: 'Available',

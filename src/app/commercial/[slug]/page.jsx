@@ -195,7 +195,7 @@ export default function CommercialSolo() {
   };
 
   return (
-    <main>
+    <main className=' max-md:mt-32'>
       {FloorPlanOpen && (
         <div className=' fixed left-0 top-0  z-[999] flex h-dvh w-full items-center justify-center bg-white px-3 '>
           <div className=' flex flex-col gap-2'>

@@ -192,7 +192,7 @@ export default function Home() {
 
   const CardData = [
     {
-      title: 'SR AKSHATAM',
+      title: 'SR Akshatam',
       image: '/images/akshatam.png',
       location: 'Keshav Nagar, Pune',
       availability: 'Available',
@@ -452,7 +452,7 @@ export default function Home() {
             projects blend innovation, functionality, and elegance in prime
             locations.
           </p>
-          <Link href='/contact'>
+          <Link href='/portfolio'>
             <GlobalButton
               color='white'
               className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
