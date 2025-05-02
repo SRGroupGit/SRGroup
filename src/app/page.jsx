@@ -226,7 +226,7 @@ export default function Home() {
     },
     {
       title: 'SR House',
-      image: '/images/SRHouse.png',
+      image: '/images/SrHouse.png',
       location: 'Baner, Pune',
       availability: 'In Construction',
       locality: 'Veerbhadra Nagar',
