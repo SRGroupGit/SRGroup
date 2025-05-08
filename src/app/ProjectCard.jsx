@@ -67,15 +67,36 @@ export default function ProjectCard(props) {
 
   return (
     <div className='w-full flex border border-black/20 text-zinc-700 text-sm flex-col'>
-      <div className=' w-full aspect-[4/3] relative overflow-hidden'>
-        <Image
-          ref={imageRef}
-          src={props.image}
-          alt={props.title}
-          fill
-          className='object-cover'
-        />
-      </div>
+      {props.link == 'na' ? (
+        <div className=' w-full aspect-[4/3] relative cursor-pointer overflow-hidden'>
+          <Image
+            ref={imageRef}
+            src={props.image}
+            alt={props.title}
+            fill
+            className='object-cover'
+          />
+        </div>
+      ) : (
+        <Link href={props.link}>
+          <div className=' w-full aspect-[4/3] relative cursor-pointer overflow-hidden'>
+            <div className=' w-12 absolute top-1 right-1 rounded-full bg-black/40 backdrop-blur-md z-10 flex items-center justify-center aspect-square'>
+              <Icon
+                icon='system-uicons:arrow-top-right'
+                className='text-2xl text-white'
+              />
+            </div>
+            <Image
+              ref={imageRef}
+              src={props.image}
+              alt={props.title}
+              fill
+              className='object-cover'
+            />
+          </div>
+        </Link>
+      )}
+
       <div
         onClick={handelOpen}
         className='border-b border-black/20 p-3 flex justify-between items-center w-full cursor-pointer'
