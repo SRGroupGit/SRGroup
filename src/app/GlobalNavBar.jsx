@@ -165,110 +165,110 @@ export default function GlobalNavBar() {
     // Animate to final position
   }, []);
 
-  useEffect(() => {
-    const isTouchDevice =
-      'ontouchstart' in window ||
-      navigator.maxTouchPoints > 0 ||
-      navigator.msMaxTouchPoints > 0;
+  // useEffect(() => {
+  //   const isTouchDevice =
+  //     'ontouchstart' in window ||
+  //     navigator.maxTouchPoints > 0 ||
+  //     navigator.msMaxTouchPoints > 0;
 
-    if (isTouchDevice) {
-      setHidden(true);
-      return;
-    }
-    const moveCursor = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
+  //   if (isTouchDevice) {
+  //     setHidden(true);
+  //     return;
+  //   }
+  //   const moveCursor = (e) => {
+  //     setPosition({ x: e.clientX, y: e.clientY });
+  //   };
 
-    const hideCursor = () => setHidden(true);
-    const showCursor = () => setHidden(false);
+  //   const hideCursor = () => setHidden(true);
+  //   const showCursor = () => setHidden(false);
 
-    document.addEventListener('mousemove', moveCursor);
-    document.addEventListener('mouseenter', showCursor);
-    document.addEventListener('mouseleave', hideCursor);
+  //   document.addEventListener('mousemove', moveCursor);
+  //   document.addEventListener('mouseenter', showCursor);
+  //   document.addEventListener('mouseleave', hideCursor);
 
-    return () => {
-      document.removeEventListener('mousemove', moveCursor);
-      document.removeEventListener('mouseenter', showCursor);
-      document.removeEventListener('mouseleave', hideCursor);
-    };
-  }, []);
-  useEffect(() => {
-    gsap.to('.cursor', {
-      x: position.x,
-      y: position.y,
-    });
+  //   return () => {
+  //     document.removeEventListener('mousemove', moveCursor);
+  //     document.removeEventListener('mouseenter', showCursor);
+  //     document.removeEventListener('mouseleave', hideCursor);
+  //   };
+  // }, []);
+  // useEffect(() => {
+  //   gsap.to('.cursor', {
+  //     x: position.x,
+  //     y: position.y,
+  //   });
 
-    const enlargeCursor = () => {
-      gsap.to('.cursor', { scale: 2, ease: 'power1.inOut' }); // Adjust scale value as needed
-    };
+  //   const enlargeCursor = () => {
+  //     gsap.to('.cursor', { scale: 2, ease: 'power1.inOut' }); // Adjust scale value as needed
+  //   };
 
-    const blendChangeOnClick = () => {
-      tl2.current = gsap.timeline();
-      tl2.current
-        .to('.cursor', {
-          outline: '4px solid white',
-          duration: 0.1,
-        })
-        .to('.cursor', { outline: '0px solid white', duration: 0.1 }, '>-0.1');
-    };
+  //   const blendChangeOnClick = () => {
+  //     tl2.current = gsap.timeline();
+  //     tl2.current
+  //       .to('.cursor', {
+  //         outline: '4px solid white',
+  //         duration: 0.1,
+  //       })
+  //       .to('.cursor', { outline: '0px solid white', duration: 0.1 }, '>-0.1');
+  //   };
 
-    // Function to reset cursor size
-    const resetCursorSize = () => {
-      gsap.to('.cursor', { scale: 1, ease: 'power1.inOut' });
-    };
+  //   // Function to reset cursor size
+  //   const resetCursorSize = () => {
+  //     gsap.to('.cursor', { scale: 1, ease: 'power1.inOut' });
+  //   };
 
-    const hideCursor = () => {
-      gsap.to('.cursor', { opacity: 0, duration: 0, ease: 'power1.inOut' }); // Adjust scale value as needed
-    };
+  //   const hideCursor = () => {
+  //     gsap.to('.cursor', { opacity: 0, duration: 0, ease: 'power1.inOut' }); // Adjust scale value as needed
+  //   };
 
-    // Function to reset cursor size
-    const resetHideCursorSize = () => {
-      gsap.to('.cursor', { opacity: 1, duration: 0, ease: 'power1.inOut' });
-    };
+  //   // Function to reset cursor size
+  //   const resetHideCursorSize = () => {
+  //     gsap.to('.cursor', { opacity: 1, duration: 0, ease: 'power1.inOut' });
+  //   };
 
-    const reduceCursor = () => {
-      gsap.to('.cursor', { scale: 0.5, ease: 'power1.inOut' }); // Adjust scale value as needed
-    };
+  //   const reduceCursor = () => {
+  //     gsap.to('.cursor', { scale: 0.5, ease: 'power1.inOut' }); // Adjust scale value as needed
+  //   };
 
-    // Add event listeners to all buttons
-    const cursorBigElements = document.querySelectorAll('.cursorBig');
-    cursorBigElements.forEach((element) => {
-      element.addEventListener('mouseenter', enlargeCursor);
-      element.addEventListener('mouseleave', resetCursorSize);
-    });
+  //   // Add event listeners to all buttons
+  //   const cursorBigElements = document.querySelectorAll('.cursorBig');
+  //   cursorBigElements.forEach((element) => {
+  //     element.addEventListener('mouseenter', enlargeCursor);
+  //     element.addEventListener('mouseleave', resetCursorSize);
+  //   });
 
-    document.addEventListener('click', blendChangeOnClick);
+  //   document.addEventListener('click', blendChangeOnClick);
 
-    const cursorHideElements = document.querySelectorAll('.cursorHide');
-    cursorHideElements.forEach((element) => {
-      element.addEventListener('mouseenter', hideCursor);
-      element.addEventListener('mouseleave', resetHideCursorSize);
-    });
+  //   const cursorHideElements = document.querySelectorAll('.cursorHide');
+  //   cursorHideElements.forEach((element) => {
+  //     element.addEventListener('mouseenter', hideCursor);
+  //     element.addEventListener('mouseleave', resetHideCursorSize);
+  //   });
 
-    const cursorReduceElements = document.querySelectorAll('.cursorReduce');
-    cursorReduceElements.forEach((element) => {
-      element.addEventListener('mouseenter', reduceCursor);
-      element.addEventListener('mouseleave', resetCursorSize);
-    });
+  //   const cursorReduceElements = document.querySelectorAll('.cursorReduce');
+  //   cursorReduceElements.forEach((element) => {
+  //     element.addEventListener('mouseenter', reduceCursor);
+  //     element.addEventListener('mouseleave', resetCursorSize);
+  //   });
 
-    // Cleanup function to remove event listeners
-    return () => {
-      cursorBigElements.forEach((element) => {
-        element.removeEventListener('mouseenter', enlargeCursor);
-        element.removeEventListener('mouseleave', resetCursorSize);
-      });
-      cursorHideElements.forEach((element) => {
-        element.removeEventListener('mouseenter', hideCursor);
-        element.removeEventListener('mouseleave', resetHideCursorSize);
-      });
-      cursorReduceElements.forEach((element) => {
-        element.removeEventListener('mouseenter', reduceCursor);
-        element.removeEventListener('mouseleave', resetCursorSize);
-      });
+  //   // Cleanup function to remove event listeners
+  //   return () => {
+  //     cursorBigElements.forEach((element) => {
+  //       element.removeEventListener('mouseenter', enlargeCursor);
+  //       element.removeEventListener('mouseleave', resetCursorSize);
+  //     });
+  //     cursorHideElements.forEach((element) => {
+  //       element.removeEventListener('mouseenter', hideCursor);
+  //       element.removeEventListener('mouseleave', resetHideCursorSize);
+  //     });
+  //     cursorReduceElements.forEach((element) => {
+  //       element.removeEventListener('mouseenter', reduceCursor);
+  //       element.removeEventListener('mouseleave', resetCursorSize);
+  //     });
 
-      document.removeEventListener('click', blendChangeOnClick);
-    };
-  }, [position]);
+  //     document.removeEventListener('click', blendChangeOnClick);
+  //   };
+  // }, [position]);
 
   return (
     <>
@@ -314,7 +314,7 @@ export default function GlobalNavBar() {
 
         <div />
         <div className=' flex h-full max-h-14  items-center gap-2'>
-          <Link className=' h-full' href='/contact'>
+          <Link onClick={onClickMenu} className=' h-full' href='/contact'>
             <GlobalButton
               color={colorMode === 'light' || navOpen ? 'white' : 'black'}
               className={` h-full whitespace-nowrap rounded-full   px-9 text-lg font-normal transition-all duration-300 ease-in-out  `}
@@ -476,7 +476,7 @@ export default function GlobalNavBar() {
               </div>
             </div>
           </div>
-          <div className=' relative hidden  h-full aspect-square md:block'>
+          <div className=' relative hidden  aspect-square h-full md:block'>
             <Image
               alt='residential'
               className=' object-cover object-center '
@@ -486,24 +486,6 @@ export default function GlobalNavBar() {
           </div>
         </div>
       </div>
-      <div
-        className='cursor'
-        style={{
-          pointerEvents: 'none',
-          position: 'fixed',
-          left: 0,
-          top: 0,
-          width: '3rem',
-          aspectRatio: '1/1',
-          borderRadius: '50%',
-          backgroundColor: 'white',
-          transform: 'translate(-50%, -50%)',
-          mixBlendMode: 'difference',
-          zIndex: 9999,
-          display: hidden ? 'none' : 'block',
-          outlineOffset: '2px',
-        }}
-      ></div>
     </>
   );
 }

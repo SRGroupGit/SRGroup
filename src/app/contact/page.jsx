@@ -82,7 +82,7 @@ export default function Contact() {
   };
 
   return (
-    <div className=' mx-auto mt-20 flex size-full max-w-screen-2xl flex-col  items-center  justify-center gap-8 px-3 md:min-h-[calc(100dvh-80px)] md:flex-row'>
+    <div className=' mx-auto mt-28 flex size-full max-w-screen-2xl flex-col  items-center  justify-center gap-8 px-3 md:min-h-[calc(100dvh-80px)] md:flex-row'>
       <div className=' flex size-full  flex-col gap-4 overflow-visible'>
         <div className='  h-[424px]'>
           <h1 className=' mb-4 text-5xl font-bold text-blue-200'>Contact Us</h1>

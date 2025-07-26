@@ -13,7 +13,7 @@ export default function ProjectCard(props) {
   const CardDrop = useRef(null);
   const imageRef = useRef(null);
   const detailsRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const imageContainer = imageRef.current;
@@ -43,32 +43,32 @@ export default function ProjectCard(props) {
     };
   }, []);
 
-  useEffect(() => {
-    if (isOpen) {
-      gsap.to(detailsRef.current, {
-        height: 'auto',
-        opacity: 1,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    } else {
-      gsap.to(detailsRef.current, {
-        height: 0,
-        opacity: 0,
-        duration: 0.3,
-        ease: 'power2.out',
-      });
-    }
-  }, [isOpen]);
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     gsap.to(detailsRef.current, {
+  //       height: 'auto',
+  //       opacity: 1,
+  //       duration: 0.3,
+  //       ease: 'power2.out',
+  //     });
+  //   } else {
+  //     gsap.to(detailsRef.current, {
+  //       height: 0,
+  //       opacity: 0,
+  //       duration: 0.3,
+  //       ease: 'power2.out',
+  //     });
+  //   }
+  // }, [isOpen]);
 
   const handelOpen = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className='w-full flex border border-black/20 text-zinc-700 text-sm flex-col'>
+    <div className='flex w-full flex-col border border-black/20 text-sm text-zinc-700'>
       {props.link == 'na' ? (
-        <div className=' w-full aspect-[4/3] relative cursor-pointer overflow-hidden'>
+        <div className=' relative aspect-[4/3] w-full cursor-pointer overflow-hidden'>
           <Image
             ref={imageRef}
             src={props.image}
@@ -79,8 +79,8 @@ export default function ProjectCard(props) {
         </div>
       ) : (
         <Link href={props.link}>
-          <div className=' w-full aspect-[4/3] relative cursor-pointer overflow-hidden'>
-            <div className=' w-12 absolute top-1 right-1 rounded-full bg-black/40 backdrop-blur-md z-10 flex items-center justify-center aspect-square'>
+          <div className=' relative aspect-[4/3] w-full cursor-pointer overflow-hidden'>
+            <div className=' absolute right-1 top-1 z-10 flex aspect-square w-12 items-center justify-center rounded-full bg-black/40 backdrop-blur-md'>
               <Icon
                 icon='system-uicons:arrow-top-right'
                 className='text-2xl text-white'
@@ -99,39 +99,34 @@ export default function ProjectCard(props) {
 
       <div
         onClick={handelOpen}
-        className='border-b border-black/20 p-3 flex justify-between items-center w-full cursor-pointer'
+        className='flex w-full cursor-pointer items-center justify-between border-b border-black/20 p-3'
       >
         <span>{props.title}</span>
-        <div className='flex gap-1 items-center'>
+        <div className='flex items-center gap-1'>
           <span>{props.location}</span>
-          <Icon
-            icon='mingcute:down-line'
-            className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
-          />
         </div>
       </div>
       <div
         ref={detailsRef}
-        className='flex flex-col gap-2 w-full overflow-hidden'
-        style={{ height: 0, opacity: 0 }}
+        className='flex w-full flex-col gap-2 overflow-hidden'
       >
-        <div className=' flex px-3  pt-3  justify-between w-full   items-center'>
+        <div className=' flex w-full  items-center  justify-between px-3   pt-3'>
           <span>Availability</span>
           <span>{props.availability}</span>
         </div>
-        <div className=' flex px-3  justify-between w-full   items-center'>
+        <div className=' flex w-full  items-center justify-between   px-3'>
           <span>Locality</span>
           <span>{props.locality}</span>
         </div>
-        <div className=' flex px-3  justify-between w-full   items-center'>
+        <div className=' flex w-full  items-center justify-between   px-3'>
           <span>Type</span>
           <span>{props.type}</span>
         </div>
-        <div className=' flex px-3  justify-between w-full   items-center'>
+        <div className=' flex w-full  items-center justify-between   px-3'>
           <span>Size</span>
           <span>{props.size}</span>
         </div>
-        <div className=' flex px-2 pb-5   justify-between w-full text-3xl   items-center'>
+        <div className=' flex w-full items-center   justify-between px-2 pb-5   text-3xl'>
           {props.link == 'na' ? null : (
             <Link href={props.link}>
               <GlobalButton

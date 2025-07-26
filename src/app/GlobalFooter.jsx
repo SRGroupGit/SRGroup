@@ -12,7 +12,7 @@ export default function GlobalFooter() {
     phone: '',
     message: '',
   });
-  const [cookies, setCookies] = useState(true);
+  const [cookies, setCookies] = useState(false);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
@@ -91,17 +91,17 @@ export default function GlobalFooter() {
         </div>
       )}
       {cookies && (
-        <div className=' w-full h-full fixed flex items-center justify-center top-0 left-0 overflow-hidden z-[9999] px-4 bg-black/20 backdrop-blur'>
-          <div className='   flex  flex-col max-w-screen-xl  justify-between w-full h-[70vh] rounded-md bg-[#eee] md:p-12 p-4 text-black'>
-            <div className=' w-[90px] aspect-square relative mt-2 mb-4'>
+        <div className=' fixed left-0 top-0 z-[9999] flex size-full items-center justify-center overflow-hidden bg-black/20 px-4 backdrop-blur'>
+          <div className='   flex  h-[70vh] w-full  max-w-screen-xl flex-col justify-between rounded-md bg-[#eee] p-4 text-black md:p-12'>
+            <div className=' relative mb-4 mt-2 aspect-square w-[90px]'>
               <GlobalNavLogo />
             </div>
             <div>
-              <span className=' w-full md:text-4xl text-2xl mb-4 font-bold text-black'>
+              <span className=' mb-4 w-full text-2xl font-bold text-black md:text-4xl'>
                 {' '}
                 Disclaimer{' '}
               </span>
-              <p className=' w-full text-sm md:text-base text-black/70 '>
+              <p className=' w-full text-sm text-black/70 md:text-base '>
                 The information provided on the SR Group real estate website is
                 for general informational purposes only. While we strive to keep
                 the information up to date and accurate, we make no
@@ -286,12 +286,12 @@ export default function GlobalFooter() {
           </div>
         </div>
       </div>
-      <section className=' m-auto flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4 text-md'>
-        <span className=' w-full md:text-4xl text-2xl mt-10 mb-4 font-bold text-yellow-200'>
+      <section className=' text-md m-auto flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4'>
+        <span className=' mb-4 mt-10 w-full text-2xl font-bold text-yellow-200 md:text-4xl'>
           {' '}
           Disclaimer{' '}
         </span>
-        <p className=' w-full text-sm md:text-base text-white/70 '>
+        <p className=' w-full text-sm text-white/70 md:text-base '>
           The information provided on the SR Group real estate website is for
           general informational purposes only. While we strive to keep the
           information up to date and accurate, we make no representations or
@@ -306,7 +306,7 @@ export default function GlobalFooter() {
           profits.
         </p>
       </section>
-      <section className=' m-auto flex w-full max-w-screen-2xl mt-10 flex-col items-center justify-between pt-4 text-sm md:text-4xl md:flex-row'>
+      <section className=' m-auto mt-10 flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4 text-sm md:flex-row md:text-4xl'>
         <div>
           <span>SR Group. All rights reserved, {new Date().getFullYear()}</span>
         </div>

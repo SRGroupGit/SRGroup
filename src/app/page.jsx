@@ -197,7 +197,7 @@ export default function Home() {
       location: 'Keshav Nagar, Pune',
       availability: 'Available',
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
-      type: 'Residential',
+      type: 'Mixed Use',
       size: '2BHKs | 3BHKs',
       link: '/SrAkshatam',
       map: 'https://maps.app.goo.gl/qkY5wKS1zetq7rQXA',
@@ -231,7 +231,7 @@ export default function Home() {
       availability: 'In Construction',
       locality: 'Veerbhadra Nagar',
       type: 'Commercial',
-      size: 'Shops, Showrooms, Office Spaces',
+      size: 'Showrooms, Office Spaces',
       link: 'na',
       map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
     },
@@ -273,23 +273,9 @@ export default function Home() {
           alt='Video background'
         ></video>
         <div className=' absolute z-10 size-full h-[30%] w-full bg-gradient-to-t  from-black to-transparent bg-blend-multiply'></div>
-        <h1
-          ref={heroHeadingLine}
-          className=' absolute z-20 m-0 mb-4  flex flex-col items-center overflow-hidden  text-center text-clamp font-black leading-[0.95em]  text-white md:mb-2'
-        >
-          <span ref={heroHeadingLine1} className=' text-neutral-200'>
-            We Build the
-          </span>{' '}
-          <span
-            ref={heroHeadingLine2}
-            className='inline-block bg-gradient-to-b from-neutral-950  to-neutral-100 to-70% bg-clip-text text-transparent'
-          >
-            Future
-          </span>
-        </h1>
       </section>
 
-      <section className='my-12 py-3 px-3 flex flex-col gap-4 font-medium mx-auto w-full text-2xl md:text-4xl max-w-screen-2xl'>
+      <section className='mx-auto my-12 flex w-full max-w-screen-2xl flex-col gap-4 p-3 text-2xl font-medium md:text-4xl'>
         <p ref={introTextRef} className='text-black'>
           SR Group specialises in residential and commercial projects and
           maintains our on-time delivery commitment. Our layouts, crafted in
@@ -338,23 +324,23 @@ export default function Home() {
       </section> */}
       <section
         ref={FourPointsSection}
-        className=' bg-blue-200 my-10 w-full px-3 py-12 '
+        className=' my-10 w-full bg-blue-200 px-3 py-12 '
       >
         <div className=' mx-auto w-full max-w-screen-2xl text-white/80'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
-            <div className='  h-[240px] flex flex-col   w-full  gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp
                     enableScrollSpy={true}
-                    decimals={2}
-                    end={8.63}
+                    decimals={1}
+                    end={11.3}
                     duration={1}
                   />
                   <span className=' text-[0.2em] uppercase'>Lakh Sq Ft</span>
                 </span>
               </h3>
-              <p className=' fadeIn text-sm md:text-2xl w-full  '>
+              <p className=' fadeIn w-full text-sm md:text-2xl  '>
                 <b>Total volume of area built</b> with 5 lakh sq.ft. built and
                 3.63 lakh sq.ft. of on-going projects.
               </p>
@@ -364,13 +350,13 @@ export default function Home() {
               <div ref={topLine} className=' h-1/2 w-full bg-white'></div>
             </div>
 
-            <div className='  h-[240px] flex flex-col   w-full   gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  flex h-[240px] w-full   flex-col   gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
-                  <CountUp enableScrollSpy={true} end={16} duration={1.5} />+
+                  <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
               </h3>
-              <p className=' fadeIn text-sm md:text-2xl w-full  '>
+              <p className=' fadeIn w-full text-sm md:text-2xl  '>
                 <b>Years of experience</b> , as we continue to grow and evolve,
                 our extensive experience forms the cornerstone of our success,
                 guiding us in our mission.
@@ -387,13 +373,13 @@ export default function Home() {
           </div>
 
           <div className=' flex h-fit w-full flex-row items-start overflow-hidden  lg:items-end '>
-            <div className='  h-[240px] flex flex-col   w-full  gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
               </h3>
-              <p className=' fadeIn text-sm md:text-2xl w-full  '>
+              <p className=' fadeIn w-full text-sm md:text-2xl  '>
                 <b>Total projects completed</b> with <b>4 on going projects</b>
                 ,Each project, whether large or small, has been meticulously
                 planned and executed with precision.
@@ -404,13 +390,13 @@ export default function Home() {
               <div ref={bottomLine} className=' h-1/2 w-full bg-white'></div>
             </div>
 
-            <div className='  h-[240px] flex flex-col   w-full  gap-0 md:gap-4 p-5 md:h-[270px] lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-2xl md:text-4xl font-bold text-yellow-200 lg:text-8xl '>
+            <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
+              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={1100} duration={1} />+
                 </span>
               </h3>
-              <p className=' fadeIn text-sm md:text-2xl w-full  '>
+              <p className=' fadeIn w-full text-sm md:text-2xl  '>
                 <b>Customers Served</b> ,The trust placed in us by our customers
                 motivates us to continue improving and innovating.
               </p>
@@ -418,10 +404,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className=' w-full overflow-hidden  mx-auto max-w-screen-2xl p-3 text-6xl text-blue-200 mb-12'>
+      <div className=' mx-auto mb-12  w-full max-w-screen-2xl overflow-hidden p-3 text-6xl text-blue-200'>
         <h2 className='fadeIn'>Prime Projects</h2>
       </div>
-      <section className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto'>
+      <section className=' m-auto grid w-full max-w-screen-2xl items-start gap-4 px-3 md:grid-cols-2 lg:grid-cols-3'>
         {CardData.map((card, index) => {
           return (
             <ProjectCard
@@ -440,9 +426,9 @@ export default function Home() {
         })}
       </section>
 
-      <section className=' w-full  flex md:flex-row mt-12 flex-col'>
-        <div className=' w-full p-4 bg-[#E8E8E8] flex flex-col justify-center gap-6'>
-          <h3 className=' md:text-6xl text-4xl text-blue-200 font-medium'>
+      <section className=' mt-12  flex w-full flex-col md:flex-row'>
+        <div className=' flex w-full flex-col justify-center gap-6 bg-[#E8E8E8] p-4 md:p-10'>
+          <h3 className=' text-4xl font-medium text-blue-200 md:text-6xl'>
             Like What You See?
           </h3>
           <p ref={bottomTextRef} className=' text-2xl md:text-4xl'>
@@ -461,8 +447,8 @@ export default function Home() {
             </GlobalButton>
           </Link>
         </div>
-        <div className=' w-full  bg-[#E8E8E8] flex flex-col '>
-          <div className=' h-full aspect-video relative overflow-hidden'>
+        <div className=' flex  w-full flex-col bg-[#E8E8E8] '>
+          <div className=' relative aspect-video h-full overflow-hidden'>
             <video
               src='/Video.mp4'
               className=' size-full object-cover contrast-[1.2] '
@@ -475,11 +461,11 @@ export default function Home() {
               alt='Video background'
             ></video>
           </div>
-          <div className=' w-full p-4 bg-yellow-200 flex flex-col gap-2 py-6'>
-            <h3 className=' text-4xl text-blue-200 font-medium'>
+          <div className=' flex w-full flex-col gap-2 bg-yellow-200 p-4 py-6'>
+            <h3 className=' text-4xl font-medium text-blue-200'>
               Like What You See?
             </h3>
-            <p className=' text-[#3F3F3F]  text-2xl'>
+            <p className=' text-2xl  text-[#3F3F3F]'>
               Explore insights on real estate, design trends,
               <span className=' text-white'> and smart investments!</span>
             </p>

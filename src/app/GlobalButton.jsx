@@ -55,7 +55,7 @@ export default function GlobalButton({ children, className, ...props }) {
         ? '  bg-yellow-200 text-neutral-900     '
         : '  bg-blue-200 text-neutral-200  '
     } cursorHide
-    group relative cursor-none
+    group relative
     transition-transform duration-200 active:scale-90 `}
       {...props}
     >
