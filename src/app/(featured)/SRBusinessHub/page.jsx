@@ -49,23 +49,23 @@ export default function Page() {
     {
       id: 0,
       src: Hero0,
-      alt: 'SR Akshatam 0',
+      alt: 'SR Business Hub 0',
     },
 
     {
       id: 1,
       src: Hero1,
-      alt: 'SR Akshatam 1',
+      alt: 'SR Business Hub 1',
     },
     {
       id: 2,
       src: Hero2,
-      alt: 'SR Akshatam 2',
+      alt: 'SR Business Hub 2',
     },
     {
       id: 3,
       src: Hero3,
-      alt: 'SR Akshatam 3',
+      alt: 'SR Business Hub 3',
     },
   ];
 
@@ -73,76 +73,79 @@ export default function Page() {
     {
       id: 0,
       src: MHero0,
-      alt: 'SR Akshatam 0',
+      alt: 'SR Business Hub 0',
     },
 
     {
       id: 1,
       src: MHero1,
-      alt: 'SR Akshatam 1',
+      alt: 'SR Business Hub 1',
     },
     {
       id: 2,
       src: MHero2,
-      alt: 'SR Akshatam 2',
+      alt: 'SR Business Hub 2',
     },
     {
       id: 3,
       src: MHero3,
-      alt: 'SR Akshatam 3',
+      alt: 'SR Business Hub 3',
     },
   ];
 
-  const InteriorImages = [
+  const ShowroomSpace = [
     {
       id: 1,
-      src: In1,
-      alt: 'SR Akshatam Interior',
+      src: In2,
+      alt: 'SR Business Hub Showroom Space 1',
     },
     {
       id: 2,
-      src: In2,
-      alt: 'SR Akshatam Interior',
+      src: In3,
+      alt: 'SR Business Hub Showroom Space 2',
     },
     {
       id: 3,
-      src: In3,
-      alt: 'SR Akshatam Interior',
+      src: In4,
+      alt: 'SR Business Hub Showroom Space 3',
+    },
+  ];
+
+  const OfficeSpace = [
+    {
+      id: 1,
+      src: In1,
+      alt: 'SR Business Hub Office Space',
+    },
+    {
+      id: 2,
+      src: In5,
+      alt: 'SR Business Hub Office Space',
+    },
+    {
+      id: 3,
+      src: In6,
+      alt: 'SR Business Hub Office Space',
     },
     {
       id: 4,
-      src: In4,
-      alt: 'SR Akshatam Interior',
+      src: In7,
+      alt: 'SR Business Hub Office Space',
     },
     {
       id: 5,
-      src: In5,
-      alt: 'SR Akshatam Interior',
+      src: In8,
+      alt: 'SR Business Hub Office Space',
     },
     {
       id: 6,
-      src: In6,
-      alt: 'SR Akshatam Interior',
+      src: In9,
+      alt: 'SR Business Hub Office Space',
     },
     {
       id: 7,
-      src: In7,
-      alt: 'SR Akshatam Interior',
-    },
-    {
-      id: 8,
-      src: In8,
-      alt: 'SR Akshatam Interior',
-    },
-    {
-      id: 9,
-      src: In9,
-      alt: 'SR Akshatam Interior',
-    },
-    {
-      id: 10,
       src: In10,
-      alt: 'SR Akshatam Interior',
+      alt: 'SR Business Hub Office Space',
     },
   ];
 
@@ -276,7 +279,8 @@ export default function Page() {
               <br className=' max-md:hidden' /> Showrooms and Office Spaces
             </h2>
             <span className=' md:text-gray-200'>
-              Located at: <br />
+              <b>Located at: </b>
+              <br />
               Opp. Jupiter Hospital, Old Baner Balewadi Road,
               <br className=' max-md:hidden' /> Baner, Pune, Maharashtra -
               411045
@@ -319,11 +323,22 @@ export default function Page() {
                 businesses, it is the perfect address for growth and success.
               </p>
               <div className=' relative mt-10 aspect-video w-full overflow-hidden'>
-                <Slider GalleryData={InteriorImages} />
+                {/* <Slider GalleryData={ShowroomSpace} /> */}
+                <div className=' mt-5 relative aspect-video h-full overflow-hidden'>
+                  <video
+                    src='/Business_hub_compressed_720p.mp4'
+                    className='size-full object-cover contrast-[1.2]'
+                    controls
+                    loop
+                    playsInline
+                    preload='auto'
+                    poster='/video-poster.jpg'
+                  ></video>
+                </div>
               </div>
             </div>
             <div className=' sticky top-[120px]  z-10 w-1/3 max-lg:hidden'>
-              <EnquireFormStatic Title='SR Akshatam' />
+              <EnquireFormStatic Title='SR Business Hub' />
             </div>
           </div>
         </section>
@@ -395,12 +410,7 @@ export default function Page() {
             </div>
             <div className=' mt-4 w-full'>
               <div className=' relative aspect-video w-full bg-black'>
-                <Image
-                  src={ShopHero}
-                  className=' object-cover object-center'
-                  alt='SR Akshatam Shops'
-                  fill
-                />
+                <Slider GalleryData={ShowroomSpace} />
               </div>
               <div className=' flex'>
                 {/* <div
@@ -463,12 +473,7 @@ export default function Page() {
             </div>
             <div className=' mt-4 w-full'>
               <div className=' relative aspect-video w-full bg-black'>
-                <Image
-                  src={ResHero}
-                  className=' object-cover object-center'
-                  alt='SR Akshatam residential'
-                  fill
-                />
+                <Slider GalleryData={OfficeSpace} />
               </div>
               <div className=' flex'>
                 {/* <div

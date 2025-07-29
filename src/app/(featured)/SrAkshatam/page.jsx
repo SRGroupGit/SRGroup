@@ -286,7 +286,8 @@ export default function Page() {
               <br className=' max-md:hidden' /> Shops, 2BHKs and 3BHKs
             </h2>
             <span className=' md:text-gray-200'>
-              Located at: <br />
+              <b>Located at: </b>
+              <br />
               No. 41/14b, Mundhwa-Manjri Rd, Sasane Colony, Keshav Nagar,{' '}
               <br className=' max-md:hidden' /> Mundhwa, Pune, Maharashtra -
               411036
@@ -329,9 +330,9 @@ export default function Page() {
                 is poised to be a part of your growing success story.
               </p>
               <div>
-                <div className=' relative aspect-video h-full overflow-hidden'>
+                <div className=' mt-5 relative aspect-video h-full overflow-hidden'>
                   <video
-                    src='/Video.mp4'
+                    src='/Akshatam_720p.mp4'
                     className=' size-full object-cover contrast-[1.2] '
                     autoPlay
                     loop

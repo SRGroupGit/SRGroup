@@ -94,16 +94,16 @@ export default function Slider(props) {
         ${props.ArrowType === 'bottom' ? 'bottom-3' : ''} 
         ${props.ArrowType === 'none' ? 'hidden' : ''}
         justify-between
-        px-4 `}
+        px-2 `}
       >
         <div
-          className='cursorReduce flex aspect-square items-center justify-center rounded-full border-white/20 bg-black/15 p-2   backdrop-blur-xl md:border   md:p-4'
+          className='cursorReduce flex aspect-square items-center justify-center rounded-full border-white/20 bg-black/15 p-2   backdrop-blur-m md:border   md:p-4'
           onClick={previousHandler}
         >
           <PreviousArrow />
         </div>
         <div
-          className='cursorReduce flex aspect-square items-center justify-center rounded-full border-white/20  bg-black/15 p-2  backdrop-blur-xl md:border  md:p-4'
+          className='cursorReduce flex aspect-square items-center justify-center rounded-full border-white/20  bg-black/15 p-2  backdrop-blur-m md:border  md:p-4'
           onClick={nextHandler}
         >
           <NextArrow />

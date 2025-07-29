@@ -118,7 +118,7 @@ export default function EnquireFormStatic(props) {
             </GlobalButton>
           </Link>
 
-          {/* <GlobalButton
+          <GlobalButton
             onClick={() => {
               setOpen(true);
             }}
@@ -126,7 +126,7 @@ export default function EnquireFormStatic(props) {
             className=' w-full whitespace-nowrap rounded-full  p-2 text-base font-medium  '
           >
             Download brochure
-          </GlobalButton> */}
+          </GlobalButton>
         </div>
       </div>
     </>
