@@ -328,8 +328,20 @@ export default function Page() {
                 close proximity to Koregaon Park, Kharadi, Mundhwa. SR Akshatam
                 is poised to be a part of your growing success story.
               </p>
-              <div className=' relative mt-10 aspect-video w-full overflow-hidden'>
-                <Slider GalleryData={InteriorImages} />
+              <div>
+                <div className=' relative aspect-video h-full overflow-hidden'>
+                  <video
+                    src='/Video.mp4'
+                    className=' size-full object-cover contrast-[1.2] '
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload='auto'
+                    poster='/video-poster.jpg'
+                    alt='Video background'
+                  ></video>
+                </div>
               </div>
             </div>
             <div className=' sticky top-[120px]  z-10 w-1/3 max-lg:hidden'>
