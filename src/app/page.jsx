@@ -199,6 +199,7 @@ export default function Home() {
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
       type: 'Mixed Use',
       size: '2BHKs | 3BHKs',
+      rera: 'P52100047555',
       link: '/SrAkshatam',
       map: 'https://maps.app.goo.gl/qkY5wKS1zetq7rQXA',
     },
@@ -210,6 +211,7 @@ export default function Home() {
       locality: 'Old Baner Balewadi Road',
       type: 'Commercial',
       size: 'Showrooms | Office Spaces',
+      rera: 'P52100047555',
       link: '/SRBusinessHub',
       map: 'https://maps.app.goo.gl/znzJ8pFMLpyAspKR9',
     },
@@ -221,6 +223,7 @@ export default function Home() {
       locality: 'Balewadi',
       type: 'Residential',
       size: '3.5 BHK Homes',
+      rera: 'P52100047555',
       link: '/residential/SRAishwaryam',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
@@ -232,6 +235,7 @@ export default function Home() {
       locality: 'Veerbhadra Nagar',
       type: 'Commercial',
       size: 'Showrooms, Office Spaces',
+      rera: 'P52100047555',
       link: 'na',
       map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
     },
@@ -376,13 +380,12 @@ export default function Home() {
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
               <h3 className=' overflow-hidden text-7xl font-bold text-yellow-200 md:text-7xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
-                  <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
+                  <CountUp enableScrollSpy={true} end={16} duration={1.5} />+
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
-                <b>Total projects completed</b> with <b>4 on going projects</b>
-                ,Each project, whether large or small, has been meticulously
-                planned and executed with precision.
+                <b>Total projects </b> with <b>3 on going projects</b>, 1
+                upcoming
               </p>
             </div>
 
@@ -393,7 +396,7 @@ export default function Home() {
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
               <h3 className=' overflow-hidden text-7xl font-bold text-yellow-200 md:text-7xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
-                  <CountUp enableScrollSpy={true} end={1100} duration={1} />+
+                  <CountUp enableScrollSpy={true} end={650} duration={1} />+
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
@@ -419,6 +422,7 @@ export default function Home() {
               locality={card.locality}
               type={card.type}
               size={card.size}
+              rera={card.rera}
               link={card.link}
               map={card.map}
             />

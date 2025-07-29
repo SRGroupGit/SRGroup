@@ -97,19 +97,17 @@ export default function ProjectCard(props) {
         </Link>
       )}
 
-      <div
-        onClick={handelOpen}
-        className='flex w-full cursor-pointer items-center justify-between border-b border-black/20 p-3'
-      >
+      <div className='flex w-full cursor-pointer items-center justify-between border-b border-black/20 p-3'>
         <span>{props.title}</span>
         <div className='flex items-center gap-1'>
           <span>{props.location}</span>
-          {/* <GlobalButton
+          <GlobalButton
+            onClick={handelOpen}
             color='white'
-            className='  w-fit  rounded-full px-4 py-2.5  text-sm'
+            className='  ml-4 w-fit  rounded-full px-4 py-2  text-sm'
           >
-            Open
-          </GlobalButton> */}
+            Details
+          </GlobalButton>
         </div>
       </div>
       <div
@@ -131,6 +129,10 @@ export default function ProjectCard(props) {
         <div className=' flex w-full  items-center justify-between   px-3'>
           <span>Size</span>
           <span>{props.size}</span>
+        </div>
+        <div className=' flex w-full  items-center justify-between   px-3'>
+          <span>Rera</span>
+          <span>{props.rera}</span>
         </div>
         <div className=' flex w-full items-center   justify-between px-2 pb-5   text-3xl'>
           {props.link == 'na' ? null : (

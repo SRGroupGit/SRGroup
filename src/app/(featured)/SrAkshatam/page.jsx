@@ -397,7 +397,7 @@ export default function Page() {
 
                   <p>
                     <b>Retail at Your Doorstep</b> <br />
-                    Discover 66 beautifully designed shops with spacious
+                    Discover 61 beautifully designed shops with spacious
                     mezzanine areas. Made for entrepreneurs and businesses that
                     can thrive in a high-traffic, upscale shopping complex.
                   </p>
