@@ -329,7 +329,7 @@ export default function Home() {
         <div className=' mx-auto w-full max-w-screen-2xl text-white/80'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-5xl font-bold text-yellow-200 md:text-5xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp
                     enableScrollSpy={true}
@@ -351,7 +351,7 @@ export default function Home() {
             </div>
 
             <div className='  flex h-[240px] w-full   flex-col   gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-5xl font-bold text-yellow-200 md:text-5xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
@@ -374,7 +374,7 @@ export default function Home() {
 
           <div className=' flex h-fit w-full flex-row items-start overflow-hidden  lg:items-end '>
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-5xl font-bold text-yellow-200 md:text-5xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
@@ -391,7 +391,7 @@ export default function Home() {
             </div>
 
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-4xl font-bold text-yellow-200 md:text-4xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-5xl font-bold text-yellow-200 md:text-5xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={1100} duration={1} />+
                 </span>

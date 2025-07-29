@@ -13,7 +13,7 @@ export default function ProjectCard(props) {
   const CardDrop = useRef(null);
   const imageRef = useRef(null);
   const detailsRef = useRef(null);
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const imageContainer = imageRef.current;
@@ -43,23 +43,23 @@ export default function ProjectCard(props) {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     gsap.to(detailsRef.current, {
-  //       height: 'auto',
-  //       opacity: 1,
-  //       duration: 0.3,
-  //       ease: 'power2.out',
-  //     });
-  //   } else {
-  //     gsap.to(detailsRef.current, {
-  //       height: 0,
-  //       opacity: 0,
-  //       duration: 0.3,
-  //       ease: 'power2.out',
-  //     });
-  //   }
-  // }, [isOpen]);
+  useEffect(() => {
+    if (isOpen) {
+      gsap.to(detailsRef.current, {
+        height: 'auto',
+        opacity: 1,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    } else {
+      gsap.to(detailsRef.current, {
+        height: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    }
+  }, [isOpen]);
 
   const handelOpen = () => {
     setIsOpen(!isOpen);
@@ -104,6 +104,12 @@ export default function ProjectCard(props) {
         <span>{props.title}</span>
         <div className='flex items-center gap-1'>
           <span>{props.location}</span>
+          {/* <GlobalButton
+            color='white'
+            className='  w-fit  rounded-full px-4 py-2.5  text-sm'
+          >
+            Open
+          </GlobalButton> */}
         </div>
       </div>
       <div
