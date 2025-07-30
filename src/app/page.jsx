@@ -199,7 +199,7 @@ export default function Home() {
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
       type: 'Mixed Use',
       size: '2BHKs | 3BHKs',
-      rera: 'P52100047555',
+      rera: 'P52100052905',
       link: '/SrAkshatam',
       map: 'https://maps.app.goo.gl/qkY5wKS1zetq7rQXA',
     },
@@ -223,7 +223,7 @@ export default function Home() {
       locality: 'Balewadi',
       type: 'Residential',
       size: '3.5 BHK Homes',
-      rera: 'P52100047555',
+      rera: 'P5210007145',
       link: 'na',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
@@ -235,7 +235,7 @@ export default function Home() {
       locality: 'Veerbhadra Nagar',
       type: 'Commercial',
       size: 'Showrooms, Office Spaces',
-      rera: 'P52100047555',
+      rera: '',
       link: 'na',
       map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
     },
@@ -259,7 +259,7 @@ export default function Home() {
       </marquee> */}
       <section
         ref={heroSection}
-        className='relative mt-[110px] flex h-[calc(100vh-110px)] w-full items-end justify-center overflow-hidden  '
+        className='relative mt-[110px] flex w-screen h-auto lg:w-full lg:h-[calc(100vh-110px)] items-end justify-center overflow-hidden  '
       >
         {/* <span className=' absolute right-3 top-2 z-20 text-[8px] text-white mix-blend-difference'>
           Property in video: SR Business Hub, opposite Jupiter hospital, Baner,
@@ -333,7 +333,7 @@ export default function Home() {
         <div className=' mx-auto w-full max-w-screen-2xl text-white/80'>
           <div className=' flex h-fit w-full flex-row items-start  lg:items-end '>
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-7xl font-bold text-yellow-200 md:text-7xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-6xl font-bold text-yellow-200 md:text-6xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp
                     enableScrollSpy={true}
@@ -354,7 +354,7 @@ export default function Home() {
             </div>
 
             <div className='  flex h-[240px] w-full   flex-col   gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-7xl font-bold text-yellow-200 md:text-7xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-6xl font-bold text-yellow-200 md:text-6xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={17} duration={1.5} />+
                 </span>
@@ -378,7 +378,7 @@ export default function Home() {
 
           <div className=' flex h-fit w-full flex-row items-start overflow-hidden  lg:items-end '>
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-7xl font-bold text-yellow-200 md:text-7xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-6xl font-bold text-yellow-200 md:text-6xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={16} duration={1.5} />+
                 </span>
@@ -394,7 +394,7 @@ export default function Home() {
             </div>
 
             <div className='  flex h-[240px] w-full   flex-col  gap-0 p-5 md:h-[270px] md:gap-4 lg:h-[260px] '>
-              <h3 className=' overflow-hidden text-7xl font-bold text-yellow-200 md:text-7xl lg:text-8xl '>
+              <h3 className=' overflow-hidden text-6xl font-bold text-yellow-200 md:text-6xl lg:text-8xl '>
                 <span className=' fadeFromBelow'>
                   <CountUp enableScrollSpy={true} end={650} duration={1} />+
                 </span>

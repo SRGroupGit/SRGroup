@@ -105,7 +105,7 @@ export default function BrochureForm(props) {
               </span>
             </div>
             <span className=' text-black'>
-              download Floor plan for {props.Title}
+              Download Floor plan for {props.Title}
             </span>
 
             {floorPlanSuccess ? (

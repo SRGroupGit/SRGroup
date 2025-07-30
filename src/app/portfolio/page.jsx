@@ -7,6 +7,7 @@ import TextPlugin from 'gsap/TextPlugin';
 
 import ProjectCard from '.././ProjectCard';
 import ProjectCardNoRera from '.././ProjectCardNoRera';
+import ProjectCardList from '.././ProjectCardList';
 
 export default function Home() {
   const homeRef = useRef();
@@ -180,6 +181,7 @@ export default function Home() {
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
       type: 'Residential',
       size: '2BHKs | 3BHKs',
+      rera: 'P52100052905',
       link: '/SrAkshatam',
       map: 'https://maps.app.goo.gl/qkY5wKS1zetq7rQXA',
     },
@@ -194,6 +196,7 @@ export default function Home() {
       locality: 'Old Baner Balewadi Road',
       type: 'Commercial',
       size: 'Showrooms | Office Spaces',
+      rera: 'P52100047555',
       link: '/SRBusinessHub',
       map: 'https://maps.app.goo.gl/znzJ8pFMLpyAspKR9',
     },
@@ -205,6 +208,7 @@ export default function Home() {
       locality: 'Balewadi',
       type: 'Residential',
       size: '3.5 BHK Homes',
+      rera: 'P5210007145',
       link: '/residential/SRAishwaryam',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
@@ -279,6 +283,51 @@ export default function Home() {
     },
   ];
 
+  const SoldOutNoImage = [
+    {
+      title: 'SR Monte Casa',
+      location: 'Baner, Pune',
+      availability: 'Sold Out',
+      locality: 'Baner',
+    },
+    {
+      title: 'SR Om Residency',
+      location: 'Sus, Pune',
+      availability: 'Sold Out',
+      locality: 'Sus',
+    },
+    {
+      title: 'SR Sai palace',
+      location: 'Baner, Pune',
+      availability: 'Sold Out',
+      locality: 'Baner',
+    },
+    {
+      title: 'SR Padmavati residency',
+      location: 'Manjri, Pune',
+      availability: 'Sold Out',
+      locality: 'Manjri',
+    },
+    {
+      title: 'SR Sheshadri Heights',
+      location: 'Baner, Pune',
+      availability: 'Sold Out',
+      locality: 'Baner',
+    },
+    {
+      title: 'SR Venkatashwara Height',
+      location: 'Baner, Pune',
+      availability: 'Sold Out',
+      locality: 'Baner',
+    },
+    {
+      title: 'SR Om Apartment',
+      location: 'Sus, Pune',
+      availability: 'Sold Out',
+      locality: 'Sus',
+    },
+  ];
+
   return (
     <main ref={homeRef}>
       <section
@@ -320,7 +369,7 @@ export default function Home() {
         <div className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto'>
           {UpComingProjects.map((card, index) => {
             return (
-              <ProjectCard
+              <ProjectCardNoRera
                 key={index}
                 title={card.title}
                 image={card.image}
@@ -353,6 +402,7 @@ export default function Home() {
                 locality={card.locality}
                 type={card.type}
                 size={card.size}
+                rera={card.rera}
                 link={card.link}
                 map={card.map}
               />
@@ -377,6 +427,7 @@ export default function Home() {
                 locality={card.locality}
                 type={card.type}
                 size={card.size}
+                rera={card.rera}
                 link={card.link}
                 map={card.map}
               />
@@ -403,6 +454,19 @@ export default function Home() {
                 size={card.size}
                 link={card.link}
                 map={card.map}
+              />
+            );
+          })}
+        </div>
+        <div className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto mt-5'>
+          {SoldOutNoImage.map((card, index) => {
+            return (
+              <ProjectCardList
+                key={index}
+                title={card.title}
+                location={card.location}
+                availability={card.availability}
+                locality={card.locality}
               />
             );
           })}

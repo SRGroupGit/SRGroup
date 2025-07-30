@@ -130,6 +130,7 @@ export default function ProjectCard(props) {
           <span>Size</span>
           <span>{props.size}</span>
         </div>
+
         <div className=' flex w-full items-center   justify-between px-2 pb-5   text-3xl'>
           {props.link == 'na' ? null : (
             <Link href={props.link}>
