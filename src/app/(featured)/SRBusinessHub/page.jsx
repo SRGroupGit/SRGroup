@@ -328,8 +328,9 @@ export default function Page() {
                   <video
                     src='/Business_hub_compressed_720p.mp4'
                     className='size-full object-cover contrast-[1.2]'
-                    controls
+                    autoPlay
                     loop
+                    muted
                     playsInline
                     preload='auto'
                     poster='/video-poster.jpg'

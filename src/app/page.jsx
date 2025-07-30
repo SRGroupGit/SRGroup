@@ -224,7 +224,7 @@ export default function Home() {
       type: 'Residential',
       size: '3.5 BHK Homes',
       rera: 'P52100047555',
-      link: '/residential/SRAishwaryam',
+      link: 'na',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
     {
@@ -261,12 +261,12 @@ export default function Home() {
         ref={heroSection}
         className='relative mt-[110px] flex h-[calc(100vh-110px)] w-full items-end justify-center overflow-hidden  '
       >
-        <span className=' absolute right-3 top-2 z-20 text-[8px] text-white mix-blend-difference'>
+        {/* <span className=' absolute right-3 top-2 z-20 text-[8px] text-white mix-blend-difference'>
           Property in video: SR Business Hub, opposite Jupiter hospital, Baner,
           Pune. Rera number - P52100047555
-        </span>
+        </span> */}
         <video
-          src='/Video.mp4'
+          src='/hero_banner_1080.mp4'
           className=' size-full object-cover contrast-[1.2] '
           autoPlay
           loop
@@ -338,15 +338,14 @@ export default function Home() {
                   <CountUp
                     enableScrollSpy={true}
                     decimals={1}
-                    end={11.3}
+                    end={9.7}
                     duration={1}
                   />
                   <span className=' text-[0.2em] uppercase'>Lakh Sq Ft</span>
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
-                <b>Total volume of area built</b> with 5 lakh sq.ft. built and
-                3.63 lakh sq.ft. of on-going projects.
+                With 5 lakh sq.ft. built and 4.7 lakh sq.ft. under construction
               </p>
             </div>
 
@@ -361,9 +360,10 @@ export default function Home() {
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
-                <b>Years of experience</b> , as we continue to grow and evolve,
-                our extensive experience forms the cornerstone of our success,
-                guiding us in our mission.
+                <b>Years of experience</b>
+                <br></br>As we continue to grow and evolve, our extensive
+                experience forms the cornerstone of our success, guiding us in
+                our mission.
               </p>
             </div>
           </div>
@@ -384,8 +384,8 @@ export default function Home() {
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
-                <b>Total projects </b> with <b>3 on going projects</b>, 1
-                upcoming
+                <b>Total projects </b>
+                <br></br>With <b>3 on going projects</b>, 1 upcoming
               </p>
             </div>
 
@@ -400,8 +400,8 @@ export default function Home() {
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
-                <b>Customers Served</b> ,The trust placed in us by our customers
-                motivates us to continue improving and innovating.
+                <b>Customers Served</b>
+                <br></br>We grow through the trust of our customers.
               </p>
             </div>
           </div>

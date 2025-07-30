@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import TextPlugin from 'gsap/TextPlugin';
 
 import ProjectCard from '.././ProjectCard';
+import ProjectCardNoRera from '.././ProjectCardNoRera';
 
 export default function Home() {
   const homeRef = useRef();
@@ -218,7 +219,7 @@ export default function Home() {
       locality: 'Baner',
       type: 'Commercial',
       size: 'Shops, Showrooms, Office Spaces',
-      link: '/commercial/SR45Baner',
+      link: 'na',
       map: 'na',
     },
     {
@@ -229,8 +230,8 @@ export default function Home() {
       locality: 'Sai Chowk Rd',
       type: 'Commercial',
       size: 'Office Spaces',
-      link: '/commercial/SRBusinessPoint',
-      map: 'https://maps.app.goo.gl/8eKea5Rx2Wc5F9qz9',
+      link: 'na',
+      map: 'na',
     },
     {
       title: 'SR Swasthi',
@@ -240,8 +241,8 @@ export default function Home() {
       locality: 'Sapphire Park Rd',
       type: 'Residential',
       size: '2BHK, 3BHK',
-      link: '/residential/SRSwasthi',
-      map: 'https://maps.app.goo.gl/kDwkzGqGAraqpqnt5',
+      link: 'na',
+      map: 'na',
     },
     {
       title: 'SR Om Paradise',
@@ -251,8 +252,8 @@ export default function Home() {
       locality: 'Sus Ln',
       type: 'Residential and Commercial',
       size: '2BHK, 3BHK, Shops',
-      link: '/residential/SROmParadise',
-      map: 'https://maps.app.goo.gl/euuUuFQ9Z2zTxTgr6',
+      link: 'na',
+      map: 'na',
     },
     {
       title: 'SR Anand Residency',
@@ -262,8 +263,8 @@ export default function Home() {
       locality: 'Dhanori-Lohegaon Rd',
       type: 'Residential',
       size: '1BHK, 2BHK',
-      link: '/residential/SRAnandResidency',
-      map: 'https://maps.app.goo.gl/1aL5GcgaF3SmBHfe8',
+      link: 'na',
+      map: 'na',
     },
     {
       title: 'SR Arambh',
@@ -273,8 +274,8 @@ export default function Home() {
       locality: 'Sus Rd, Behind Audi Showroom',
       type: 'Residential',
       size: '1BHK, 2BHK',
-      link: '/residential/SRArambh',
-      map: 'https://maps.app.goo.gl/58tAKdiGMinoeYBN6',
+      link: 'na',
+      map: 'na',
     },
   ];
 
@@ -391,7 +392,7 @@ export default function Home() {
         <div className=' w-full max-w-screen-2xl grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3 px-3 m-auto'>
           {SoldOut.map((card, index) => {
             return (
-              <ProjectCard
+              <ProjectCardNoRera
                 key={index}
                 title={card.title}
                 image={card.image}
