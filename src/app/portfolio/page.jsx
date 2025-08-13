@@ -52,9 +52,10 @@ export default function Home() {
           y: 200,
           scrollTrigger: {
             trigger: fade,
-            start: 'top bottom',
-            end: 'bottom 95%',
+            start: 'top 100%',
+            end: 'top 100%',
             scrub: true,
+            markers: false,
           },
         });
       });
@@ -209,7 +210,7 @@ export default function Home() {
       type: 'Residential',
       size: '3.5 BHK Homes',
       rera: 'P5210007145',
-      link: '/residential/SRAishwaryam',
+      link: '/SrAishwaryam',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
   ];
@@ -297,13 +298,13 @@ export default function Home() {
       locality: 'Sus',
     },
     {
-      title: 'SR Sai palace',
+      title: 'SR Sai Palace',
       location: 'Baner, Pune',
       availability: 'Sold Out',
       locality: 'Baner',
     },
     {
-      title: 'SR Padmavati residency',
+      title: 'SR Padmavati Residency',
       location: 'Manjri, Pune',
       availability: 'Sold Out',
       locality: 'Manjri',
@@ -315,7 +316,7 @@ export default function Home() {
       locality: 'Baner',
     },
     {
-      title: 'SR Venkatashwara Height',
+      title: 'SR Venkateshwara Heights',
       location: 'Baner, Pune',
       availability: 'Sold Out',
       locality: 'Baner',

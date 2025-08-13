@@ -24,7 +24,7 @@ const GalleryData = [
       'Redefining Luxury Living.One floor, one flat, luxury 3.5 BHK Homes in the heart of Baner with world class rooftop amenities. This collection of 12 premium homes is delicately crafted for those who like a larger-than life lifestyle. Explore sheer elegance & comfort, Only at SR Aishwaryam.',
     image: residentialCover,
     id: 'i1qnumx84kepvb4',
-    link: '/residential/SRAishwaryam',
+    link: '/SrAishwaryam',
   },
   {
     title: 'SR Akshatam',

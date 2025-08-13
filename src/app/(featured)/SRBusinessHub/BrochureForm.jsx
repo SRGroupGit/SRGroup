@@ -105,18 +105,18 @@ export default function BrochureForm(props) {
               </span>
             </div>
             <span className=' text-black'>
-              download Floor plan for {props.Title}
+              Floor Plan for {props.Title} will be sent to your email.
             </span>
 
             {floorPlanSuccess ? (
               <Link href={props.floorPlanLink} target='_bank'>
-                <GlobalButton
+                {/* <GlobalButton
                   color='white'
                   className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium  md:h-fit '
                   onClick={() => {}}
                 >
                   Download Floor Plan
-                </GlobalButton>
+                </GlobalButton> */}
               </Link>
             ) : (
               <form className='flex max-w-3xl flex-col'>

@@ -224,7 +224,7 @@ export default function Home() {
       type: 'Residential',
       size: '3.5 BHK Homes',
       rera: 'P5210007145',
-      link: 'na',
+      link: '/SrAishwaryam',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
     },
     {
@@ -281,12 +281,13 @@ export default function Home() {
 
       <section className='mx-auto my-12 flex w-full max-w-screen-2xl flex-col gap-4 p-3 text-2xl font-medium md:text-4xl'>
         <p ref={introTextRef} className='text-black'>
-          SR Group specialises in residential and commercial projects and
-          maintains our on-time delivery commitment. Our layouts, crafted in
-          compliance with Good Vastu and Feng Shui principles, ensure harmony
-          and prosperity for your family. Lastly, along with good transparency
-          with our clients, we uphold high compliance with all real estate laws,
-          maintaining our longstanding reputation for integrity and trust.
+          SR Group has introduced groundbreaking lifestyle concepts and created
+          insightful designs. Besides shopping and business complexes in
+          commercial property development, the company’s residential projects
+          include luxury apartments and semi-luxurious apartments. In keeping up
+          to date with the environmental concerns and requirements, its
+          residential projects lay a strong emphasis on waste management, water
+          harvesting, energy-saving, and high safety standards.
         </p>
         <Link href='/about'>
           <GlobalButton
@@ -341,7 +342,7 @@ export default function Home() {
                     end={9.7}
                     duration={1}
                   />
-                  <span className=' text-[0.2em] uppercase'>Lakh Sq Ft</span>
+                  <span className=' text-[0.15em] uppercase'>Lakh Sq Ft</span>
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
