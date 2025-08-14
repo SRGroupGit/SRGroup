@@ -270,10 +270,11 @@ export default function Page() {
             <h1 className=' text-5xl text-yellow-200 md:text-7xl'>
               <span className=' md:text-white'>SR</span> Aishwaryam
             </h1>
-            <h2 className=' text-xl font-bold md:text-3xl md:text-white'>
+            <h2 className='text-xl font-bold md:text-3xl md:text-white'>
               2.75CR* Onwards | New Launch
-              <br className=' max-md:hidden' /> 3 BHK's
+              <br className='max-md:hidden' /> 3 BHKs
             </h2>
+
             <span className=' text-xs mt-1 text-gray-200'>
               <b>*Basic cost</b>
             </span>
