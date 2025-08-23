@@ -177,6 +177,7 @@ export default function Home() {
     {
       title: 'SR Akshatam',
       image: '/images/akshatam.png',
+      qrImage: '/images/AkshatamQR.jpg',
       location: 'Keshav Nagar, Pune',
       availability: 'Available',
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
@@ -192,6 +193,7 @@ export default function Home() {
     {
       title: 'SR Business Hub',
       image: '/images/businesshub.png',
+      qrImage: '/images/BusinesshubQR.jpeg',
       location: 'Baner, Pune',
       availability: 'Available',
       locality: 'Old Baner Balewadi Road',
@@ -204,6 +206,7 @@ export default function Home() {
     {
       title: 'SR Aishwaryam',
       image: '/images/aishwaryam.png',
+      qrImage: 'na',
       location: 'Balewadi, Pune',
       availability: 'Available',
       locality: 'Balewadi',
@@ -398,6 +401,7 @@ export default function Home() {
                 key={index}
                 title={card.title}
                 image={card.image}
+                qrImage={card.qrImage}
                 location={card.location}
                 availability={card.availability}
                 locality={card.locality}
@@ -423,6 +427,7 @@ export default function Home() {
                 key={index}
                 title={card.title}
                 image={card.image}
+                qrImage={card.qrImage}
                 location={card.location}
                 availability={card.availability}
                 locality={card.locality}

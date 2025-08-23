@@ -308,7 +308,7 @@ export default function GlobalFooter() {
       </section>
       <section className=' m-auto mt-10 flex w-full max-w-screen-2xl flex-col items-center justify-between pt-4 text-sm md:flex-row md:text-4xl'>
         <div>
-          <span>SR Group. All rights reserved, {new Date().getFullYear()}</span>
+          <span>SR Group. All rights reserved, 2025</span>
         </div>
         <div className=' text-xs'>
           Designed and developed by{' '}

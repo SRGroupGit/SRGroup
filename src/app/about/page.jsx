@@ -206,6 +206,10 @@ const GlobalNavLogo = () => {
 };
 
 // export default function About() {
+//   const heroHeadingLine1 = useRef();
+//   const heroHeadingLine2 = useRef();
+//   const heroHeadingLine = useRef();
+
 //   useGSAP(() => {
 //     tl.current = gsap.timeline();
 //   });
@@ -248,16 +252,25 @@ const GlobalNavLogo = () => {
 //           alt='Building'
 //           layout='fill'
 //           objectFit='cover'
-//           className='z-0'
+//           className=' z-0'
 //           priority
 //         />
 
 //         {/* Overlay Content */}
-//         <div className='absolute z-10 top-1/2 -translate-y-1/2 left-10 max-w-2xl text-white'>
-//           <h1 className='x-auto my-12 flex w-full max-w-screen-2xl text-4xl md:text-6xl font-semibold leading-tight drop-shadow-md'>
-//             Delivering Consistent <br /> Quality And Luxury.
+//         <section className='relative mt-[110px] flex w-screen h-auto lg:w-full lg:h-[calc(100vh-110px)] items-end justify-center overflow-hidden'>
+//           <div className=' absolute z-10 size-full h-[40%] w-full bg-gradient-to-t  from-black to-transparent bg-blend-multiply'></div>
+//           <h1
+//             // ref={heroHeadingLine}
+//             className=' absolute z-20 m-0 mb-4  flex flex-col items-center overflow-hidden  text-center text-6xl font-black leading-[1em]  text-white md:mb-2'
+//           >
+//             <span ref={heroHeadingLine1} className=' text-neutral-200'>
+//               Delivering Consistent
+//             </span>{' '}
+//             <span className='inline-block p-3 bg-gradient-to-b from-neutral-500  to-neutral-100 to-70% bg-clip-text text-transparent'>
+//               Quality And Luxury.
+//             </span>
 //           </h1>
-//         </div>
+//         </section>
 //       </section>
 //       <section className='mx-auto my-12 flex w-full max-w-screen-2xl flex-col gap-4 p-3 text-2xl font-medium md:text-4xl'>
 //         <p ref={introTextRef} className='text-black'>
@@ -309,13 +322,12 @@ const GlobalNavLogo = () => {
 //       <section className='w-full '>
 //         <div className='mx-auto max-w-screen-2xl px-4 md:px-8 py-12 md:py-16'>
 //           {/* Heading */}
-//           <h3 className='text-center text-4xl md:text-6xl font-medium text-blue-200'>
+//           <h3 className='text-center text-4xl md:text-6xl font-medium text-blue-200 sticky top-48'>
 //             Our Leadership
 //           </h3>
 
-//           {/* Portrait 1*/}
-//           <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start'>
-//             {/* Portrait 1*/}
+//           {/* Rajendra*/}
+//           <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start sticky top-64 bg-neutral-50 isolate z-15 p-6'>
 //             <div className='md:col-span-6 xl:col-span-4'>
 //               <div className='relative w-full bg-gray-200 rounded-md shadow-sm overflow-hidden aspect-[4/5]'>
 //                 {/* Next.js <Image> version (uncomment if you're using next/image) */}
@@ -411,8 +423,9 @@ const GlobalNavLogo = () => {
 //               </div>
 //             </div>
 //           </div>
-//           <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start'>
-//             {/* Copy 2*/}
+//           {/* Shailendra*/}
+//           <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start sticky top-64 bg-neutral-50 isolate z-16 p-6'>
+//             {/* Shailendra Copy*/}
 //             <div className='md:col-span-6 xl:col-span-8'>
 //               <h4 className='text-xl md:text-2xl font-semibold text-yellow-200'>
 //                 Mr. asdf Reddy
@@ -464,11 +477,9 @@ const GlobalNavLogo = () => {
 //                 </p>
 //               </div>
 //             </div>
-//             {/*Portrait 2 */}
-//             <div className='md:col-span-6 xl:col-span-4'>
-//               <div className='relative w-full bg-gray-200 rounded-md shadow-sm overflow-hidden aspect-[4/5]'>
-//                 {/* Next.js <Image> version (uncomment if you're using next/image) */}
-
+//             {/* Shailendra Portrait */}
+//             <div className='md:col-span-6 xl:col-span-4  z-0'>
+//               <div className='relative z-0 w-full bg-gray-200 rounded-md shadow-sm overflow-hidden aspect-[4/5]'>
 //                 <Image
 //                   src='/images/akshatam.png'
 //                   alt='Mr. Rajendra Reddy'
@@ -498,9 +509,9 @@ const GlobalNavLogo = () => {
 //               </div>
 //             </div>
 //           </div>
-//           {/* Portrait 3*/}
-//           <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start'>
-//             {/* Portrait 3*/}
+//           {/* Onkar*/}
+//           <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start sticky top-64 bg-neutral-50 isolate z-17 p-6'>
+//             {/* Onkar Portrait*/}
 //             <div className='md:col-span-6 xl:col-span-4'>
 //               <div className='relative w-full bg-gray-200 rounded-md shadow-sm overflow-hidden aspect-[4/5]'>
 //                 {/* Next.js <Image> version (uncomment if you're using next/image) */}
@@ -543,7 +554,7 @@ const GlobalNavLogo = () => {
 //               </div>
 //             </div>
 
-//             {/* Copy 3*/}
+//             {/* Onkar Copy*/}
 //             <div className='md:col-span-6 xl:col-span-8'>
 //               <h4 className='text-xl md:text-2xl font-semibold text-yellow-200'>
 //                 Mr. Onkar Reddy

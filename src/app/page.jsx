@@ -194,6 +194,7 @@ export default function Home() {
     {
       title: 'SR Akshatam',
       image: '/images/akshatam.png',
+      qrImage: '/images/AkshatamQR.jpg',
       location: 'Keshav Nagar, Pune',
       availability: 'Available',
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
@@ -206,6 +207,7 @@ export default function Home() {
     {
       title: 'SR Business Hub',
       image: '/images/businesshub.png',
+      qrImage: '/images/BusinesshubQR.jpeg',
       location: 'Baner, Pune',
       availability: 'Available',
       locality: 'Old Baner Balewadi Road',
@@ -218,6 +220,7 @@ export default function Home() {
     {
       title: 'SR Aishwaryam',
       image: '/images/aishwaryam.png',
+      qrImage: 'na',
       location: 'Balewadi, Pune',
       availability: 'Available',
       locality: 'Balewadi',
@@ -277,17 +280,31 @@ export default function Home() {
           alt='Video background'
         ></video>
         <div className=' absolute z-10 size-full h-[30%] w-full bg-gradient-to-t  from-black to-transparent bg-blend-multiply'></div>
+        {/* <h1
+          ref={heroHeadingLine}
+          className=' absolute z-20 m-0 mb-4  flex flex-col items-center overflow-hidden  text-center text-clamp font-black leading-[0.95em]  text-white md:mb-2'
+        >
+          <span ref={heroHeadingLine1} className=' text-neutral-200'>
+            We Build the
+          </span>{' '}
+          <span
+            ref={heroHeadingLine2}
+            className='inline-block bg-gradient-to-b from-neutral-950  to-neutral-100 to-70% bg-clip-text text-transparent'
+          >
+            Future
+          </span>
+        </h1> */}
       </section>
 
       <section className='mx-auto my-12 flex w-full max-w-screen-2xl flex-col gap-4 p-3 text-2xl font-medium md:text-4xl'>
         <p ref={introTextRef} className='text-black'>
-          SR Group has introduced groundbreaking lifestyle concepts and created
-          insightful designs. Besides shopping and business complexes in
-          commercial property development, the company’s residential projects
-          include luxury apartments and semi-luxurious apartments. In keeping up
-          to date with the environmental concerns and requirements, its
-          residential projects lay a strong emphasis on waste management, water
-          harvesting, energy-saving, and high safety standards.
+          At SR Group, We shape the way people live, connect, and belong. What
+          began as a family vision has grown into a legacy of trust, carried
+          forward with a deep responsibility toward the city we call home. Each
+          project is a promise of safety, dignity, and spaces that outlast
+          generations. By weaving tradition with progress and sustainability
+          with design, SR Group builds environments where families thrive,
+          communities endure, and the future finds its foundation.
         </p>
         <Link href='/about'>
           <GlobalButton
@@ -418,6 +435,7 @@ export default function Home() {
               key={index}
               title={card.title}
               image={card.image}
+              qrImage={card.qrImage}
               location={card.location}
               availability={card.availability}
               locality={card.locality}

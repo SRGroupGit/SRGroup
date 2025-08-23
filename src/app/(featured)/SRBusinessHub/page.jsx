@@ -225,7 +225,7 @@ export default function Page() {
     {
       id: 2,
       src: Am2,
-      alt: ' Luxurious granite flooring.',
+      alt: 'Full bodied vitrified luxurious flooring.',
     },
     {
       id: 3,

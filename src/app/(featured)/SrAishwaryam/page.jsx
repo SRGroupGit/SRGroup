@@ -5,7 +5,7 @@ import Hero0 from './images/hero0.png';
 import Hero1 from './images/hero1.png';
 import Hero2 from './images/hero2.png';
 import Hero3 from './images/hero3.png';
-import iso1 from './images/iso1.png';
+import iso_labeled from './images/iso_labeled.webp';
 import iso2 from './images/iso2.png';
 import Slider from './Slider';
 import GlobalButton from '@/app/GlobalButton';
@@ -27,11 +27,11 @@ import In9 from './interioimage/in9.jpg';
 import In10 from './interioimage/in10.jpg';
 import In11 from './interioimage/in11.jpg';
 import In12 from './interioimage/in12.jpg';
-import Am1 from './interioimage/am1.png';
+import Am1 from './interioimage/am1.jpg';
 import Am2 from './interioimage/am2.png';
-import Am3 from './interioimage/am3.png';
+import Am3 from './interioimage/am3.jpg';
 import Am4 from './interioimage/am4.png';
-import Am5 from './interioimage/am5.png';
+import Am5 from './interioimage/am5.jpg';
 import Autoplay from 'embla-carousel-autoplay';
 
 import {
@@ -64,20 +64,6 @@ export default function Page() {
       id: 3,
       src: Hero3,
       alt: 'Aishwaryam 3',
-    },
-  ];
-
-  const IsometricImages = [
-    {
-      id: 0,
-      src: iso2,
-      alt: 'Aishwaryam 0',
-    },
-
-    {
-      id: 1,
-      src: iso1,
-      alt: 'Aishwaryam 1',
     },
   ];
 
@@ -172,7 +158,7 @@ export default function Page() {
     },
     {
       name: 'DMART',
-      distance: '1.8km',
+      distance: '700m',
       icon: 'material-symbols:grocery',
     },
   ];
@@ -240,7 +226,7 @@ export default function Page() {
     {
       id: 5,
       src: Am5,
-      alt: 'Smart Home Features',
+      alt: 'High End Digital locks',
     },
   ];
 
@@ -470,9 +456,9 @@ export default function Page() {
           </div>
         </section>
         <section>
-          <div className='relative m-auto mt-10 aspect-video w-full max-w-screen-2xl md:aspect-[1443/520]'>
+          <div className='relative m-auto mt-10 aspect-video w-full max-w-screen-2xl '>
             <Image
-              src={iso1}
+              src={iso_labeled}
               alt='ISOMETRIC IMAGE'
               layout='fill'
               objectFit='contain'

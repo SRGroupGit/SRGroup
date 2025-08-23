@@ -80,6 +80,17 @@ export default function ProjectCard(props) {
       ) : (
         <Link href={props.link}>
           <div className=' relative aspect-[4/3] w-full cursor-pointer overflow-hidden'>
+            {props.qrImage !== 'na' && (
+              <div className='absolute left-1 top-1 z-10 flex aspect-square w-16 items-center justify-center rounded-full bg-transparent border-transparent'>
+                <Image
+                  ref={imageRef}
+                  src={props.qrImage}
+                  alt=''
+                  fill
+                  className='object-cover'
+                />
+              </div>
+            )}
             <div className=' absolute right-1 top-1 z-10 flex aspect-square w-12 items-center justify-center rounded-full bg-black/40 backdrop-blur-md'>
               <Icon
                 icon='system-uicons:arrow-top-right'

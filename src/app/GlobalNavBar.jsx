@@ -476,7 +476,7 @@ export default function GlobalNavBar() {
               </div>
             </div>
           </div>
-          <div className=' relative hidden  aspect-square h-full md:block'>
+          <div className=' relative hidden  aspect-square h-full xl:block'>
             <Image
               alt='residential'
               className=' object-cover object-center '
