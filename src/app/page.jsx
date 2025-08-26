@@ -207,7 +207,7 @@ export default function Home() {
     {
       title: 'SR Business Hub',
       image: '/images/businesshub.png',
-      qrImage: '/images/BusinesshubQR.jpeg',
+      qrImage: '/images/BusinesshubQR.jpg',
       location: 'Baner, Pune',
       availability: 'Available',
       locality: 'Old Baner Balewadi Road',
@@ -220,7 +220,7 @@ export default function Home() {
     {
       title: 'SR Aishwaryam',
       image: '/images/aishwaryam.png',
-      qrImage: 'na',
+      qrImage: '/images/AishwariyamQR.jpg',
       location: 'Balewadi, Pune',
       availability: 'Available',
       locality: 'Balewadi',
