@@ -4,3 +4,7 @@ export const metadata = {
   description:
     'Our luxury commercial and retail spaces in Pune are designed to meet the needs of modern businesses, with state-of-the-art facilities and a prime location.',
 };
+
+export default function AboutLayout({ children }) {
+  return <>{children}</>;
+}

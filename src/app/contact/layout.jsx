@@ -4,3 +4,7 @@ export const metadata = {
   description:
     'SR Group offers Luxury apartments in east pune. Their Midrise /highrise apartments provide the perfect blend of comfort and convenience.',
 };
+
+export default function ContactLayout({ children }) {
+  return <>{children}</>;
+}
