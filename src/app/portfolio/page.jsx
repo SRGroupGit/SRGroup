@@ -162,7 +162,7 @@ export default function Home() {
   const UpComingProjects = [
     {
       title: 'SR House',
-      image: '/images/SrHouse.png',
+      image: '/images/SrHouse.avif',
       location: 'Baner, Pune',
       availability: 'In Construction',
       locality: 'Veerbhadra Nagar',
@@ -176,8 +176,8 @@ export default function Home() {
   const UnderConstruction = [
     {
       title: 'SR Akshatam',
-      image: '/images/akshatam.png',
-      qrImage: '/images/AkshatamQR.jpg',
+      image: '/images/akshatam.avif',
+      qrImage: '/images/AkshatamQR.avif',
       location: 'Keshav Nagar, Pune',
       availability: 'Available',
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
@@ -192,8 +192,8 @@ export default function Home() {
   const ReadyToMoveIn = [
     {
       title: 'SR Business Hub',
-      image: '/images/businesshub.png',
-      qrImage: '/images/BusinesshubQR.jpg',
+      image: '/images/businesshub.avif',
+      qrImage: '/images/BusinesshubQR.avif',
       location: 'Baner, Pune',
       availability: 'Available',
       locality: 'Old Baner Balewadi Road',
@@ -205,8 +205,8 @@ export default function Home() {
     },
     {
       title: 'SR Aishwaryam',
-      image: '/images/aishwaryam.png',
-      qrImage: '/images/AishwariyamQR.jpg',
+      image: '/images/aishwaryam.webp',
+      qrImage: '/images/AishwariyamQR.avif',
       location: 'Balewadi, Pune',
       availability: 'Available',
       locality: 'Balewadi',
@@ -221,7 +221,7 @@ export default function Home() {
   const SoldOut = [
     {
       title: 'SR 45 Baner',
-      image: '/images/SR45Baner.png',
+      image: '/images/SR45Baner.avif',
       location: 'Baner, Pune',
       availability: 'Sold Out',
       locality: 'Baner',
@@ -232,7 +232,7 @@ export default function Home() {
     },
     {
       title: 'SR Business Point',
-      image: '/images/SRBusinessPoint.png',
+      image: '/images/SRBusinessPoint.avif',
       location: 'Baner, Pune',
       availability: 'Sold Out',
       locality: 'Sai Chowk Rd',
@@ -243,7 +243,7 @@ export default function Home() {
     },
     {
       title: 'SR Swasthi',
-      image: '/images/SRSwasthi.png',
+      image: '/images/SRSwasthi.avif',
       location: 'Balewadi, Pune',
       availability: 'Sold Out',
       locality: 'Sapphire Park Rd',
@@ -254,7 +254,7 @@ export default function Home() {
     },
     {
       title: 'SR Om Paradise',
-      image: '/images/SROmParadise.png',
+      image: '/images/SROmParadise.avif',
       location: 'Sus, Pune',
       availability: 'Sold Out',
       locality: 'Sus Ln',
@@ -265,7 +265,7 @@ export default function Home() {
     },
     {
       title: 'SR Anand Residency',
-      image: '/images/SRAnandResidency.png',
+      image: '/images/SRAnandResidency.avif',
       location: 'Dhanori, Pune',
       availability: 'Sold Out',
       locality: 'Dhanori-Lohegaon Rd',
@@ -276,7 +276,7 @@ export default function Home() {
     },
     {
       title: 'SR Arambh',
-      image: '/images/SRArambh.png',
+      image: '/images/SRArambh.avif',
       location: 'Sus, Pune',
       availability: 'Sold Out',
       locality: 'Sus Rd, Behind Audi Showroom',
@@ -350,7 +350,7 @@ export default function Home() {
           muted
           playsInline
           preload='auto'
-          poster='/video-poster.jpg'
+          poster='/video-poster.avif'
           alt='Video background'
         ></video>
       </section>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import GlobalButton from '@/app/GlobalButton';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
-import Phone from './phone.png';
+import Phone from './phone.avif';
 
 export default function EnquireForm(props) {
   const [FloorFormData, setFloorPlanFormData] = useState({

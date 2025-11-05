@@ -193,8 +193,8 @@ export default function Home() {
   const CardData = [
     {
       title: 'SR Akshatam',
-      image: '/images/akshatam.png',
-      qrImage: '/images/AkshatamQR.jpg',
+      image: '/images/akshatam.avif',
+      qrImage: '/images/AkshatamQR.avif',
       location: 'Keshav Nagar, Pune',
       availability: 'Available',
       locality: 'Mundhwa-Manjri Rd, Sasane Colony',
@@ -206,8 +206,8 @@ export default function Home() {
     },
     {
       title: 'SR Business Hub',
-      image: '/images/businesshub.png',
-      qrImage: '/images/BusinesshubQR.jpg',
+      image: '/images/businesshub.avif',
+      qrImage: '/images/BusinesshubQR.avif',
       location: 'Baner, Pune',
       availability: 'Available',
       locality: 'Old Baner Balewadi Road',
@@ -219,8 +219,8 @@ export default function Home() {
     },
     {
       title: 'SR Aishwaryam',
-      image: '/images/aishwaryam.png',
-      qrImage: '/images/AishwariyamQR.jpg',
+      image: '/images/aishwaryam.webp',
+      qrImage: '/images/AishwariyamQR.avif',
       location: 'Balewadi, Pune',
       availability: 'Available',
       locality: 'Balewadi',
@@ -232,7 +232,7 @@ export default function Home() {
     },
     {
       title: 'SR House',
-      image: '/images/SrHouse.png',
+      image: '/images/SrHouse.avif',
       location: 'Baner, Pune',
       availability: 'In Construction',
       locality: 'Veerbhadra Nagar',
@@ -276,7 +276,7 @@ export default function Home() {
           muted
           playsInline
           preload='auto'
-          poster='/video-poster.jpg'
+          poster='/video-poster.avif'
           alt='Video background'
         ></video>
         <div className=' absolute z-10 size-full h-[30%] w-full bg-gradient-to-t  from-black to-transparent bg-blend-multiply'></div>
@@ -363,7 +363,7 @@ export default function Home() {
                 </span>
               </h3>
               <p className=' fadeIn w-full text-sm md:text-2xl  '>
-                With 5 lakh sq.ft. built and 4.7 lakh sq.ft. under construction
+                With 5 lakh sq.ft. built and 6.2 lakh sq.ft. under construction
               </p>
             </div>
 
@@ -480,7 +480,7 @@ export default function Home() {
               muted
               playsInline
               preload='auto'
-              poster='/video-poster.jpg'
+              poster='/video-poster.avif'
               alt='Video background'
             ></video>
           </div>

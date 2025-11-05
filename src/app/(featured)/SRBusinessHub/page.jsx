@@ -1,14 +1,14 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import Hero0 from './hero0.png';
-import Hero1 from './hero1.png';
-import Hero2 from './hero2.png';
-import Hero3 from './hero3.png';
-import MHero0 from './hero0.png';
-import MHero1 from './hero1.png';
-import MHero2 from './hero2.png';
-import MHero3 from './hero3.png';
+import Hero0 from './hero0.avif';
+import Hero1 from './hero1.avif';
+import Hero2 from './hero2.avif';
+import Hero3 from './hero3.avif';
+import MHero0 from './hero0.avif';
+import MHero1 from './hero1.avif';
+import MHero2 from './hero2.avif';
+import MHero3 from './hero3.avif';
 import Slider from './Slider';
 import GlobalButton from '@/app/GlobalButton';
 import { useState } from 'react';
@@ -16,23 +16,23 @@ import BrochureForm from './BrochureForm';
 import EnquireForm from './EnquireForm';
 import EnquireFormStatic from './EnquireFormStatic';
 import { Icon } from '@iconify/react';
-import ShopHero from './shopHero.jpg';
-import ResHero from './resHero.jpg';
-import In1 from './interioimage/in1.jpg';
-import In2 from './interioimage/in2.jpg';
-import In3 from './interioimage/in3.jpg';
-import In4 from './interioimage/in4.jpg';
-import In5 from './interioimage/in5.jpg';
-import In6 from './interioimage/in6.jpg';
-import In7 from './interioimage/in7.jpg';
-import In8 from './interioimage/in8.jpg';
-import In9 from './interioimage/in9.jpg';
-import In10 from './interioimage/in10.jpg';
-import Am1 from './interioimage/am1.jpg';
-import Am2 from './interioimage/am2.jpg';
-import Am3 from './interioimage/am3.jpg';
-import Am4 from './interioimage/am4.jpg';
-import Am5 from './interioimage/am5.jpg';
+import ShopHero from './shopHero.avif';
+import ResHero from './resHero.avif';
+import In1 from './interioimage/in1.avif';
+import In2 from './interioimage/in2.avif';
+import In3 from './interioimage/in3.avif';
+import In4 from './interioimage/in4.avif';
+import In5 from './interioimage/in5.avif';
+import In6 from './interioimage/in6.avif';
+import In7 from './interioimage/in7.avif';
+import In8 from './interioimage/in8.avif';
+import In9 from './interioimage/in9.avif';
+import In10 from './interioimage/in10.avif';
+import Am1 from './interioimage/am1.avif';
+import Am2 from './interioimage/am2.avif';
+import Am3 from './interioimage/am3.avif';
+import Am4 from './interioimage/am4.avif';
+import Am5 from './interioimage/am5.avif';
 import Autoplay from 'embla-carousel-autoplay';
 import SliderData from './SliderData';
 
@@ -333,7 +333,7 @@ export default function Page() {
                     muted
                     playsInline
                     preload='auto'
-                    poster='/video-poster.jpg'
+                    poster='/video-poster.avif'
                   ></video>
                 </div>
               </div>

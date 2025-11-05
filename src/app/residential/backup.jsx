@@ -399,7 +399,7 @@ export default function Residential() {
         </h1>
         <div className=' relative   h-[70vh] w-full '>
           <Image
-            src='/resSmall.png'
+            src='/resSmall.avif'
             fill
             alt='residential image'
             className=' object-cover object-center'

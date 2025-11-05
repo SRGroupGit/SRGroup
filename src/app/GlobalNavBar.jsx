@@ -481,7 +481,7 @@ export default function GlobalNavBar() {
               alt='residential'
               className=' object-cover object-center '
               fill
-              src='/MenuHero.png'
+              src='/MenuHero.avif'
             />
           </div>
         </div>
