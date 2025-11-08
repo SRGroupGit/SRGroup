@@ -4,7 +4,7 @@ export const metadata = {
   title:
     '2 BHK, 3 BHK flats in west Pune | Luxury apartments in east Pune | 2 BHK, 3 BHK flats in Sus Pune',
   description:
-    'You are looking for a Luxury apartment, 2 BHK, 3 BHK flats in sus Pune  or a premium commercial space, SR Group has something for everyone.',
+    'Looking for luxury 2 BHK or 3 BHK apartments in Sus, Pune, or premium commercial spaces? Discover exceptional living and business spaces with SR Group.',
 };
 
 export default function RootLayout({ children }) {
