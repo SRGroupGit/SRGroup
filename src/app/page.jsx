@@ -356,7 +356,7 @@ export default function Home() {
                   <CountUp
                     enableScrollSpy={true}
                     decimals={1}
-                    end={9.7}
+                    end={11.2}
                     duration={1}
                   />
                   <span className=' text-[0.15em] uppercase'>Lakh Sq Ft</span>

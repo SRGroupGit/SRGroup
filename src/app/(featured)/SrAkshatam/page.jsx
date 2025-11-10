@@ -154,17 +154,17 @@ export default function Page() {
     { name: 'SNBP school', distance: '2.4 km', icon: 'mdi:education-outline' },
     {
       name: 'Sahyadri Super Specialty Hospital',
-      distance: '10-12 min drive',
+      distance: '5.3 km',
       icon: 'mage:hospital-plus',
     },
     {
       name: 'Eon IT Park',
-      distance: '15 min drive',
+      distance: '4.3 km',
       icon: 'material-symbols-light:computer-outline',
     },
     {
       name: 'Aditi Park',
-      distance: '13 min drive',
+      distance: '3.5 km',
       icon: 'mynaui:tree',
     },
   ];

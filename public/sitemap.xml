@@ -4,39 +4,44 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
   <loc>https://www.sreddygroup.com/</loc>
-  <lastmod>2025-02-03T07:39:34+00:00</lastmod>
+  <lastmod>2025-11-08T06:00:59+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.sreddygroup.com/contact</loc>
-  <lastmod>2025-02-03T07:39:34+00:00</lastmod>
+  <lastmod>2025-11-08T06:00:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.sreddygroup.com/about</loc>
-  <lastmod>2025-02-03T07:39:34+00:00</lastmod>
+  <lastmod>2025-11-08T06:00:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.sreddygroup.com/commercial</loc>
-  <lastmod>2025-02-03T07:39:34+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sreddygroup.com/residential</loc>
-  <lastmod>2025-02-03T07:39:34+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sreddygroup.com/SRBusinessHub</loc>
-  <lastmod>2025-02-03T07:39:34+00:00</lastmod>
+  <loc>https://www.sreddygroup.com/portfolio</loc>
+  <lastmod>2025-11-08T06:00:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.sreddygroup.com/SrAkshatam</loc>
-  <lastmod>2025-02-03T07:39:34+00:00</lastmod>
+  <lastmod>2025-11-08T06:00:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://www.sreddygroup.com/SRBusinessHub</loc>
+  <lastmod>2025-11-08T06:00:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.sreddygroup.com/SrAishwaryam</loc>
+  <lastmod>2025-11-08T06:00:59+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
 </urlset>
