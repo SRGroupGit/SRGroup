@@ -317,8 +317,8 @@ export default function Page() {
           <div className='relative m-auto flex h-fit w-full max-w-screen-2xl gap-10'>
             <div className='  w-full '>
               <h3 className='  text-3xl font-semibold text-blue-200'>
-                Discover the perfect blend of convenience and luxury at SR
-                &apos; latest residential project
+                Discover the perfect blend of convenience and luxury at
+                SR&apos;s latest residential project
               </h3>
               <p className=' mt-2'>
                 Introducing SR Akshatam by SR Group; a remarkable mixed-use

@@ -333,7 +333,7 @@ export default function Page() {
                     muted
                     playsInline
                     preload='auto'
-                    poster='/video-poster.avif'
+                    poster='/images/businesshub.avif'
                   ></video>
                 </div>
               </div>

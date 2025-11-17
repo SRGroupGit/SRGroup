@@ -6,6 +6,7 @@ import Hero1 from './images/hero1.avif';
 import Hero2 from './images/hero2.avif';
 import Hero3 from './images/hero3.avif';
 import iso_labeled from './images/iso_labeled.webp';
+import iso_mobile from './images/iso_mobile.webp';
 import iso2 from './images/iso2.avif';
 import Slider from './Slider';
 import GlobalButton from '@/app/GlobalButton';
@@ -315,7 +316,7 @@ export default function Page() {
                     muted
                     playsInline
                     preload='auto'
-                    poster='/video-poster.avif'
+                    poster='/images/aishwaryam.webp'
                   ></video>
                 </div>
               </div>
@@ -456,12 +457,23 @@ export default function Page() {
           </div>
         </section>
         <section>
-          <div className='relative m-auto mt-10 aspect-video w-full max-w-screen-2xl '>
+          <div className='relative m-auto mt-10 aspect-video w-full max-w-screen-2xl'>
+            {/* Desktop / tablet image */}
             <Image
               src={iso_labeled}
               alt='ISOMETRIC IMAGE'
               layout='fill'
               objectFit='contain'
+              className='hidden md:block' // md और ऊपर दिखेगा
+            />
+
+            {/* Mobile image */}
+            <Image
+              src={iso_mobile}
+              alt='ISOMETRIC IMAGE MOBILE'
+              layout='fill'
+              objectFit='contain'
+              className='block md:hidden' // सिर्फ mobile पर दिखेगा
             />
           </div>
         </section>
