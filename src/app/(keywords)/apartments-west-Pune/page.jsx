@@ -7,7 +7,7 @@ import Link from 'next/link';
 import GlobalButton from '@/app/GlobalButton';
 import { Icon } from '@iconify/react';
 
-export default function residential() {
+export default function Page() {
   const heroHeadingLine1 = useRef();
 
   useGSAP(() => {
