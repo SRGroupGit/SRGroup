@@ -5,8 +5,7 @@ import ProviderShell from './ProviderShell';
 import Script from 'next/script';
 
 export const metadata = {
-  title:
-    'SR SR Group-Real estate in Pune | Best Residential Projects in Balewadi',
+  title: 'SR Group-Real estate in Pune | Best Residential Projects in Balewadi',
   description:
     'SR Group is a leading real estate developer in Pune, known for its best high-quality residential and commercial projects.',
   authors: [{ name: 'Angle.services', url: 'https://Angle.services' }],
