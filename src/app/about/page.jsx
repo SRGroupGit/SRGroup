@@ -96,27 +96,27 @@ export default function About() {
       <section className=' mt-12  flex w-full flex-col md:flex-row max-w-screen-2xl mx-auto'>
         <div className=' relative aspect-video h-full overflow-hidden'>
           <video
-            src='/interior_001.mp4'
+            src='https://admin.sreddygroup.com/api/files/75iqw278ep21ek1/b5kwg01rsv7gfm5/interior_p2RFOLtHal.mp4'
             className=' size-full object-cover contrast-[1.2] '
             autoPlay
             loop
             muted
             playsInline
             preload='auto'
-            poster='/video-poster.avif'
+            poster='/thumbnail.avif'
             alt='Video background'
           ></video>
         </div>
         <div className=' relative aspect-video h-full overflow-hidden'>
           <video
-            src='/exterior_002.mp4'
+            src='https://admin.sreddygroup.com/api/files/75iqw278ep21ek1/b5kwg01rsv7gfm5/exterior_dKIMhGuwzA.mp4'
             className=' size-full object-cover contrast-[1.2] '
             autoPlay
             loop
             muted
             playsInline
             preload='auto'
-            poster='/video-poster.avif'
+            poster='/thumbnail_alt.avif'
             alt='Video background'
           ></video>
         </div>
