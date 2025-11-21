@@ -98,14 +98,15 @@ export default function Page() {
             SR Group - Building Tomorrow, Together! Since the past two decades,
             Pune-based SR Group has been at the forefront of the construction
             industry, specializing in both residential and commercial projects.
-            At SR, we've built more than just structures; we've built trust and
-            excellence. Our core lies in innovation, integrity, and a relentless
-            commitment to quality, driven by a team that values honesty,
-            transparency, and collaboration. Rooted in our Indian heritage,
-            we're not just constructing buildings but crafting legacies,
-            fostering community growth and ensuring every project contributes to
-            the collective dreams of New Bharat. At SR Group, we build not just
-            for the present, but for a sustainable and inclusive future.
+            At SR, we&apos;ve built more than just structures; we&apos;ve built
+            trust and excellence. Our core lies in innovation, integrity, and a
+            relentless commitment to quality, driven by a team that values
+            honesty, transparency, and collaboration. Rooted in our Indian
+            heritage, we&apos;re not just constructing buildings but crafting
+            legacies, fostering community growth and ensuring every project
+            contributes to the collective dreams of New Bharat. At SR Group, we
+            build not just for the present, but for a sustainable and inclusive
+            future.
           </p>
           {/* <Link
             href=''
