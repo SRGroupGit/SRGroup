@@ -2,9 +2,9 @@ import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata = {
   title:
-    'Midrise / Highrise apartments in Pune | Luxury apartments in east pune',
+    'Luxury commercial & retail spaces Pune | SR Business Hub - Commercial Project Baner Pune',
   description:
-    'SR Group offers Luxury apartments in east pune. Their Midrise /highrise apartments provide the perfect blend of comfort and convenience.',
+    'Looking for commercial property in Pune? SR Business Hub offers premium offices and retail units in Baner with smart design, high footfall, and top-tier construction quality.',
 };
 
 export default function RootLayout({ children }) {

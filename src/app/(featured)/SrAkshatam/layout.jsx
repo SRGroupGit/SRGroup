@@ -2,9 +2,9 @@ import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata = {
   title:
-    '2 BHK, 3 BHK flats in west Pune | Luxury apartments in east Pune | 2 BHK, 3 BHK flats in Sus Pune',
+    'SR Akshatam - 2 BHK, 3 BHK flats in Keshav Nagar | 2 BHK, 3 BHK flats near Mundhwa Pune',
   description:
-    'Looking for luxury 2 BHK or 3 BHK apartments in Sus, Pune, or premium commercial spaces? Discover exceptional living and business spaces with SR Group.',
+    'Looking for 2 or 3 BHK homes in Pune? SR Akshatam offers elegant apartments in Keshav Nagar and Mundhwa with top-notch amenities, secure living, and great value.',
 };
 
 export default function RootLayout({ children }) {
