@@ -138,7 +138,7 @@ export default function Page() {
               />
             </div>
             <Link
-              href='https://admin.sreddygroup.com/api/files/75iqw278ep21ek1/zgsdo9m7kbn0t36/business_hub_brochure_ZdfAL7FYpW.pdf'
+              href='https://admin.sreddygroup.com/api/files/75iqw278ep21ek1/zgsdo9m7kbn0t36/business_hub_brochure_n2XCohb3H2.pdf'
               target='_blank'
             >
               <GlobalButton
