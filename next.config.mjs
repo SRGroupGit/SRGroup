@@ -1,7 +1,19 @@
 /** @type {import('next').NextConfig} */
+
+// const nextConfig = {
+//   images: {
+//     domains: ['admin.sreddygroup.com'],
+//   },
+// };
+
 const nextConfig = {
   images: {
-    domains: ['admin.sreddygroup.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'admin.sreddygroup.com',
+      },
+    ],
   },
 };
 
