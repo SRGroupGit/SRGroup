@@ -49,7 +49,7 @@ export default function GlobalButton({ children, className, ...props }) {
       ref={buttonRef}
       type={props.type || 'button'}
       onClick={props.onClick}
-      className={`${className} 
+      className={`uppercase ${className} 
     ${
       props.color === 'white'
         ? '  bg-yellow-200 text-neutral-900     '
@@ -59,7 +59,7 @@ export default function GlobalButton({ children, className, ...props }) {
     transition-transform duration-200 active:scale-90 `}
       {...props}
     >
-      <span className=' pointer-events-none relative z-20'>{children}</span>
+      <span className=' pointer-events-none  relative z-20'>{children}</span>
 
       <span
         ref={buttonBg}

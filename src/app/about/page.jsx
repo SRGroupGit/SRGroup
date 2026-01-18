@@ -163,15 +163,24 @@ export default function About() {
             </div>
 
             {/* Rajendra Copy */}
-            <div className='md:col-span-6 xl:col-span-8'>
-              <h4 className='text-xl md:text-2xl font-semibold text-yellow-200'>
-                Mr. Rajendra Reddy
-              </h4>
-              <p className='mt-1 text-sm md:text-base text-black font-bold'>
-                Managing Director, SR Group
-              </p>
+            {/* Need to center Copy */}
+            <div className='md:col-span-6 xl:col-span-8 h-full items-center'>
+              <div className='items-center '>
+                <h4 className='text-2xl md:text-3xl font-medium text-yellow-200'>
+                  Mr. Rajendra Reddy
+                </h4>
+                <p className='mt-1 text-sm md:text-base text-black font-regular'>
+                  Managing Director, SR Group
+                </p>
+                <div className='mt-4 space-y-4 text-black leading-relaxed text-md md:text-base'>
+                  <p>
+                    Focuses on long-term vision, compliance, and overall
+                    direction.
+                  </p>
+                </div>
+              </div>
 
-              <div className='mt-4 space-y-4 text-black leading-relaxed text-sm md:text-base'>
+              {/* <div className='mt-4 space-y-4 text-black leading-relaxed text-sm md:text-base'>
                 <p>
                   Mr. Rajendra Reddy, Founder and Managing Director of SR Group,
                   has made the name synonymous with trust, quality, and
@@ -203,7 +212,7 @@ export default function About() {
                   Marathi ethos of “सत्य, सेवा, समर्पण” (Truth, Service, and
                   Dedication).
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
 
