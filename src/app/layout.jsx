@@ -9,7 +9,7 @@ export const metadata = {
     'SR Group-Real estate in Pune | New residential and commercial projects in Pune',
   description:
     'Discover SR Group, a trusted real estate developer in Pune offering premium residential and commercial projects with modern amenities, great connectivity, and value.',
-  authors: [{ name: 'Angle.services', url: 'https://Angle.services' }],
+  authors: [{ name: 'Angle.services', url: 'https://angle.services' }],
 };
 
 export default function RootLayout({ children }) {

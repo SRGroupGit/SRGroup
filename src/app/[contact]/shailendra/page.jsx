@@ -13,7 +13,7 @@ export default function Page() {
       <div className='mx-auto w-full max-w-lg px-4 pt-6'>
         <div className='relative w-full bg-gray-200 rounded-xl shadow-sm overflow-hidden aspect-[4/5]'>
           <Image
-            src='/images/founders/shailendra.avif'
+            src='/images/founders/shailendra.webp'
             alt='Mr. Shailendra Reddy'
             fill
             className='object-cover'

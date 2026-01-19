@@ -13,7 +13,7 @@ export default function Page() {
       <div className='mx-auto w-full max-w-lg px-4 pt-6'>
         <div className='relative w-full bg-gray-200 rounded-xl shadow-sm overflow-hidden aspect-[4/5]'>
           <Image
-            src='/images/founders/onkar.avif'
+            src='/images/founders/onkar.webp'
             alt='Mr. Onkar Reddy'
             fill
             className='object-cover'
@@ -23,7 +23,7 @@ export default function Page() {
         <div className='mt-6 text-center'>
           <h1 className='text-5xl font-semibold text-blue-200'>Onkar Reddy</h1>
           <p className='text-xl mt-2 text-gray-800'>
-            Director & Architect, SR Group
+            Project Manager, SR Group
           </p>
         </div>
         <div className='flex items-center justify-center gap-4'>

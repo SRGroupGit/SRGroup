@@ -30,7 +30,8 @@ export default function Home() {
   const selectionGallery = useRef();
   const textInPutIntro2 = useRef();
   const upcoming = useRef();
-  const tl = useRef();
+  /** @type {import('gsap').core.Timeline | null} */
+  const tl = useRef(null);
 
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -53,7 +54,9 @@ export default function Home() {
 
   useGSAP(
     () => {
+      /** @type {import('gsap').TweenTarget[]} */
       const headings = gsap.utils.toArray('.fadeFromBelow');
+      /** @type {import('gsap').TweenTarget[]} */
       const fadeIn = gsap.utils.toArray('.fadeIn');
       fadeIn.forEach((fade) => {
         gsap.from(fade, {
@@ -254,6 +257,11 @@ export default function Home() {
       map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
     },
   ];
+  const sliderImages = Array.from(
+    { length: 12 },
+    (_, index) =>
+      `/images/slider/slider_${String(index + 1).padStart(2, '0')}.png`
+  );
 
   return (
     <main ref={homeRef}>
@@ -288,7 +296,7 @@ export default function Home() {
           playsInline
           preload='auto'
           poster='/video-poster.avif'
-          alt='Video background'
+          aria-label='Video background'
         ></video>
         <div className=' absolute z-10 size-full h-[30%] w-full bg-gradient-to-t  from-black to-transparent bg-blend-multiply'></div>
         {/* <h1
@@ -336,7 +344,13 @@ export default function Home() {
               ref={rajendraIntroTextRef}
               className='max-w-[560px] text-4xl font-medium leading-tight text-[#3F3F46] '
             >
-              Design with Purpose. Build with Integrity. Deliver with Precision.
+              Design with Purpose.
+              <br className='hidden md:block' />
+              <span className='md:hidden'> </span>
+              Build with Integrity.
+              <br className='hidden md:block' />
+              <span className='md:hidden'> </span>
+              Deliver with Precision.
             </h2>
             <Link href='/about'>
               <GlobalButton
@@ -347,15 +361,16 @@ export default function Home() {
               </GlobalButton>
             </Link>
           </div>
-          <div className='mt-4 text-center text-sm text-[#4B4B4B] md:text-right md:text-base align-bottom'>
+          <div className='absolute bottom-6 right-3 z-10 text-right text-sm text-[#4B4B4B] md:right-12 md:text-base'>
             <p className='font-semibold'>Mr. Rajendra Reddy</p>
             <p className='text-xs text-neutral-500 md:text-sm'>
               Managing Director, SR Group
             </p>
           </div>
+
           <div className='absolute bottom-0 aspect-[3/4] max-h-[500px] w-full'>
             <Image
-              src='/images/founders/rajendra_homepage.png'
+              src='/images/founders/rajendra_homepage.webp'
               alt='Mr. Rajendra Reddy'
               fill
               className='object-contain'
@@ -533,7 +548,7 @@ export default function Home() {
               playsInline
               preload='auto'
               poster='/video-poster.avif'
-              alt='Video background'
+              aria-label='Video background'
             ></video>
           </div>
           <div className=' flex w-full flex-col gap-2 bg-yellow-200 p-4 py-6'>
@@ -556,20 +571,55 @@ export default function Home() {
         </div>
       </section>
       <section className='w-full bg-zinc-100'>
-        <div className='mx-auto  mt-12 flex w-full max-w-screen-2xl flex-col md:flex-row p-5 '>
-          <div className='md:flex-column flex w-full'>
-            <div className='w-1/2'>
-              <h3 className=' text-4xl font-base text-blue-200 md:text-6xl'>
+        <div className='mx-auto flex w-full max-w-screen-2xl flex-col md:flex-row p-5 '>
+          <div className='flex w-full flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-10'>
+            <div className='w-full'>
+              <h3 className='text-4xl font-base text-blue-200 md:text-6xl'>
                 Site Gallery
               </h3>
             </div>
-            <div className='w-1/2'>
-              <p className=' text-2xl  text-[#3F3F46]'>
+
+            <div className='w-full'>
+              <p className='text-2xl text-[#3F3F46]'>
                 Our process, unfiltered, disciplined and professional.
               </p>
             </div>
           </div>
         </div>
+      </section>
+      <section className='w-screen overflow-hidden bg-zinc-100'>
+        <div className='marquee-track flex w-max items-center py-6 '>
+          {[0, 1].map((dup) => (
+            <div
+              key={dup}
+              className='flex items-center gap-4 mx-2'
+              aria-hidden={dup === 1}
+            >
+              {sliderImages.map((src, index) => (
+                <img
+                  key={`${dup}-${src}`}
+                  src={src}
+                  alt={`Site gallery ${index + 1}`}
+                  className='h-60 w-auto shrink-0 object-cover '
+                  loading='lazy'
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+        <style jsx>{`
+          .marquee-track {
+            animation: marquee 35s linear infinite;
+          }
+          @keyframes marquee {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-50%);
+            }
+          }
+        `}</style>
       </section>
 
       {/* <section
