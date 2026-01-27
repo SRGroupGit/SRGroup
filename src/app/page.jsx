@@ -368,12 +368,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className='absolute bottom-0 aspect-[3/4] max-h-[500px] w-full'>
+          <div className='absolute bottom-0 aspect-[3/4] max-h-[400px] md:max-h-[500px] w-full max-w-[60vw] md:max-w-[90vw] '>
             <Image
               src='/images/founders/rajendra_homepage.webp'
               alt='Mr. Rajendra Reddy'
               fill
-              className='object-contain'
+              className='object-contain '
             />
           </div>
           <div className='flex w-full flex-col items-center md:w-1/2 md:items-end'>

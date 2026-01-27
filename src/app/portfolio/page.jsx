@@ -21,7 +21,8 @@ export default function Home() {
   const rightLine = useRef();
   const bottomLine = useRef();
 
-  const tl = useRef();
+  /** @type {import('gsap').core.Timeline | null} */
+  const tl = useRef(null);
 
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -481,3 +482,4 @@ export default function Home() {
     </main>
   );
 }
+

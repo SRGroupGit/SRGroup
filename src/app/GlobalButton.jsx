@@ -8,7 +8,8 @@ export default function GlobalButton({ children, className, ...props }) {
 
   const buttonRef = useRef();
   const buttonBg = useRef();
-  const tl = useRef();
+  /** @type {import('gsap').core.Timeline | null} */
+  const tl = useRef(null);
 
   const rippleOnHover = contextSafe((e) => {
     tl.current = gsap.timeline();
@@ -77,3 +78,4 @@ export default function GlobalButton({ children, className, ...props }) {
     </button>
   );
 }
+

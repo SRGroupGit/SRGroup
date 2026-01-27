@@ -20,5 +20,6 @@
     "satoshi",
     "tabler",
     "tailwindcss"
-  ]
+  ],
+  "chatgpt.followUpQueueMode": "interrupt"
 }

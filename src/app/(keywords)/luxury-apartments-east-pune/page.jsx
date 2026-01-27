@@ -40,7 +40,8 @@ export default function Page() {
       },
     });
   });
-  const tl = useRef();
+  /** @type {import('gsap').core.Timeline | null} */
+  const tl = useRef(null);
 
   return (
     <div>
@@ -251,3 +252,4 @@ export default function Page() {
     </div>
   );
 }
+

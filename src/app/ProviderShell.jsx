@@ -14,7 +14,8 @@ export default function ProviderShell({ children }) {
   }
 
   const backgroundRef = useRef();
-  const tl = useRef();
+  /** @type {import('gsap').core.Timeline | null} */
+  const tl = useRef(null);
   const foundationRef = useRef();
   const communitiesRef = useRef();
   const dreamsRef = useRef();
@@ -314,3 +315,4 @@ const GlobalNavLogo = () => {
     </svg>
   );
 };
+

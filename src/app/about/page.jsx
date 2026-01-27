@@ -43,7 +43,8 @@ export default function About() {
       },
     });
   });
-  const tl = useRef();
+  /** @type {import('gsap').core.Timeline | null} */
+  const tl = useRef(null);
 
   return (
     <div>
@@ -459,3 +460,4 @@ export default function About() {
     </div>
   );
 }
+

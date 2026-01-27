@@ -23,7 +23,7 @@ export default function Page() {
           <div className='w-[50%] flex items-center justify-between mt-6'>
             {/* Phone */}
             <a
-              href='tel:+918956065966'
+              href='tel:+918208650398'
               aria-label='Call us'
               className='inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-700 text-white hover:bg-neutral-800 transition'
             >

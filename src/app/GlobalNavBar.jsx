@@ -25,7 +25,8 @@ export default function GlobalNavBar() {
   const secondDash = useRef();
   const thirdDash = useRef();
   const navMenuContainer = useRef();
-  const tl = useRef();
+  /** @type {import('gsap').core.Timeline | null} */
+  const tl = useRef(null);
   const tl2 = useRef();
   const NavBg = useRef();
   const boxesContainer = useRef();
@@ -639,3 +640,4 @@ const GlobalNavLogo = () => {
     </svg>
   );
 };
+
