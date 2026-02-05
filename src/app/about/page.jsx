@@ -160,16 +160,11 @@ export default function About() {
       {/* <section className=' mt-12 flex justify-center w-full flex-row md:flex-row max-w-screen-2xl mx-auto'></section> */}
       {/* Leadership section */}
       <section className='w-full h-full bg-white'>
-        <div className='mx-auto max-w-screen-2xl px-4 md:px-8 py-12 md:py-16'>
-          {/* Heading */}
-          <h3 className='text-center text-4xl md:text-6xl font-medium text-blue-200 md:sticky md:top-48'>
-            Our Leadership
-          </h3>
-
+        <div className='mx-auto max-w-screen-xl px-3 py-12 md:py-16'>
           {/* Rajendra */}
-          <div className='mt-12 grid grid-cols-1 gap-8 bg-white isolate md:grid-cols-12 md:sticky md:top-64 md:z-[15] p-6 items-stretch'>
-            <div className='md:col-span-6 xl:col-span-4'>
-              <div className='relative w-full bg-white rounded-md shadow-sm overflow-hidden aspect-[4/5]'>
+          <div className='mt-12 grid grid-cols-1 gap-28 bg-white isolate lg:grid-cols-12 lg:gap-20 xl:gap-28 lg:z-[15] items-stretch'>
+            <div className='lg:col-span-7 xl:col-span-6'>
+              <div className='relative w-full h-[874px] bg-white rounded-md shadow-sm overflow-hidden aspect-[3/4]'>
                 <Image
                   src='/images/founders/rajendra.webp'
                   alt='Mr. Rajendra Reddy'
@@ -181,7 +176,7 @@ export default function About() {
             </div>
 
             {/* Rajendra Copy */}
-            <div className='md:col-span-6 xl:col-span-8 h-full flex items-center'>
+            <div className='lg:col-span-5 xl:col-span-4 h-full flex items-center'>
               <div>
                 <h4 className='text-2xl md:text-3xl font-medium text-yellow-200'>
                   Mr. Rajendra Reddy
@@ -201,10 +196,10 @@ export default function About() {
           </div>
 
           {/* Shailendra */}
-          <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start md:sticky md:top-64 bg-white isolate md:z-[16] p-6'>
+          <div className='mt-12 grid grid-cols-1 lg:grid-cols-12 gap-28 lg:gap-20 xl:gap-28 items-start   lg:top-64 bg-white isolate lg:z-[16]'>
             {/* Shailendra Portrait - first on mobile, right on desktop */}
-            <div className='order-1 md:order-2 md:col-span-6 xl:col-span-4 md:z-0'>
-              <div className='relative w-full bg-white rounded-md shadow-sm overflow-hidden aspect-[4/5]'>
+            <div className='order-1 lg:order-2 lg:col-span-7 lg:col-start-6 xl:col-span-6 xl:col-start-7 lg:z-0'>
+              <div className='relative w-full h-[874px] bg-white rounded-md shadow-sm overflow-hidden aspect-[3/4]'>
                 <Image
                   src='/images/founders/shailendra.webp'
                   alt='Mr. Shailendra Reddy'
@@ -212,28 +207,11 @@ export default function About() {
                   className='object-cover'
                   priority
                 />
-                {/* <a
-                  href='https://www.linkedin.com/in/shailendra-reddy/'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  aria-label='LinkedIn profile'
-                  className='absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-md bg-white px-3 py-2 shadow hover:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-200'
-                >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 448 512'
-                    className='h-4 w-4'
-                    fill='currentColor'
-                  >
-                    <path d='M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.9A53.79 53.79 0 0 1 107.58 54c0 29.6-24.09 54.1-53.79 54.1zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.26-79.2-48.3 0-55.7 37.7-55.7 76.6V448H158.6V148.9h88.9v40.8h1.3c12.4-23.5 42.5-48.3 87.4-48.3 93.5 0 110.7 61.5 110.7 141.5V448z' />
-                  </svg>
-                  <span className='text-sm'>LinkedIn</span>
-                </a> */}
               </div>
             </div>
 
             {/* Shailendra Copy - second on mobile, left on desktop */}
-            <div className='order-2 md:order-1 md:col-span-6 xl:col-span-8 h-full flex items-center'>
+            <div className='order-2 lg:order-1 lg:col-span-5 xl:col-span-4 h-full flex items-center'>
               <div>
                 <h4 className='text-2xl md:text-3xl font-medium text-yellow-200'>
                   Mr. Shailendra Reddy
@@ -262,10 +240,10 @@ export default function About() {
           </div>
 
           {/* Onkar */}
-          <div className='mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start md:sticky md:top-64 bg-white isolate md:z-[17] p-6'>
+          <div className='mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-8 items-start  bg-white isolate lg:z-[17] '>
             {/* Onkar Portrait */}
-            <div className='md:col-span-6 xl:col-span-4'>
-              <div className='relative w-full bg-white rounded-md shadow-sm overflow-hidden aspect-[4/5]'>
+            <div className='lg:col-span-7 xl:col-span-6'>
+              <div className='relative w-full h-[874px] bg-white rounded-md shadow-sm overflow-hidden aspect-[3/4]'>
                 <Image
                   src='/images/founders/onkar.webp'
                   alt='Mr. Onkar Reddy'
@@ -294,7 +272,7 @@ export default function About() {
             </div>
 
             {/* Onkar Copy */}
-            <div className='md:col-span-6 xl:col-span-8 h-full flex items-center'>
+            <div className='lg:col-span-5 xl:col-span-4 h-full flex items-center'>
               <div>
                 <h4 className='text-2xl md:text-3xl font-medium text-yellow-200'>
                   Mr. Onkar Reddy
@@ -460,4 +438,3 @@ export default function About() {
     </div>
   );
 }
-

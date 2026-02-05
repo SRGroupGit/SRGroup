@@ -398,7 +398,7 @@ export default function Page() {
 
                   <p>
                     <b>Retail at Your Doorstep</b> <br />
-                    Discover 61 beautifully designed shops with spacious
+                    Discover 60 beautifully designed shops with spacious
                     mezzanine areas. Made for entrepreneurs and businesses that
                     can thrive in a high-traffic, upscale shopping complex.
                   </p>
@@ -455,7 +455,7 @@ export default function Page() {
 
                   <p>
                     <b>Expansive Homes for Elevated Living</b> <br />
-                    66 spacious 2BHKs starting at just 81 Lakhs and 44 luxurious
+                    60 spacious 2BHKs starting at just 81 Lakhs and 40 luxurious
                     3BHKs starting from 1.2 Crore. Experience the perfect
                     combination of Luxury and Comfort.
                   </p>

@@ -314,8 +314,8 @@ export default function Home() {
           </span>
         </h1> */}
       </section>
-      <div className=' bg-[#191919] py-12'>
-        <section className='mx-auto flex w-full max-w-screen-2xl flex-col gap-4  p-3 text-2xl font-medium md:text-4xl'>
+      <div className=' bg-[#191919] px-3'>
+        <section className='mx-auto flex w-full max-w-screen-2xl flex-col gap-[48px] text-2xl font-medium md:text-4xl py-[57px]'>
           <p ref={introTextRef} className='text-white'>
             At SR Group, We shape the way people live, connect, and belong. What
             began as a family vision has grown into a legacy of trust, carried
@@ -329,7 +329,7 @@ export default function Home() {
           <Link href='/portfolio'>
             <GlobalButton
               color='white'
-              className=' mt-5 w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+              className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
             >
               Our Work
             </GlobalButton>
@@ -337,38 +337,48 @@ export default function Home() {
         </section>
       </div>
 
+      {/* Rajendra Section */}
       <section className='w-full bg-white'>
-        <div className='relative mx-auto w-full min-h-[600px] max-w-screen-2xl gap-10 px-3 py-12'>
-          <div className='flex w-full flex-col gap-6 md:w-1/2'>
-            <h2
-              ref={rajendraIntroTextRef}
-              className='max-w-[560px] text-4xl font-medium leading-tight text-[#3F3F46] '
-            >
-              Design with Purpose.
-              <br className='hidden md:block' />
-              <span className='md:hidden'> </span>
-              Build with Integrity.
-              <br className='hidden md:block' />
-              <span className='md:hidden'> </span>
-              Deliver with Precision.
-            </h2>
+        <div className='relative mx-auto w-full min-h-[820px] max-w-screen-2xl gap-10 px-3 py-12 pb-28 lg:min-h-[900px] lg:pb-12'>
+          <div className='flex w-full flex-col gap-6 lg:w-1/2 lg:gap-10 mt-6 lg:mt-[133px]'>
+            <div className='gap-4 text-[32px] leading-tight lg:gap-6 lg:text-[48px]'>
+              <h2
+                ref={rajendraIntroTextRef}
+                className='max-w-[560px]  font-medium leading-tight text-[#3F3F46]'
+              >
+                <span className='block'>Design with Purpose.</span>
+              </h2>
+              <h2
+                ref={rajendraIntroTextRef}
+                className='max-w-[560px]  font-medium leading-tight text-[#3F3F46]'
+              >
+                <span className='block'>Build with Integrity.</span>
+              </h2>
+              <h2
+                ref={rajendraIntroTextRef}
+                className='max-w-[560px] font-medium leading-tight text-[#CFCFD4] lg:text-[#3F3F46]'
+              >
+                <span className='block'>Deliver with Precision.</span>
+              </h2>
+            </div>
+
             <Link href='/about'>
               <GlobalButton
                 color='white'
-                className=' w-fit  rounded-full px-5 py-2 text-base md:px-12 md:py-2 md:text-lg '
+                className=' w-fit  rounded-full px-5 py-2 text-base lg:px-12 lg:py-2 lg:text-lg '
               >
                 ABOUT US
               </GlobalButton>
             </Link>
           </div>
-          <div className='absolute bottom-6 right-3 z-10 text-right text-sm text-[#4B4B4B] md:right-12 md:text-base'>
+          <div className='absolute bottom-16 hidden pr-20 z-10 text-right text-sm text-[#4B4B4B] lg:right-12 lg:block lg:text-base'>
             <p className='font-semibold'>Mr. Rajendra Reddy</p>
-            <p className='text-xs text-neutral-500 md:text-sm'>
+            <p className='text-xs text-neutral-500 lg:text-sm'>
               Managing Director, SR Group
             </p>
           </div>
 
-          <div className='absolute bottom-0 aspect-[3/4] max-h-[400px] md:max-h-[500px] w-full max-w-[60vw] md:max-w-[90vw] '>
+          <div className='absolute bottom-16 left-1/2 w-full -translate-x-1/2 aspect-[3/4] max-h-[520px] max-w-[90vw] lg:bottom-0 lg:left-0 lg:translate-x-0 lg:max-h-[850px] lg:max-w-[90vw] '>
             <Image
               src='/images/founders/rajendra_homepage.webp'
               alt='Mr. Rajendra Reddy'
@@ -376,7 +386,11 @@ export default function Home() {
               className='object-contain '
             />
           </div>
-          <div className='flex w-full flex-col items-center md:w-1/2 md:items-end'>
+          <div className='absolute bottom-0 left-0 w-full bg-yellow-200 px-4 py-4 text-white lg:hidden'>
+            <p className='text-base font-semibold'>Mr. Rajendra Reddy</p>
+            <p className='text-xs text-white/90'>Managing Director, SR Group</p>
+          </div>
+          <div className='flex w-full flex-col items-center lg:w-1/2 lg:items-end'>
             <div className='relative bottom-0 w-full'></div>
           </div>
         </div>
@@ -492,36 +506,38 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className=' mx-auto mb-12  w-full max-w-screen-2xl overflow-hidden p-3 text-6xl text-blue-200'>
-        <h2 className='fadeIn py-3'>Prime Projects</h2>
+      <div className='bg-[#f4f4f5]'>
+        <div className=' mx-auto py-12  w-full max-w-screen-2xl overflow-hidden p-3 text-6xl text-blue-200'>
+          <h2 className='fadeIn py-3'>Prime Projects</h2>
+        </div>
+        <section className=' m-auto grid w-full max-w-screen-2xl items-start gap-4 px-3 md:grid-cols-2 lg:grid-cols-3 pb-[100px]'>
+          {CardData.map((card, index) => {
+            return (
+              <ProjectCard
+                key={index}
+                title={card.title}
+                image={card.image}
+                qrImage={card.qrImage}
+                location={card.location}
+                availability={card.availability}
+                locality={card.locality}
+                type={card.type}
+                size={card.size}
+                rera={card.rera}
+                link={card.link}
+                map={card.map}
+              />
+            );
+          })}
+        </section>
       </div>
-      <section className=' m-auto grid w-full max-w-screen-2xl items-start gap-4 px-3 md:grid-cols-2 lg:grid-cols-3'>
-        {CardData.map((card, index) => {
-          return (
-            <ProjectCard
-              key={index}
-              title={card.title}
-              image={card.image}
-              qrImage={card.qrImage}
-              location={card.location}
-              availability={card.availability}
-              locality={card.locality}
-              type={card.type}
-              size={card.size}
-              rera={card.rera}
-              link={card.link}
-              map={card.map}
-            />
-          );
-        })}
-      </section>
 
-      <section className=' mx-auto  mt-12 flex w-full max-w-screen-2xl flex-col md:flex-row'>
-        <div className=' flex w-full flex-col justify-center gap-6 p-4 md:p-10'>
+      <section className=' mx-auto  flex w-full max-w-screen-2xl flex-col md:flex-row gap-8'>
+        <div className=' flex w-full flex-col justify-center gap-[69px] p-3 '>
           <h3 className=' text-4xl font-base text-blue-200 md:text-6xl'>
             Like What You See?
           </h3>
-          <p ref={bottomTextRef} className=' text-2xl md:text-4xl'>
+          <p ref={bottomTextRef} className=' text-2xl md:text-3xl'>
             Explore our portfolio of premium commercial and residential spaces
             designed to redefine modern living and business success. From
             state-of-the-art commercial hubs to luxurious residences, our
@@ -531,7 +547,7 @@ export default function Home() {
           <Link href='/portfolio'>
             <GlobalButton
               color='white'
-              className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+              className='  w-fit  rounded-full px-8 py-3 text-base md:px-12 md:py-4 md:text-lg '
             >
               OUR PORTFOLIO
             </GlobalButton>
@@ -551,18 +567,18 @@ export default function Home() {
               aria-label='Video background'
             ></video>
           </div>
-          <div className=' flex w-full flex-col gap-2 bg-yellow-200 p-4 py-6'>
+          <div className=' flex w-full flex-col gap-8 bg-yellow-200 px-[48px] py-[45px]'>
             {/* <h3 className=' text-4xl font-medium text-blue-200'>
               Like What You See?
             </h3> */}
-            <p className=' text-2xl  text-[#3F3F3F]'>
+            <p className=' text-3xl  text-[#3F3F3F]'>
               Explore insights on real estate, design trends,
-              <span className=' text-white'> and smart investments!</span>
+              <span className=' text-[#3F3F3F]'> and smart investments!</span>
             </p>
             <Link href='https://blog.sreddygroup.com/' target='_blank'>
               <GlobalButton
                 color='yellow'
-                className='  w-fit  rounded-full px-10 py-3 text-base md:px-12 md:py-4 md:text-lg '
+                className='  w-fit  rounded-full px-8 py-3 text-base  md:text-lg '
               >
                 Check Blogs
               </GlobalButton>
@@ -572,7 +588,7 @@ export default function Home() {
       </section>
       <section className='w-full bg-zinc-100'>
         <div className='mx-auto flex w-full max-w-screen-2xl flex-col md:flex-row p-5 '>
-          <div className='flex w-full flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-10'>
+          <div className='flex w-full flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-10 py-[87px]'>
             <div className='w-full'>
               <h3 className='text-4xl font-base text-blue-200 md:text-6xl'>
                 Site Gallery
@@ -580,15 +596,16 @@ export default function Home() {
             </div>
 
             <div className='w-full'>
-              <p className='text-2xl text-[#3F3F46]'>
-                Our process, unfiltered, disciplined and professional.
+              <p className='text-3xl text-[#3F3F46]'>
+                Our process, unfiltered, disciplined <br />
+                and professional.
               </p>
             </div>
           </div>
         </div>
       </section>
       <section className='w-screen overflow-hidden bg-zinc-100'>
-        <div className='marquee-track flex w-max items-center py-6 '>
+        <div className='marquee-track flex w-max items-center pb-12'>
           {[0, 1].map((dup) => (
             <div
               key={dup}
@@ -600,7 +617,7 @@ export default function Home() {
                   key={`${dup}-${src}`}
                   src={src}
                   alt={`Site gallery ${index + 1}`}
-                  className='h-60 w-auto shrink-0 object-cover '
+                  className='h-[323px] w-auto shrink-0 object-cover '
                   loading='lazy'
                 />
               ))}

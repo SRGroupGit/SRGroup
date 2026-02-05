@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import GlobalButton from './GlobalButton';
 import Link from 'next/link';
 
@@ -19,6 +19,11 @@ export default function GlobalFooter() {
   const [messageError, setMessageError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -84,7 +89,7 @@ export default function GlobalFooter() {
   };
 
   return (
-    <footer className='  w-full bg-[#191919] px-3 py-8 text-neutral-200'>
+    <footer className='  w-full bg-[#191919] px-3 py-[57px] text-neutral-200'>
       {success && (
         <div className=' fixed bottom-10 right-0 z-[9] bg-black px-12 py-3 text-white'>
           Message sent successfully
@@ -127,110 +132,116 @@ export default function GlobalFooter() {
           </div>
         </div>
       )}
-      <div className=' m-auto w-full max-w-screen-2xl'>
+      <div className=' m-auto w-full max-w-screen-2xl '>
         <div className=' grid-cols-2 gap-20 md:grid'>
           <div>
-            <span className=' text-4xl font-bold text-yellow-200'>
+            <span className=' text-4xl font-bold text-yellow-200 '>
               Looking for something specific?
             </span>
-            <form className='flex max-w-3xl flex-col'>
-              <div className=' w-full gap-2 md:flex'>
-                <div className=' w-full'>
-                  <label
-                    className={`
+            {isHydrated ? (
+              <form className='flex max-w-3xl flex-col pt-[57px]'>
+                <div className=' w-full gap-2 md:flex'>
+                  <div className=' w-full'>
+                    <label
+                      className={`
               ${nameError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
-                    htmlFor='name'
-                  >
-                    {nameError ? 'Please enter a valid name' : 'Full Name*'}
-                  </label>
-                  <input
-                    placeholder='Full Name*'
-                    className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 autofill:text-white  focus:border-neutral-100 focus:outline-none'
-                    type='text'
-                    value={data.name}
-                    onChange={(e) => {
-                      setData({ ...data, name: e.target.value }),
-                        setNameError(false);
-                    }}
-                  />
-                </div>
+                      htmlFor='name'
+                    >
+                      {nameError ? 'Please enter a valid name' : 'Full Name*'}
+                    </label>
+                    <input
+                      placeholder='Full Name*'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 autofill:text-white  focus:border-neutral-100 focus:outline-none'
+                      type='text'
+                      value={data.name}
+                      onChange={(e) => {
+                        (setData({ ...data, name: e.target.value }),
+                          setNameError(false));
+                      }}
+                    />
+                  </div>
 
-                <div className=' w-full'>
-                  <label
-                    className={`
+                  <div className=' w-full'>
+                    <label
+                      className={`
               ${emailError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
-                    htmlFor='userEmail'
-                  >
-                    {emailError ? 'Please enter a valid email' : 'Email*'}
-                  </label>
-                  <input
-                    placeholder='Email*'
-                    className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
-                    type='email'
-                    value={data.userEmail}
-                    onChange={(e) => {
-                      setData({ ...data, userEmail: e.target.value }),
-                        setEmailError(false);
-                    }}
-                  />
+                      htmlFor='userEmail'
+                    >
+                      {emailError ? 'Please enter a valid email' : 'Email*'}
+                    </label>
+                    <input
+                      placeholder='Email*'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
+                      type='email'
+                      value={data.userEmail}
+                      onChange={(e) => {
+                        (setData({ ...data, userEmail: e.target.value }),
+                          setEmailError(false));
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className=' items-center gap-7 md:flex'>
+                <div className=' items-center gap-7 md:flex'>
+                  <div className=' w-full'>
+                    <label
+                      className={`
+              ${phoneError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
+                      htmlFor='phone'
+                    >
+                      {phoneError
+                        ? 'Please enter a valid phone number'
+                        : 'Phone*'}
+                    </label>
+                    <input
+                      placeholder='Phone*'
+                      className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
+                      type='tel'
+                      value={data.phone}
+                      onChange={(e) => {
+                        (setData({ ...data, phone: e.target.value }),
+                          setPhoneError(false));
+                      }}
+                    />
+                  </div>
+                  <GlobalButton
+                    color='white'
+                    className=' mt-4 hidden w-full rounded-full px-6  py-2 text-base font-medium md:block md:h-fit md:w-32'
+                    onClick={handleSubmit}
+                  >
+                    {loading ? 'Loading...' : 'Submit' /* Added loading state */}
+                  </GlobalButton>
+                </div>
                 <div className=' w-full'>
                   <label
                     className={`
-              ${phoneError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
-                    htmlFor='phone'
+              ${messageError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
+                    htmlFor='message'
                   >
-                    {phoneError
-                      ? 'Please enter a valid phone number'
-                      : 'Phone*'}
+                    {messageError ? 'Please enter a message' : 'Message*'}
                   </label>
-                  <input
-                    placeholder='Phone*'
-                    className=' cursorHide w-full cursor-text border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
-                    type='tel'
-                    value={data.phone}
+                  <textarea
+                    placeholder='Message*'
+                    className=' cursorHide  h-40 w-full cursor-text resize-none border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
+                    value={data.message}
                     onChange={(e) => {
-                      setData({ ...data, phone: e.target.value }),
-                        setPhoneError(false);
+                      (setData({ ...data, message: e.target.value }),
+                        setMessageError(false));
                     }}
                   />
                 </div>
                 <GlobalButton
                   color='white'
-                  className=' mt-4 hidden w-full rounded-full px-6  py-2 text-base font-medium md:block md:h-fit md:w-32'
+                  className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium md:hidden md:h-fit md:w-28'
                   onClick={handleSubmit}
                 >
                   {loading ? 'Loading...' : 'Submit' /* Added loading state */}
                 </GlobalButton>
+              </form>
+            ) : (
+              <div className='max-w-3xl pt-[57px]' aria-hidden='true'>
+                <div className='h-[360px] w-full rounded-md border border-neutral-700/40 bg-neutral-800/20' />
               </div>
-              <div className=' w-full'>
-                <label
-                  className={`
-              ${messageError ? 'text-red-500' : ' opacity-0 '} text-[10px]`}
-                  htmlFor='message'
-                >
-                  {messageError ? 'Please enter a message' : 'Message*'}
-                </label>
-                <textarea
-                  placeholder='Message*'
-                  className=' cursorHide  h-40 w-full cursor-text resize-none border-b border-neutral-400 bg-transparent p-1 focus:border-neutral-100 focus:outline-none'
-                  value={data.message}
-                  onChange={(e) => {
-                    setData({ ...data, message: e.target.value }),
-                      setMessageError(false);
-                  }}
-                />
-              </div>
-              <GlobalButton
-                color='white'
-                className=' mt-4 w-full rounded-full px-6  py-2 text-base font-medium md:hidden md:h-fit md:w-28'
-                onClick={handleSubmit}
-              >
-                {loading ? 'Loading...' : 'Submit' /* Added loading state */}
-              </GlobalButton>
-            </form>
+            )}
           </div>
           <div className='  mt-20 flex w-full  flex-col gap-7'>
             <div className=' grid grid-cols-2'>
