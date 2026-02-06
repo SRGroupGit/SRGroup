@@ -11,7 +11,7 @@ const MAX_SITEMAPS = 25;
 const PAGE_EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
 
 export const runtime = "nodejs";
-export const revalidate = 60 * 60;
+export const revalidate = 3600;
 
 type UrlEntry = {
   url: string;
