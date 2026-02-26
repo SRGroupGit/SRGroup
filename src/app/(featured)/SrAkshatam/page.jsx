@@ -28,14 +28,6 @@ import In7 from './interioimage/in7.avif';
 import In8 from './interioimage/in8.avif';
 import In9 from './interioimage/in9.avif';
 import In10 from './interioimage/in10.avif';
-import Am1 from './interioimage/am1.avif';
-import Am2 from './interioimage/am2.avif';
-import Am3 from './interioimage/am3.avif';
-import Am4 from './interioimage/am4.avif';
-import Am5 from './interioimage/am5.avif';
-import Am6 from './interioimage/am6.avif';
-import Am7 from './interioimage/am7.avif';
-import Am8 from './interioimage/am8.avif';
 import Autoplay from 'embla-carousel-autoplay';
 import SliderData from './SliderData';
 
@@ -211,43 +203,63 @@ export default function Page() {
   const AmiData = [
     {
       id: 1,
-      src: Am1,
-      alt: 'Amphitheater',
+      src: '/images/akshatam/Barbecue%20area.webp',
+      alt: 'Barbecue area',
     },
     {
       id: 2,
-      src: Am2,
-      alt: 'Party Deck',
+      src: '/images/akshatam/Children%E2%80%99s%20play%20area.webp',
+      alt: "Children's play area",
     },
     {
       id: 3,
-      src: Am3,
-      alt: 'Gazebos',
+      src: '/images/akshatam/Open-air%20gym.webp',
+      alt: 'Open-air gym',
     },
     {
       id: 4,
-      src: Am4,
-      alt: 'Dedicated Temple',
+      src: '/images/akshatam/Pergola.webp',
+      alt: 'Pergola',
     },
     {
       id: 5,
-      src: Am5,
-      alt: 'Shrub Gardens',
+      src: '/images/akshatam/Pickle%20ball%20court.webp',
+      alt: 'Pickle ball court',
     },
     {
       id: 6,
-      src: Am6,
-      alt: 'Dedicated Parking',
+      src: '/images/akshatam/Reflexology%20path.webp',
+      alt: 'Reflexology path',
     },
     {
       id: 7,
-      src: Am7,
-      alt: 'Fully Equipped Gym',
+      src: '/images/akshatam/Rooftop%20vertical%20garden.webp',
+      alt: 'Rooftop vertical garden',
     },
     {
       id: 8,
-      src: Am8,
-      alt: 'Clubhouse',
+      src: '/images/akshatam/Rooftop%20view.webp',
+      alt: 'Rooftop view',
+    },
+    {
+      id: 9,
+      src: '/images/akshatam/Senior%20citizen%20sit-out.webp',
+      alt: 'Senior citizen sit-out',
+    },
+    {
+      id: 10,
+      src: '/images/akshatam/temple.webp',
+      alt: 'Temple',
+    },
+    {
+      id: 11,
+      src: '/images/akshatam/Walking%20track.webp',
+      alt: 'Walking track',
+    },
+    {
+      id: 12,
+      src: '/images/akshatam/Yoga%20meditation%20area.webp',
+      alt: 'Yoga meditation area',
     },
   ];
 
@@ -340,7 +352,7 @@ export default function Page() {
                     playsInline
                     preload='auto'
                     poster='/video-poster.avif'
-                    alt='Video background'
+                    aria-label='Video background'
                   ></video>
                 </div>
               </div>
@@ -558,6 +570,8 @@ export default function Page() {
                       className=' aspect-square object-fill object-center'
                       src={item.src}
                       alt={item.alt}
+                      fill
+                      sizes='(min-width: 768px) 25vw, 50vw'
                     />
                   </div>
                   <span className=' w-full text-center text-xl font-medium'>
@@ -572,10 +586,10 @@ export default function Page() {
         <section className=' m-auto mt-10 aspect-video w-full max-w-screen-2xl'>
           <iframe
             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.9449496933535!2d73.93697427616912!3d18.531389682564363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3007ccb5ff3%3A0x1df07ff4d5adec30!2sSR%20Akshatam!5e0!3m2!1sen!2sin!4v1730030811122!5m2!1sen!2sin'
-            allowfullscreen=''
+            allowFullScreen
             className=' size-full'
             loading='lazy'
-            referrerpolicy='no-referrer-when-downgrade'
+            referrerPolicy='no-referrer-when-downgrade'
           ></iframe>
         </section>
       </main>
