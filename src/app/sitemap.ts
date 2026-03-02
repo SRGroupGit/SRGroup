@@ -9,6 +9,21 @@ const BLOG_SITEMAP_URL = `${BLOG_BASE}/sitemap.xml`;
 const FETCH_TIMEOUT_MS = 8000;
 const MAX_SITEMAPS = 25;
 const PAGE_EXTENSIONS = [".js", ".jsx", ".ts", ".tsx"];
+const FALLBACK_MAIN_ROUTES = [
+  "/",
+  "/about",
+  "/contact",
+  "/portfolio",
+  "/SRBusinessHub",
+  "/SrAkshatam",
+  "/SrAishwaryam",
+  "/apartments-keshav-nagar-pune",
+  "/apartments-west-Pune",
+  "/flats-aundh-pune",
+  "/luxury-apartments-east-pune",
+  "/residential-projects-balewadi",
+  "/residential-projects-Mundwa",
+];
 
 export const runtime = "nodejs";
 export const revalidate = 3600;
@@ -59,6 +74,33 @@ function listGroupRoutes(appDir: string, groupName: string): string[] {
     .filter((entry) => entry.isDirectory())
     .filter((entry) => hasPageFile(path.join(groupDir, entry.name)))
     .map((entry) => `/${entry.name}`);
+}
+
+function resolveAppDir(): string | null {
+  const candidates = [
+    path.join(process.cwd(), "src", "app"),
+    path.join(process.cwd(), "app"),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+
+  return null;
+}
+
+function collectMainRoutes(): string[] {
+  const appDir = resolveAppDir();
+  if (!appDir) return FALLBACK_MAIN_ROUTES;
+
+  const discoveredRoutes = [
+    ...listRootRoute(appDir),
+    ...listTopLevelRoutes(appDir),
+    ...listGroupRoutes(appDir, "(featured)"),
+    ...listGroupRoutes(appDir, "(keywords)"),
+  ];
+
+  return discoveredRoutes.length > 0 ? discoveredRoutes : FALLBACK_MAIN_ROUTES;
 }
 
 function normalizeUrl(rawUrl: string, base?: string): string | null {
@@ -186,13 +228,7 @@ async function collectBlogEntries(): Promise<UrlEntry[]> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const appDir = path.join(process.cwd(), "src", "app");
-  const mainRoutes = [
-    ...listRootRoute(appDir),
-    ...listTopLevelRoutes(appDir),
-    ...listGroupRoutes(appDir, "(featured)"),
-    ...listGroupRoutes(appDir, "(keywords)"),
-  ];
+  const mainRoutes = collectMainRoutes();
 
   const urlMap = new Map<string, Date | null>();
 
