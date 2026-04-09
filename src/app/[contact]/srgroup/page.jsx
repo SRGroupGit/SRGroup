@@ -32,7 +32,7 @@ export default function Page() {
 
             {/* Email */}
             <a
-              href='mailto:sr@sreddygroup.com '
+              href='mailto:onkar@sreddygroup.com'
               aria-label='Email us'
               className='inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-700 text-white hover:bg-neutral-800 transition'
             >
