@@ -69,6 +69,19 @@ export default function ProjectCard(props) {
     <div className='flex w-full flex-col border border-black/20 text-sm text-zinc-700'>
       {props.link == 'na' ? (
         <div className=' relative aspect-[4/3] w-full cursor-pointer overflow-hidden'>
+          {props.qrImage !== 'na' && (
+            <div className='absolute left-1 top-1 z-10 flex aspect-square w-16 items-center justify-center rounded-full border-transparent bg-transparent md:w-14'>
+              <Image
+                src={props.qrImage}
+                alt=''
+                fill
+                className='object-cover'
+              />
+              <div className=' absolute -bottom-5 align left-0 w-max rounded-md bg-trasparent text-[10px] font-normal text-white'>
+                RERA QR CODE
+              </div>
+            </div>
+          )}
           <Image
             ref={imageRef}
             src={props.image}

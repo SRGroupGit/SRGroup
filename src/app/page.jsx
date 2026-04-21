@@ -206,6 +206,19 @@ export default function Home() {
 
   const CardData = [
     {
+      title: 'SR House',
+      image: '/images/SrHouse/SrHouse.webp',
+      qrImage: '/images/SrHouse/SrHouseQR.png',
+      location: 'Baner, Pune',
+      availability: 'In Construction',
+      locality: 'Veerbhadra Nagar',
+      type: 'Commercial',
+      size: 'Showrooms, Office Spaces',
+      rera: 'PC1260002501450',
+      link: 'na',
+      map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
+    },
+    {
       title: 'SR Akshatam',
       image: '/images/akshatam.avif',
       qrImage: '/images/AkshatamQR.avif',
@@ -243,18 +256,6 @@ export default function Home() {
       rera: 'P5210007145',
       link: '/SrAishwaryam',
       map: 'https://maps.app.goo.gl/S9bWYBk3obXSFrPeA',
-    },
-    {
-      title: 'SR House',
-      image: '/images/SrHouse.avif',
-      location: 'Baner, Pune',
-      availability: 'In Construction',
-      locality: 'Veerbhadra Nagar',
-      type: 'Commercial',
-      size: 'Showrooms, Office Spaces',
-      rera: '',
-      link: 'na',
-      map: 'https://maps.app.goo.gl/HjZdsU9gFLQpkSGz9',
     },
   ];
   const sliderImages = Array.from(
