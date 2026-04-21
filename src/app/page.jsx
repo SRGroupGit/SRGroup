@@ -261,7 +261,7 @@ export default function Home() {
   const sliderImages = Array.from(
     { length: 12 },
     (_, index) =>
-      `/images/slider/slider_${String(index + 1).padStart(2, '0')}.png`
+      `/images/slider/slider_${String(index + 1).padStart(2, '0')}.webp`
   );
 
   return (
