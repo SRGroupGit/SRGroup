@@ -163,7 +163,7 @@ export default function Home() {
   const UpComingProjects = [
     {
       title: 'SR House',
-      image: '/images/SrHouse.avif',
+      image: '/images/SrHouse.webp',
       location: 'Baner, Pune',
       availability: 'In Construction',
       locality: 'Veerbhadra Nagar',
@@ -482,4 +482,3 @@ export default function Home() {
     </main>
   );
 }
-
